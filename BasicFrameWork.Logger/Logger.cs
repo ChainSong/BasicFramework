@@ -12,7 +12,7 @@ namespace BasicFramework.Logger
         private static string LogFilePath = "LogFilePath";
 
         public static void LogError(string Error)
-        {
+        {    
             Log(Error, "Error");
         }
 
