@@ -1,0 +1,36 @@
+﻿@model BasicFramework.Web.Models.RegionSelector
+@if (ViewContext.NotLoad("_RegionSelector"))
+{
+    @Url.CommonCss("RegionSelector.css")
+    @Url.TreeViewResource()
+    @Url.CommonJs("RegionSelector.js")
+}
+
+@{
+    var globalID = Model.TreeKey ?? Guid.NewGuid().ToString();
+    var regionNameKey = Model.NameKey ?? "RegionName";
+    var regionIDKey = Model.IDKey ?? "RegionID";
+    var regionPanelID = globalID;
+}
+
+<div class="regionDiv">
+    <div class="RegionSelector">
+        <input type="text" class="RegionName" id="@regionNameKey" globalID="@globalID" style="cursor:pointer;"
+            name="@regionNameKey"  onfocus="autoComplete(this)" />
+        <a href="#" onclick="showMenu($(this).prev())">选择</a>
+        <input type="hidden" class="RegionID" id="@regionIDKey" name="@regionIDKey" />
+        <div name="menuContent" class="menuContent" style="display: none; position: absolute; z-index:9999 ">
+            <ul id="@regionPanelID" class="ztree">
+            </ul>
+        </div>
+    </div>
+    <script>
+        _regiondata_['@globalID'] = {
+            panel: '@regionPanelID',
+            regionNameKey: '@regionNameKey',
+            regionIDKey: '@regionIDKey'
+        };
+    </script>
+</div>
+
+

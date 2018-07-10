@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BasicFramework.Entity.Menu>
+@{
+    var rootId = Model.Where(p => p.SuperID == 0).SingleOrDefault().ID;/*根节点id*/
+    var parents = Model.Where(p => p.SuperID == rootId).OrderBy(p => p.DisplayOrder);/*主菜单*/
+}
+
+<div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        @foreach (var item in parents)
+        {
+            if (!string.IsNullOrEmpty(item.Link))
+            {
+            <li class="active"><a href="@item.Link"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>@item.Name</a></li>
+                continue;
+            }
+            var children = Model.Where(p => p.SuperID == item.ID).OrderBy(p => p.DisplayOrder); 
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon @item.Glyphicon" aria-hidden="true"></span>@item.Name <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    @foreach (var child in children)
+                    {
+                        <li><a href="@child.Link">@child.Name</a></li>
+                    }
+                </ul>
+            </li>
+        }
+        <!--
+                        <li class="active"><a href="~/MyBootstrap/about"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>    运单管理</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">项目管理 <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">报价管理</a></li>
+                                <li><a href="#">运单应付导入调整</a></li>
+                                <li><a href="#">运单查询</a></li>
+                            </ul>
+                        </li>
+                            -->
+        <li><a href="~/Index/Login"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>退出系统</a></li>
+
+    </ul>
+</div>

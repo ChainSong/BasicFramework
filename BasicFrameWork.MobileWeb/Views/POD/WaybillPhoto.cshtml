@@ -1,0 +1,23 @@
+﻿@model BasicFramework.MobileWeb.Models.POD.OrderManagement
+@{
+    ViewBag.PageTitle = "运单查询";
+    Layout = "~/Views/_MyLayoutPage.cshtml";
+}
+@Html.HiddenFor(m => m.Info.CustomerOrderNumber)
+@Url.MuiResource()
+
+<div>
+<div id="preview" style="width: 90%; height: 75%;margin-left: auto; margin-right: auto;">
+
+    <img id="imghead" width=100% height=100% src="http://p0.jmstatic.com/product_report/default/avatar/avatar.png?1390386034" border="0" '>
+</div>
+<div style="width: 90%; height: 80%;margin-left: auto; margin-right: auto;">
+    <label class="btn_mid_pink fileup_ui" style="float:left">
+        <button class="mui-btn mui-btn-primary" id="ChoosPicture">选择图片</button>
+        <input type="file" id="file" style="display: none" onchange="previewImage(this)" />
+    </label>
+    <label class="btn_mid_pink fileup_ui" id="upload"  style="float:right">
+        <button class="mui-btn mui-btn-primary">发送文件</button>
+    </label>
+</div>
+    </div>

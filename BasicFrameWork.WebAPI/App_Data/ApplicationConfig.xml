@@ -1,0 +1,1879 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Projects>
+  <Project Id="1" Name="Adidas">
+    <Module Id="M001" Name="新建POD" UseCustomerOrderNumber="1" AutoAllocateShipper="1">
+      <Tables>
+        <Table Name="Pod">
+          <Column DisplayName="ID" DbColumnName="ID" IsKey="1" />
+          <Column DisplayName="ProjectID" DbColumnName="ProjectID" IsKey="1" />
+          <Column DisplayName="系统运单号" DbColumnName="SystemNumber" IsKey="1" ForView="1">
+            <RoleID>3</RoleID>
+            <RoleID>26</RoleID>
+          </Column>
+          <Column DisplayName="客户运单号" DbColumnName="CustomerOrderNumber" IsKey="1" ForView="1" IsShowInList="1">
+            <RoleID>5</RoleID>
+            <RoleID>26</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="客户" DbColumnName="CustomerID" IsKey="1" />
+          <Column DisplayName="客户" DbColumnName="CustomerName" IsKey="1" ForView="1" IsShowInList="1">
+            <RoleID>5</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="承运商" DbColumnName="ShipperID" IsKey="1" />
+          <Column DisplayName="承运商" DbColumnName="ShipperName" IsKey="1" ForView="1" IsShowInList="1">
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="运单状态" DbColumnName="PODStateID" IsKey="1" />
+          <Column DisplayName="运单状态" DbColumnName="PODStateName" IsKey="1" ForView="1" IsShowInList="1">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="运输类型" DbColumnName="ShipperTypeID" IsKey="1" />
+          <Column DisplayName="运输类型" DbColumnName="ShipperTypeName" IsKey="1" ForView="1" IsShowInList="1" IsSearchCondition="1" Type="DropDownList" SearchConditionOrder="1">
+            <RoleID>3</RoleID>
+            <RoleID>5</RoleID>
+            <RoleID>26</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="起运城市" DbColumnName="StartCityID" IsKey="1" />
+          <Column DisplayName="起运城市" DbColumnName="StartCityName" IsKey="1" ForView="1" IsShowInList="1" IsSearchCondition="1" Type="RegionPicker" SearchConditionOrder="4">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>26</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="目的城市" DbColumnName="EndCityID" IsKey="1" />
+          <Column DisplayName="目的城市" DbColumnName="EndCityName" IsKey="1" ForView="1" IsShowInList="1" IsSearchCondition="1" Type="RegionPicker" SearchConditionOrder="5">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>26</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="运单类型" DbColumnName="PODTypeID" IsKey="1" />
+          <Column DisplayName="运单类型" DbColumnName="PODTypeName" IsKey="1" ForView="1" IsShowInList="1" IsSearchCondition="1"  Type="DropDownList" SearchConditionOrder="2">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>26</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="整车/零担" DbColumnName="TtlOrTplID" IsKey="1" />
+          <Column DisplayName="整车/零担" DbColumnName="TtlOrTplName" IsKey="1" ForView="1" IsSearchCondition="1" Type="DropDownList" SearchConditionOrder="3">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="发货日期" DbColumnName="ActualDeliveryDate" IsKey="1" ForView="1" Type="DateTime" IsShowInList="1"  IsSearchCondition="1" SearchConditionOrder="6">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>26</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="箱数" DbColumnName="BoxNumber" IsKey="1"   ForView="1" Type="TextBox">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="件数" DbColumnName="GoodsNumber" IsKey="1" ForView="1" Type="TextBox">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="重量(公斤)" DbColumnName="Weight" IsKey="1" ForView="1"  Type="TextBox">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="体积(立方)" DbColumnName="Volume" IsKey="1" ForView="1" Type="TextBox">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="创建人" DbColumnName="Creator" IsKey="0" IsHide="1"  Type="TextBox" Order="99" />
+          <Column DisplayName="创建时间" DbColumnName="CreateTime" IsKey="0" IsHide="1" Type="DateTime" Order="99" IsSearchCondition="1" />
+          <Column DisplayName="自定义字段1" DbColumnName="Str1" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5">
+            <Column DisplayName="发货方代码" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="1" >
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="103单号" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" Type="TextBox" Order="6"  CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="运输编号" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2" ForView="1" IsShowInList="1"  CustomerID="3" />
+            <Column DisplayName="目的省份" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2"  CustomerID="4" />
+            <Column DisplayName="订单时间" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2"  CustomerID="5" />
+            <Column DisplayName="订单时间" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2"  CustomerID="6" />
+            <Column DisplayName="电脑单号" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="1"  CustomerID="7"/>
+            <Column DisplayName="客户代码" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="1"  CustomerID="8" />
+            <Column DisplayName="发货单位代码" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2"  CustomerID="9" />
+            <Column DisplayName="电脑单号" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="1"  CustomerID="10" />
+            <Column DisplayName="提货点名称" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2"  CustomerID="11" />
+            <Column DisplayName="阿迪达斯转运单号" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" Type="TextBox" Order="2"  CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="物流公司" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" Type="TextBox" Order="1"  CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="计划号" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="1"  CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="订单价值" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="1"  CustomerID="26" />
+            <Column DisplayName="电脑单号" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="1"  CustomerID="27" />
+            <Column DisplayName="车号" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="1"  CustomerID="28" />
+            <Column DisplayName="运输单编号" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" Type="TextBox" Order="1" SearchConditionOrder="7" CustomerID="29" />
+          </Column>
+          <Column DisplayName="自定义字段2" DbColumnName="Str2" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6">
+            <Column DisplayName="发货公司" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="1" >
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="客户名称" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="目的省份" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="3" >
+            </Column>
+            <Column DisplayName="收货方代码" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="4" >
+            </Column>
+            <Column DisplayName="订单类型" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="5" >
+            </Column>
+            <Column DisplayName="OPP编号" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="6" >
+            </Column>
+            <Column DisplayName="客户代码" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2" CustomerID="7" >
+            </Column>
+            <Column DisplayName="目的省份" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2" CustomerID="8" >
+            </Column>
+            <Column DisplayName="收货单位" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="9" >
+            </Column>
+            <Column DisplayName="客户代码" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2" CustomerID="10" >
+            </Column>
+            <Column DisplayName="收货客户名称" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="11" >
+            </Column>
+            <Column DisplayName="货品种类" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="发出仓库" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="计划数量" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="客户名称" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2" CustomerID="26" >
+            </Column>
+            <Column DisplayName="原项目名称" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2"  CustomerID="27" />
+            <Column DisplayName="车型" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="2" CustomerID="28" >
+            </Column>
+            <Column DisplayName="订单号" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" Type="TextBox" Order="2"  CustomerID="29" SearchConditionOrder="8" />
+          </Column>
+          <Column DisplayName="自定义字段3" DbColumnName="Str3" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7">
+            <Column DisplayName="发货联系信息" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="1" >
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="客户代码" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="3" >
+            </Column>
+            <Column DisplayName="收货单位" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="4" >
+            </Column>
+            <Column DisplayName="提货点编号" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="5" >
+            </Column>
+            <Column DisplayName="省" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="6" >
+            </Column>
+            <Column DisplayName="客户名称" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="7" >
+            </Column>
+            <Column DisplayName="客户名称" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="8" >
+            </Column>
+            <Column DisplayName="收货联系人" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="9" >
+            </Column>
+            <Column DisplayName="客户名称" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="10" >
+            </Column>
+            <Column DisplayName="收货单位" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="11" >
+            </Column>
+            <Column DisplayName="生产商" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="类型" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="车型" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" DefaultValue="厢车" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="合同/订单" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3"  CustomerID="26" >
+            </Column>
+            <Column DisplayName="客户代码" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3"  CustomerID="27" />
+            <Column DisplayName="手机号" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="28" >
+            </Column>
+            <Column DisplayName="货物种类" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3"  CustomerID="29" />
+          </Column>
+          <Column DisplayName="自定义字段4" DbColumnName="Str4" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8">
+            <Column DisplayName="发货地址" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="1" >
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="目的省份" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="9" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="客户名称" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="3" >
+            </Column>
+            <Column DisplayName="收货人" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="4" >
+            </Column>
+            <Column DisplayName="订单号" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="5" >
+            </Column>
+            <Column DisplayName="市" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="6" >
+            </Column>
+            <Column DisplayName="卸货地点" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="7" >
+            </Column>
+            <Column DisplayName="联系人" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="8" >
+            </Column>
+            <Column DisplayName="收货联系电话" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="9" >
+            </Column>
+            <Column DisplayName="卸货地点" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="10" >
+            </Column>
+            <Column DisplayName="收货地址" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="11" >
+            </Column>
+            <Column DisplayName="货号" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="运输编号" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" SearchConditionOrder="10" Type="TextBox" Order="5" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="装车车号" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="发货仓库" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="26" >
+            </Column>
+            <Column DisplayName="客户订单号" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4"  CustomerID="27" />
+            <Column DisplayName="姓名" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="28" >
+            </Column>
+            <Column DisplayName="终端客户" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4"  CustomerID="29" />
+          </Column>
+          <Column DisplayName="自定义字段5" DbColumnName="Str5" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="9">
+            <Column DisplayName="发货编码" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="9" CustomerID="1">
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="送货地址" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="10" CustomerID="2">
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="发货编码" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="3">
+            </Column>
+            <Column DisplayName="联系方式" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="4">
+            </Column>
+            <Column DisplayName="快递公司" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="5">
+            </Column>
+            <Column DisplayName="区县" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="9" CustomerID="6">
+            </Column>
+            <Column DisplayName="联系人" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="7">
+            </Column>
+            <Column DisplayName="联系人电话" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="8">
+            </Column>
+            <Column DisplayName="卸货地址省" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="9">
+            </Column>
+            <Column DisplayName="联系人" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="10">
+            </Column>
+            <Column DisplayName="收货省" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="11">
+            </Column>
+            <Column DisplayName="是否工厂提货(Y/N)" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="客户代码" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="装货耗时计算" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="9" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="送货地址" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="26" >
+            </Column>
+            <Column DisplayName="客户名称" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="27" >
+            </Column>
+            <Column DisplayName="车数" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="28" >
+            </Column>
+            <Column DisplayName="客户电话" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5"  CustomerID="29" />
+          </Column>
+          <Column DisplayName="自定义字段6" DbColumnName="Str6" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="10">
+            <Column DisplayName="客户名称" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="10" CustomerID="1">
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="收货人姓名" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" Type="TextBox" Order="11" CustomerID="2">
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="sold to联系人" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="3">
+            </Column>
+            <Column DisplayName="收货地址" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="4">
+            </Column>
+            <Column DisplayName="快递单号" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="5">
+            </Column>
+            <Column DisplayName="地址" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="10" CustomerID="6">
+            </Column>
+            <Column DisplayName="联系人电话" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="7">
+            </Column>
+            <Column DisplayName="联系人手机" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="8">
+            </Column>
+            <Column DisplayName="卸货详细地址" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="9">
+            </Column>
+            <Column DisplayName="联系人电话" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="10">
+            </Column>
+            <Column DisplayName="货物名称" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="11">
+            </Column>
+            <Column DisplayName="装货完成时间" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="客户名称" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="单件体积" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="10" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="驾驶员" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="26" >
+            </Column>
+            <Column DisplayName="卸货地点" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="27" >
+            </Column>
+            <Column DisplayName="收入金额" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="6" CustomerID="28" >
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段7" DbColumnName="Str7" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="11">
+            <Column DisplayName="简称" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="11" CustomerID="1">
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="收货人电话" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="12" CustomerID="2">
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="sold to联系方式" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="3">
+            </Column>
+            <Column DisplayName="承运商联系人" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="4">
+            </Column>
+            <Column DisplayName="净重" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="5">
+            </Column>
+            <Column DisplayName="电话" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="12" CustomerID="6">
+            </Column>
+            <Column DisplayName="联系人手机" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="7">
+            </Column>
+            <Column DisplayName="卸货地点" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="8">
+            </Column>
+            <Column DisplayName="联系人手机" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="10">
+            </Column>
+            <Column DisplayName="CSR" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="11">
+            </Column>
+            <Column DisplayName="Adidas确认时间" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="10" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="到货地点" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="是否中转" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DropDownList" DefaultValue="N" Order="11" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="身份证" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="26" >
+            </Column>
+            <Column DisplayName="联系人" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="27" >
+            </Column>
+            <Column DisplayName="支出金额" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="7" CustomerID="28" >
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段8" DbColumnName="Str8" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="12">
+            <Column DisplayName="客户联系信息" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="12" CustomerID="1">
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="所属大区" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="50" CustomerID="2">
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="ship to联系人" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="9" CustomerID="3">
+            </Column>
+            <Column DisplayName="承运商联系电话" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="9" CustomerID="4">
+            </Column>
+            <Column DisplayName="毛重" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="9" CustomerID="5">
+            </Column>
+            <Column DisplayName="网上订单号" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="13" CustomerID="6">
+            </Column>
+            <Column DisplayName="桶数" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="7">
+            </Column>
+            <Column DisplayName="预计发货件数" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="8">
+            </Column>
+            <Column DisplayName="桶数" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="10">
+            </Column>
+            <Column DisplayName="迟到天数" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="12" CustomerID="11">
+            </Column>
+            <Column DisplayName="组数" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="11" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="到货地址区级" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="9" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="中转地点" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="12" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="车牌号" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="26" >
+            </Column>
+            <Column DisplayName="联系人电话" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="27" >
+            </Column>
+            <Column DisplayName="供货商" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="28" >
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段9" DbColumnName="Str9" IsKey="0" IsHide="1" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="13">
+            <Column DisplayName="收货地址" DbColumnName="Str9" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="13" CustomerID="1">
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="毛重(KG)" DbColumnName="Str9" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="14" CustomerID="2">
+            </Column>
+            <Column DisplayName="ship to联系方式" DbColumnName="Str9" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="10" CustomerID="3">
+            </Column>
+            <Column DisplayName="姓名" DbColumnName="Str9" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="10" CustomerID="5">
+            </Column>
+            <Column DisplayName="顾问编号" DbColumnName="Str9" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="14" CustomerID="6">
+            </Column>
+            <Column DisplayName="升数" DbColumnName="Str9" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="9" CustomerID="7">
+            </Column>
+            <Column DisplayName="预计箱数" DbColumnName="Str9" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="9" CustomerID="8">
+            </Column>
+            <Column DisplayName="升数" DbColumnName="Str9" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="9" CustomerID="10">
+            </Column>
+            <Column DisplayName="时效" DbColumnName="Str9" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="13" CustomerID="11">
+            </Column>
+            <Column DisplayName="车牌号码" DbColumnName="Str9" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="12" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="到货省份" DbColumnName="Str9" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="10" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="是否自有车辆" DbColumnName="Str9" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DropDownList" DefaultValue="N" Order="13" CustomerID="15">
+            </Column>
+            <Column DisplayName="手机号" DbColumnName="Str9" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="9" CustomerID="26" >
+            </Column>
+            <Column DisplayName="联系人手机" DbColumnName="Str9" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="9" CustomerID="27" >
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段10" DbColumnName="Str10" IsKey="0" IsHide="1" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="14">
+            <Column DisplayName="客户类型" DbColumnName="Str10" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="14" CustomerID="1">
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="卸货地点" DbColumnName="Str10" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="11" CustomerID="3">
+            </Column>
+            <Column DisplayName="目的省份" DbColumnName="Str10" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="11" CustomerID="5">
+            </Column>
+            <Column DisplayName="收件人姓名" DbColumnName="Str10" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="11" CustomerID="6">
+            </Column>
+            <Column DisplayName="通知到承运商时间" DbColumnName="Str10" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="10" CustomerID="7">
+            </Column>
+
+            <Column DisplayName="通知到承运商时间" DbColumnName="Str10" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="10" CustomerID="10">
+            </Column>
+            <Column DisplayName="结算公司" DbColumnName="Str10" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="14" CustomerID="11">
+            </Column>
+            <Column DisplayName="司机联系方式" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="13" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="提货及时" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="CheckBox" Order="11" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="GPS号" DbColumnName="Str10" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="14" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="行驶证有效期" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="10" CustomerID="26" >
+            </Column>
+            <Column DisplayName="产品代码" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="10" CustomerID="27" >
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段11" DbColumnName="Str11" IsKey="0" IsHide="1" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="15">
+            <Column DisplayName="客户编码" DbColumnName="Str11" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="15" CustomerID="1">
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="顺丰/EMS单号" DbColumnName="Str11" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="15" CustomerID="2">
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="起运省份" DbColumnName="Str11" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="13" CustomerID="3">
+            </Column>
+            <Column DisplayName="地址" DbColumnName="Str11" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="12" CustomerID="5">
+            </Column>
+            <Column DisplayName="订单重量(克)" DbColumnName="Str11" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="15" CustomerID="6">
+            </Column>
+            <Column DisplayName="要求车辆到达时间" DbColumnName="Str11" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="11" CustomerID="7">
+            </Column>
+            <Column DisplayName="调出店" DbColumnName="Str11" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="16" CustomerID="8">
+            </Column>
+            <Column DisplayName="要求车辆到达时间" DbColumnName="Str11" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="11" CustomerID="10">
+            </Column>
+            <Column DisplayName="收货人" DbColumnName="Str11" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="15" CustomerID="11">
+            </Column>
+            <Column DisplayName="提货地等待超时" DbColumnName="Str11" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="CheckBox" Order="12" CustomerID="14">
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="收货人" DbColumnName="Str11" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="15" CustomerID="11">
+            </Column>
+            <Column DisplayName="在途情况" DbColumnName="Str11" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="16" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="身份证图片" DbColumnName="Str11" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="FileUpload" Order="11" CustomerID="26" >
+            </Column>
+            <Column DisplayName="桶数" DbColumnName="Str11" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="11" CustomerID="27" >
+            </Column>
+            <Column DisplayName="PO" DbColumnName="Str11" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" Type="TextBox" Order="1" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段12" DbColumnName="Str12" IsKey="0" IsHide="1" IsSearchCondition="0" IsImportColumn="1" Type="CheckBox" Order="16">
+            <Column DisplayName="是否KA" DbColumnName="Str12" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="CheckBox" Order="16" CustomerID="1">
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="质保书是否随货(Y/N)" DbColumnName="Str12" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="DropDownList" DefaultValue="N" Order="16" CustomerID="2">
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="起运市" DbColumnName="Str12" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="14" CustomerID="3">
+            </Column>
+            <Column DisplayName="电话" DbColumnName="Str12" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="13" CustomerID="5">
+            </Column>
+            <Column DisplayName="小箱个数" DbColumnName="Str12" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="16" CustomerID="6">
+            </Column>
+            <Column DisplayName="车辆实际到达时间" DbColumnName="Str12" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="12" CustomerID="7">
+            </Column>
+            <Column DisplayName="调出店联系方式" DbColumnName="Str12" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="17" CustomerID="8">
+            </Column>
+            <Column DisplayName="车辆实际到达时间" DbColumnName="Str12" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="12" CustomerID="10">
+            </Column>
+            <Column DisplayName="收货电话" DbColumnName="Str12" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="16" CustomerID="11">
+            </Column>
+            <Column DisplayName="卸货耗时计算" DbColumnName="Str12" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="21" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="车辆图片" DbColumnName="Str12" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="FileUpload" Order="12" CustomerID="26" >
+            </Column>
+            <Column DisplayName="升数" DbColumnName="Str12" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="12" CustomerID="27" >
+            </Column>
+            <Column DisplayName="Adidas扣款金额" DbColumnName="Str12" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="14" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段13" DbColumnName="Str13" IsKey="0" IsHide="1" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="17">
+            <Column DisplayName="到货城市级别" DbColumnName="Str13" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="17" CustomerID="1">
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="发票是否随货(Y/N)" DbColumnName="Str13" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="DropDownList" DefaultValue="N" Order="17" CustomerID="2">
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="起运客户名称" DbColumnName="Str13" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="15" CustomerID="3">
+            </Column>
+            <Column DisplayName="手机" DbColumnName="Str13" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="14" CustomerID="5">
+            </Column>
+            <Column DisplayName="OPP名称" DbColumnName="Str13" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="6">
+            </Column>
+            <Column DisplayName="开始装车时间" DbColumnName="Str13" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="13" CustomerID="7">
+            </Column>
+            <Column DisplayName="调入店" DbColumnName="Str13" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="18" CustomerID="8">
+            </Column>
+            <Column DisplayName="开始装车时间" DbColumnName="Str13" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="13" CustomerID="10">
+            </Column>
+            <Column DisplayName="收货手机" DbColumnName="Str13" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="17" CustomerID="11">
+            </Column>
+            <Column DisplayName="到货数量" DbColumnName="Str13" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="22" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="行驶证图片" DbColumnName="Str13" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="FileUpload" Order="13" CustomerID="26" >
+            </Column>
+            <Column DisplayName="比重" DbColumnName="Str13" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="13" CustomerID="27" >
+            </Column>
+            <Column DisplayName="承运商扣款金额额" DbColumnName="Str13" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="15" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段14" DbColumnName="Str14" IsKey="0" IsHide="1" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="18">
+            <Column DisplayName="付款方式" DbColumnName="Str14" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="18" CustomerID="1">
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="代收款金额" DbColumnName="Str14" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="20" CustomerID="2">
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="起运地址" DbColumnName="Str14" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="16" CustomerID="3">
+            </Column>
+            <Column DisplayName="签收人" DbColumnName="Str14" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="17" CustomerID="5">
+            </Column>
+            <Column DisplayName="大箱号" DbColumnName="Str14" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="17" CustomerID="6">
+            </Column>
+            <Column DisplayName="装车结束时间" DbColumnName="Str14" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="14" CustomerID="7">
+            </Column>
+            <Column DisplayName="调入店联系方式" DbColumnName="Str14" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="19" CustomerID="8">
+            </Column>
+            <Column DisplayName="装车结束时间" DbColumnName="Str14" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="14" CustomerID="10">
+            </Column>
+            <Column DisplayName="备 注" DbColumnName="Str14" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="11" CustomerID="11">
+            </Column>
+            <Column DisplayName="货差数量" DbColumnName="Str14" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="23" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="运单附件" DbColumnName="Str14" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="FileUpload" Order="14" CustomerID="26" >
+            </Column>
+            <Column DisplayName="起运地址" DbColumnName="Str14" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="14" CustomerID="27" >
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段15" DbColumnName="Str15" IsKey="0" IsHide="1" IsSearchCondition="0" IsImportColumn="1" Type="CheckBox" Order="19" >
+            <Column DisplayName="是否加急" DbColumnName="Str15" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="CheckBox" Order="19" CustomerID="1" />
+            <Column DisplayName="项目组" DbColumnName="Str15" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="17" CustomerID="3" />
+            <Column DisplayName="订单金额" DbColumnName="Str15" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="19" CustomerID="6" />
+            <Column DisplayName="虹迪现场人员" DbColumnName="Str15" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="15" CustomerID="7" />
+            <Column DisplayName="在途时限" DbColumnName="Str15" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="20" CustomerID="8" />
+            <Column DisplayName="虹迪现场人员" DbColumnName="Str15" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="15" CustomerID="10" />
+            <Column DisplayName="提货方" DbColumnName="Str15" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="18" CustomerID="11" />
+            <Column DisplayName="是否拒签" DbColumnName="Str15" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="CheckBox" Order="36" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="货损数量" DbColumnName="Str15" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="24" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="实际出发地" DbColumnName="Str15" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="15" CustomerID="27" >
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段16" DbColumnName="Str16" IsKey="0" IsHide="1" IsSearchCondition="1" IsImportColumn="1" Type="TextBox" Order="20" SearchConditionOrder="7" >
+            <Column DisplayName="车牌号" DbColumnName="Str16" IsKey="0" IsHide="0" IsSearchCondition="1" IsImportColumn="1" Type="TextBox" Order="20" SearchConditionOrder="7"  CustomerID="1"/>
+            <Column DisplayName="起运地址" DbColumnName="Str16" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="15" CustomerID="7"/>
+            <Column DisplayName="客户简称" DbColumnName="Str16" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="8" />
+            <Column DisplayName="起运地址" DbColumnName="Str16" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="15" CustomerID="10"/>
+            <Column DisplayName="批次号" DbColumnName="Str16" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="6"/>
+            <Column DisplayName="是否投诉" DbColumnName="Str16" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="CheckBox" Order="37" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="时效" DbColumnName="Str16" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="25" CustomerID="15"/>
+            <Column DisplayName="业务类型" DbColumnName="Str16" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="16" CustomerID="27" >
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段17" DbColumnName="Str17" IsKey="0" IsHide="1" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="21">
+            <Column DisplayName="在途时限(天数)" DbColumnName="Str17" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="21" CustomerID="1">
+              <RoleID>5</RoleID>
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="配送车辆类型" DbColumnName="Str17" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="16" CustomerID="7"/>
+
+            <Column DisplayName="顾问名称" DbColumnName="Str17" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="14" CustomerID="6" />
+            <Column DisplayName="投诉类型" DbColumnName="Str17" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="38" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="时效差异" DbColumnName="Str17" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="26" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="目的省份" DbColumnName="Str17" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="16" CustomerID="10"/>
+          </Column>
+          <Column DisplayName="自定义字段18" DbColumnName="Str18" IsKey="0" IsHide="1" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="2">
+            <Column DisplayName="授权编号" DbColumnName="Str18" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="1">
+              <RoleID>5</RoleID>
+            </Column>
+
+            <Column DisplayName="邮政编码" DbColumnName="Str18" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="12" CustomerID="6">
+            </Column>
+            <Column DisplayName="投诉备注" DbColumnName="Str18" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="39" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="收货城市级别" DbColumnName="Str18" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="17" CustomerID="10"/>
+            <Column DisplayName="准时性" DbColumnName="Str18" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="27" CustomerID="15">
+            </Column>
+            <Column DisplayName="运单归属" DbColumnName="Str18" IsKey="0" IsHide="0" IsSearchCondition="1" SearchConditionOrder="10" IsImportColumn="1" Type="TextBox" Order="29" CustomerID="7"/>
+          </Column>
+          <Column DisplayName="自定义字段19" DbColumnName="Str19" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextArea" Order="99" >
+            <Column DisplayName="起运省份" DbColumnName="Str19" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="26" CustomerID="8">
+            </Column>
+            <Column DisplayName="快递单号" DbColumnName="Str19" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="13" CustomerID="6"/>
+            <Column DisplayName="缺损原因" DbColumnName="Str19" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextBox" Order="28" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段20" DbColumnName="Str20" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextArea" Order="99" >
+            <Column DisplayName="起运客户代码" DbColumnName="Str20" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="27" CustomerID="8" >
+            </Column>
+            <Column DisplayName="缺少原因" DbColumnName="Str20" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="29" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="客户编号" DbColumnName="Str20" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="8" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段21" DbColumnName="Str21" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextArea" Order="99" >
+            <Column DisplayName="发票号码" DbColumnName="Str21" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="18" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="起运客户名称" DbColumnName="Str21" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="28" CustomerID="8" >
+            </Column>
+            <Column DisplayName="迟到原因" DbColumnName="Str21" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="30" CustomerID="15" >
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段22" DbColumnName="Str22" IsKey="0" IsHide="1" IsSearchCondition="0" Type="CheckBox" Order="99" >
+            <Column DisplayName="是否需要代收款(Y/N)" DbColumnName="Str22" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DropDownList" DefaultValue="N" Order="19" CustomerID="2"  >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="起运地址" DbColumnName="Str22" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="29" CustomerID="8" >
+            </Column>
+            <Column DisplayName="计划阶段" DbColumnName="Str22" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="31" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段23" DbColumnName="Str23" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" >
+            <Column DisplayName="接收订单时间" DbColumnName="Str23" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="3" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="产品代码" DbColumnName="Str23" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="30" CustomerID="8" >
+            </Column>
+            <Column DisplayName="装运阶段" DbColumnName="Str23" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="31" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段24" DbColumnName="Str24" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" >
+            <Column DisplayName="净重(KG)" DbColumnName="Str24" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="13" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="Import VL B/L#  or AF HAWB#" DbColumnName="Str24" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="31" CustomerID="8" >
+            </Column>
+            <Column DisplayName="运输阶段" DbColumnName="Str24" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="32" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段25" DbColumnName="Str25" IsKey="0" IsHide="1" IsSearchCondition="0" Type="CheckBox" Order="99" >
+            <Column DisplayName="制单人" DbColumnName="Str25" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="PO#" DbColumnName="Str25" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="32" CustomerID="8" >
+            </Column>
+            <Column DisplayName="派送阶段" DbColumnName="Str25" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="33" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段26" DbColumnName="Str26" IsKey="0" IsHide="1" IsSearchCondition="0" Type="CheckBox" Order="99" >
+            <Column DisplayName="未及时出货原因" DbColumnName="Str26" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="PO ITEM#" DbColumnName="Str26" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="33" CustomerID="8" >
+            </Column>
+            <Column DisplayName="延迟责属" DbColumnName="Str26" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="34" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段27" DbColumnName="Str27" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextArea" Order="99" >
+            <Column DisplayName="仓库编号" DbColumnName="Str27" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="1" CustomerID="2" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="退货类型" DbColumnName="Str27" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="34" CustomerID="8" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="发车车号(干线)" DbColumnName="Str27" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="35" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段28" DbColumnName="Str28" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextArea" Order="99" >
+            <Column DisplayName="起运地址" DbColumnName="Str28" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" DefaultValue="上海太平仓库" Type="TextBox" Order="7" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="RSO编号" DbColumnName="Str28" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" DefaultValue="" Type="TextBox" Order="36" CustomerID="8" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="车型(干线)" DbColumnName="Str28" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="36" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段29" DbColumnName="Str29" IsKey="0" IsHide="1" IsSearchCondition="0" Type="CheckBox" Order="99" >
+            <Column DisplayName="整车吨位" DbColumnName="Str29" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" DefaultValue="" Type="TextBox" Order="29" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="城市等级" DbColumnName="Str29" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" DefaultValue="" Type="TextBox" Order="37" CustomerID="8" >
+            </Column>
+            <Column DisplayName="货损率" DbColumnName="Str29" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="37" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段30" DbColumnName="Str30" IsKey="0" IsHide="1" IsSearchCondition="0" Type="CheckBox" Order="99" >
+            <Column DisplayName="代收款方式(现金/支票)" DbColumnName="Str30" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" DefaultValue="" Type="TextBox" Order="19" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段31" DbColumnName="Str31" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" >
+            <Column DisplayName="槽钢" DbColumnName="Str31" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" DefaultValue="" Type="DropDownList" Order="30" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段32" DbColumnName="Str32" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" >
+            <Column DisplayName="包装件数" DbColumnName="Str32" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" DefaultValue="" Type="TextBox" Order="32" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段33" DbColumnName="Str33" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" >
+            <Column DisplayName="承运商编号" DbColumnName="Str33" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" DefaultValue="" Type="TextBox" Order="33" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段34" DbColumnName="Str34" IsKey="0" IsHide="1" IsSearchCondition="0" Type="CheckBox" Order="99" >
+            <Column DisplayName="销售单/非销售单" DbColumnName="Str34" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" DefaultValue="" Type="TextBox" Order="31" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段35" DbColumnName="Str35" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextArea" Order="99" >
+            <Column DisplayName="问题描述" DbColumnName="Str35" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="20" CustomerID="6" />
+          </Column>
+          <Column DisplayName="自定义字段36" DbColumnName="Str36" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextArea" Order="23">
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextArea" Order="23" CustomerID="1">
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="26" CustomerID="2">
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="20" CustomerID="3">
+            </Column>
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="20" CustomerID="4">
+            </Column>
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="20" CustomerID="5">
+            </Column>
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="20" CustomerID="6">
+            </Column>
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="33" CustomerID="8">
+            </Column>
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="33" CustomerID="9">
+            </Column>
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="33" CustomerID="10">
+            </Column>
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="33" CustomerID="11">
+            </Column>
+            <Column DisplayName="与工厂交接备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextArea" Order="7" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="40" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="13" CustomerID="26">
+            </Column>
+            <Column DisplayName="备注" DbColumnName="Str36" IsKey="0" IsHide="0" IsSearchCondition="0" IsImportColumn="1" Type="TextArea" Order="11" CustomerID="28">
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段37" DbColumnName="Str37" IsKey="0" IsHide="1" IsSearchCondition="0" Type="CheckBox" Order="99" >
+            <Column DisplayName="托运单备注" DbColumnName="Str37" IsKey="0" IsHide="0"  IsImportColumn="1" IsSearchCondition="0" Type="TextArea" Order="34" CustomerID="8">
+            </Column>
+            <Column DisplayName="运单归属" DbColumnName="Str37" IsKey="0" IsHide="0"  IsImportColumn="1" IsSearchCondition="1" Type="TextBox" Order="34" CustomerID="2">
+            </Column>
+            <Column DisplayName="扣款备注" DbColumnName="Str37" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextArea" Order="6" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段38" DbColumnName="Str38" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextArea" Order="9" >
+            <Column DisplayName="Abnormal Issue" DbColumnName="Str38" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextArea" Order="35" CustomerID="8">
+            </Column>
+            <Column DisplayName="销售姓名" DbColumnName="Str38" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="4" CustomerID="2">
+            </Column>
+          </Column>
+          <!--Str39 给Nike作为运单对外同步字段，0 或者空代表未同步，1代表已同步-->
+          <Column DisplayName="自定义字段39" DbColumnName="Str39" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" >
+          </Column>
+          <!--Str40 给MaryKay 做订单下发状态标志，不要再配置-->
+          <Column DisplayName="自定义字段40" DbColumnName="Str40" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <!--Str41 给Nike 做订单下发状态标志，不要再配置-->
+          <Column DisplayName="自定义字段41" DbColumnName="Str41" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段42" DbColumnName="Str42" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段43" DbColumnName="Str43" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段44" DbColumnName="Str44" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段45" DbColumnName="Str45" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段46" DbColumnName="Str46" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段47" DbColumnName="Str47" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段48" DbColumnName="Str48" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段49" DbColumnName="Str49" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段50" DbColumnName="Str50" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义日期1" DbColumnName="DateTime1" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="1">
+            <Column DisplayName="3PL到达日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="1" CustomerID="1" >
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="订单日期" DbColumnName="DateTime1" IsKey="0" IsHide="0"  IsImportColumn="1" IsSearchCondition="1" SearchConditionOrder="9" Type="DateTime" Order="2" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="接单时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="1" CustomerID="3" >
+            </Column>
+            <Column DisplayName="接单日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="1" CustomerID="4" >
+            </Column>
+            <Column DisplayName="订单日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="1" CustomerID="5" >
+            </Column>
+            <Column DisplayName="订单日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="1" CustomerID="6" >
+            </Column>
+            <Column DisplayName="预计发货时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="11" CustomerID="8" >
+            </Column>
+            <Column DisplayName="预计发货时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="1" CustomerID="9" >
+            </Column>
+            <Column DisplayName="受理日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1"  SearchConditionOrder="8"   DefaultValue="0" Type="DateTime" Order="1" CustomerID="11" >
+            </Column>
+            <Column DisplayName="预计送达日" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="6" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="预计到达日" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="20" CustomerID="7" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="接单日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="2" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="计划日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" SearchConditionOrder="8" Type="DateTimeWithTime" Order="2" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="出货单日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1"  SearchConditionOrder="7"  Type="DateTime" Order="8" CustomerID="28" >
+            </Column>
+            <Column DisplayName="起运日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1"  Type="DateTime" Order="6" SearchConditionOrder="9" CustomerID="29" >
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期2" DbColumnName="DateTime2" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="3">
+            <Column DisplayName="通知3PL日期" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="3" CustomerID="1" >
+              <RoleID>5</RoleID>
+            </Column>
+            <Column DisplayName="按服务时效应到货日" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1"  IsSearchCondition="1" SearchConditionOrder="8"  Type="DateTime" Order="21" CustomerID="2" >
+              <RoleID>3</RoleID>
+              <RoleID>26</RoleID>
+            </Column>
+            <Column DisplayName="预计发货时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="12" CustomerID="3" >
+            </Column>
+            <Column DisplayName="客户要求到达时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="10" CustomerID="4" >
+            </Column>
+            <Column DisplayName="交接时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="15" CustomerID="5" >
+            </Column>
+            <Column DisplayName="计划发货时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="3" CustomerID="6" >
+            </Column>
+            <Column DisplayName="预计到达时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="8" CustomerID="9" >
+            </Column>
+            <Column DisplayName="Adidas确认日期" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="9" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="提货日期" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="12" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="抵达仓库时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTimeWithTime" Order="6" CustomerID="15" >
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="到货单日期" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1"  SearchConditionOrder="8"   Type="DateTime" Order="9" CustomerID="28" >
+            </Column>
+            <Column DisplayName="要求到达日期" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1"   Type="DateTime" Order="7" CustomerID="29" >
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期3" DbColumnName="DateTime3" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="1" Type="DateTime" Order="4" SearchConditionOrder="8">
+            <Column DisplayName="实际提货日期" DbColumnName="DateTime3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" Type="DateTime" Order="4" CustomerID="1" SearchConditionOrder="8">
+              <RoleID>5</RoleID>
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="预计到货时间" DbColumnName="DateTime3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="16" CustomerID="5">
+            </Column>
+            <Column DisplayName="预计到达时间" DbColumnName="DateTime3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="4" CustomerID="6">
+            </Column>
+            <Column DisplayName="收货日期" DbColumnName="DateTime3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" SearchConditionOrder="9" Type="DateTime" Order="10" CustomerID="11">
+            </Column>
+            <Column DisplayName="预计到货日期" DbColumnName="DateTime3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="13" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="开始装车时间" DbColumnName="DateTime3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTimeWithTime" Order="7" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="打款时间" DbColumnName="DateTime3" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1"  SearchConditionOrder="9"   Type="DateTime" Order="10" CustomerID="28" >
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期4" DbColumnName="DateTime4" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="1" Type="DateTime" Order="9" SearchConditionOrder="9">
+            <Column DisplayName="期望到货日期" DbColumnName="DateTime4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" Type="DateTime" Order="9" CustomerID="1" SearchConditionOrder="9">
+              <RoleID>5</RoleID>
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="签收时间" DbColumnName="DateTime4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="17" CustomerID="5">
+            </Column>
+
+            <Column DisplayName="预计到货日期" DbColumnName="DateTime4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" SearchConditionOrder="11"  Type="DateTime" Order="10" CustomerID="11">
+            </Column>
+            <Column DisplayName="装车完成时间" DbColumnName="DateTime4" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0"   Type="DateTimeWithTime" Order="8" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期5" DbColumnName="DateTime5" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="99" >
+            <Column DisplayName="实际到货时间" DbColumnName="DateTime5" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="1" Type="DateTimeWithTime" Order="25" CustomerID="1" SearchConditionOrder="10">
+              <RoleID>5</RoleID>
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期6" DbColumnName="DateTime6" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" >
+            <Column DisplayName="预计到达日期" DbColumnName="DateTime6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTimeWithTime" Order="21" CustomerID="8">
+            </Column>
+            <Column DisplayName="预计抵达时间" DbColumnName="DateTime6" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTimeWithTime" Order="17" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期7" DbColumnName="DateTime7" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" >
+            <Column DisplayName="实际抵达时间" DbColumnName="DateTime7" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTimeWithTime" Order="18" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期8" DbColumnName="DateTime8" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" >
+            <Column DisplayName="送达时间" DbColumnName="DateTime8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTimeWithTime" Order="19" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+            <Column DisplayName="订单日期" DbColumnName="DateTime8" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="38" CustomerID="8">
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期9" DbColumnName="DateTime9" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" >
+            <Column DisplayName="应达时间" DbColumnName="DateTime9" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTimeWithTime" Order="20" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期10" DbColumnName="DateTime10" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" >
+            <Column DisplayName="车辆离开时间" DbColumnName="DateTime10" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTimeWithTime" Order="36" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期11" DbColumnName="DateTime11" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期12" DbColumnName="DateTime12" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期13" DbColumnName="DateTime13" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期14" DbColumnName="DateTime14" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期15" DbColumnName="DateTime15" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" >
+            <Column DisplayName="分配承运商日期" DbColumnName="DateTime15" IsKey="0" IsHide="0"  IsSearchCondition="1" SearchConditionOrder="99" Order="40" Type="DateTime"  CustomerID="2">
+            </Column>
+          </Column>
+        </Table>
+        <Table Name="PodDetail">
+          <Column DisplayName="ID" DbColumnName="ID"  IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="PodID" DbColumnName="PodID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="系统运单号" DbColumnName="SystemNumber" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="客户运单号" DbColumnName="CustomerOrderNumber" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="物资编号" DbColumnName="GoodCode" IsHide="1" IsKey="0" Type="TextBox" Order="99" />
+          <Column DisplayName="物资名称" DbColumnName="GoodName" IsHide="1" IsKey="0" IsImportColumn="1" Type="TextBox" Order="1" >
+            <Column DisplayName="物资名称" DbColumnName="GoodName" IsHide="0" IsKey="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="1"/>
+            <Column DisplayName="物资名称" DbColumnName="GoodName" IsHide="0" IsKey="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="13"/>
+            <Column DisplayName="GPC" DbColumnName="GoodName" IsHide="0" IsKey="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="计量单位" DbColumnName="UnitCode" IsHide="1" IsKey="0" Type="TextBox" Order="99" />
+          <Column DisplayName="包装方式" DbColumnName="UnitName" IsHide="1" IsKey="0" IsImportColumn="1" Type="TextBox" Order="2" >
+            <Column DisplayName="包装方式" DbColumnName="UnitName" IsHide="0" IsKey="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="1"/>
+            <Column DisplayName="包装方式" DbColumnName="UnitName" IsHide="0" IsKey="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="13"/>
+          </Column>
+          <Column DisplayName="预计数量" DbColumnName="ExpectedAmount" IsHide="1" IsKey="0" Type="TextBox" Order="99" />
+          <Column DisplayName="实际数量" DbColumnName="ActualAmount" IsHide="1" IsKey="0" IsImportColumn="1" Type="TextBox" Order="3" >
+            <Column DisplayName="实际数量" DbColumnName="ActualAmount" IsHide="0" IsKey="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="1"/>
+            <Column DisplayName="实际数量" DbColumnName="ActualAmount" IsHide="0" IsKey="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="13"/>
+            <Column DisplayName="数量" DbColumnName="ActualAmount" IsHide="0" IsKey="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="创建人" DbColumnName="Creator" IsKey="0" IsHide="1"  Type="TextBox" Order="99" />
+          <Column DisplayName="创建时间" DbColumnName="CreateTime" IsKey="0" IsHide="1"  Type="DateTime" Order="99" />
+          <Column DisplayName="备注" DbColumnName="Remark" IsHide="1" IsKey="0" Type="TextArea" IsImportColumn="1" Order="4" >
+            <Column DisplayName="备注" DbColumnName="Remark" IsHide="0" IsKey="0" Type="TextArea" IsImportColumn="1" Order="4" CustomerID="1" />
+            <Column DisplayName="备注" DbColumnName="Remark" IsHide="0" IsKey="0" Type="TextArea" IsImportColumn="1" Order="4" CustomerID="13" />
+            <Column DisplayName="备注" DbColumnName="Remark" IsHide="0" IsKey="0" Type="TextArea" IsImportColumn="1" Order="7" CustomerID="8" />
+          </Column>
+          <Column DisplayName="自定义字段1" DbColumnName="Str1" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="箱号" DbColumnName="Str1" IsHide="0" IsKey="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义字段2" DbColumnName="Str2" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="型号(Style)" DbColumnName="Str2" IsHide="0" IsKey="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义字段3" DbColumnName="Str3" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="颜色(Color)" DbColumnName="Str3" IsHide="0" IsKey="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义字段4" DbColumnName="Str4" IsKey="0" IsHide="1"  Type="CheckBox" Order="99" >
+            <Column DisplayName="尺寸(Size)" DbColumnName="Str4" IsHide="0" IsKey="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义字段5" DbColumnName="Str5" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段6" DbColumnName="Str6" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段7" DbColumnName="Str7" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段8" DbColumnName="Str8" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段9" DbColumnName="Str9" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段10" DbColumnName="Str10" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段11" DbColumnName="Str11" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段12" DbColumnName="Str12" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段13" DbColumnName="Str13" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段14" DbColumnName="Str14" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段15" DbColumnName="Str15" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段16" DbColumnName="Str16" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段17" DbColumnName="Str17" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段18" DbColumnName="Str18" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段19" DbColumnName="Str19" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义字段20" DbColumnName="Str20" IsKey="0" IsHide="1"  Type="TextArea" Order="99" />
+          <Column DisplayName="自定义日期1" DbColumnName="DateTime1" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期2" DbColumnName="DateTime2" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期3" DbColumnName="DateTime3" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期4" DbColumnName="DateTime4" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期5" DbColumnName="DateTime5" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+        </Table>
+        <Table Name="PodFeadBack">
+          <Column DisplayName="ID" DbColumnName="ID" IsKey="1" IsHide="1" Order="99" />
+          <Column DisplayName="PodID" DbColumnName="PodID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="系统运单号" DbColumnName="SystemNumber" IsKey="1" IsSearchCondition="0" Order="99" />
+          <Column DisplayName="客户运单号" DbColumnName="CustomerOrderNumber" IsKey="1" Order="99" />
+          <Column DisplayName="创建人" DbColumnName="Creator" IsKey="0" IsHide="1"  Type="TextBox" Order="99" />
+          <Column DisplayName="创建时间" DbColumnName="CreateTime" IsKey="0" IsHide="1"  Type="DateTime" Order="99" />
+          <Column DisplayName="自定义字段1" DbColumnName="Str1" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="所有货物是否一天收到" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="CheckBox" Order="1" CustomerID="1" />
+            <Column DisplayName="异常" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="1" CustomerID="7" />
+            <Column DisplayName="异常" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="1" CustomerID="10" />
+            <Column DisplayName="实际收货时间" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="所有货物是否一天收到" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="CheckBox" Order="2" CustomerID="29" />
+          </Column>
+          <Column DisplayName="自定义字段2" DbColumnName="Str2" IsKey="0" IsHide="1" Type="CheckBox" Order="99" >
+            <Column DisplayName="货物是否异常" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1"  Type="CheckBox" Order="2" CustomerID="1" />
+            <Column DisplayName="跟踪人" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="2" CustomerID="7"/>
+            <Column DisplayName="跟踪人" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="2" CustomerID="10"/>
+            <Column DisplayName="实际到车时间" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="货物是否异常" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1"  Type="CheckBox" Order="2" CustomerID="29" />
+          </Column>
+          <Column DisplayName="自定义字段3" DbColumnName="Str3" IsKey="0" IsHide="1" Type="CheckBox" Order="99" >
+            <Column DisplayName="运输商是否在货到前电话通知客户" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1"  Type="CheckBox" Order="3" CustomerID="1"/>
+            <Column DisplayName="车辆到达是否准时" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="运输商是否在货到前电话通知客户" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1"  Type="CheckBox" Order="3" CustomerID="29"/>
+          </Column>
+          <Column DisplayName="自定义字段4" DbColumnName="Str4" IsKey="0" IsHide="1" Type="CheckBox" Order="99" >
+            <Column DisplayName="对于整车，运输商是否配至少配备3名卸货工" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1"  Type="CheckBox" Order="4" CustomerID="1"/>
+            <Column DisplayName="车况" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段5" DbColumnName="Str5" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="满意度" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="5" CustomerID="1"/>
+            <Column DisplayName="服务态度" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="满意度" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="5" CustomerID="29"/>
+          </Column>
+          <Column DisplayName="自定义字段6" DbColumnName="Str6" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="创立人" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="6" CustomerID="1" />
+            <Column DisplayName="货物是否按要求配载" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="回访人" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="6" CustomerID="29" />
+          </Column>
+          <Column DisplayName="自定义字段7" DbColumnName="Str7" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="总得分" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="7" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段8" DbColumnName="Str8" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="Adidas" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="8" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段9" DbColumnName="Str9" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="Runbow" DbColumnName="Str9" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="8" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段10" DbColumnName="Str10" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="签收情况" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="8" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="创立时间" DbColumnName="DateTime1" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+            <Column DisplayName="创立时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTime" Order="7" CustomerID="1" />
+            <Column DisplayName="回访时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTime" Order="3" CustomerID="7" />
+            <Column DisplayName="回访时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTime" Order="3" CustomerID="10" />
+            <Column DisplayName="实际收货日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTime" Order="1" CustomerID="13" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="回访时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTime" Order="1" CustomerID="29" />
+          </Column>
+          <Column DisplayName="自定义日期2" DbColumnName="DateTime2" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+            <Column DisplayName="实际到货时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTime" Order="4" CustomerID="7" />
+            <Column DisplayName="实际到货时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTime" Order="4" CustomerID="10" />
+          </Column>
+          <Column DisplayName="自定义日期3" DbColumnName="DateTime3" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+        </Table>
+        <Table Name="PodReplyDocument">
+          <Column DisplayName="ID" DbColumnName="ID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="PodID" DbColumnName="PodID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="系统运单号" DbColumnName="SystemNumber" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="客户运单号" DbColumnName="CustomerOrderNumber" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="回单人" DbColumnName="Replier" IsKey="1" IsHide="0" IsImportColumn="1" Order="1" Type="TextBox" />
+          <Column DisplayName="回单交接时间" DbColumnName="ReplyTime" IsKey="1" IsHide="0" IsImportColumn="1" Order="2" Type="DateTime" />
+          <Column DisplayName="附件" DbColumnName="AttachmentGroupID" IsKey="1" IsHide="0" IsImportColumn="1" Order="3" Type="FileUpload" />
+          <Column DisplayName="备注" DbColumnName="Remark" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextArea" Order="5" />
+          <Column DisplayName="创建人" DbColumnName="Creator" IsKey="0" IsHide="1"  Type="TextBox" Order="99" />
+          <Column DisplayName="创建时间" DbColumnName="CreateTime" IsKey="0" IsHide="1"  Type="DateTime" Order="99" />
+          <Column DisplayName="自定义字段1" DbColumnName="Str1" IsKey="0" IsHide="1" IsImportColumn="1" Type="TextBox" Order="4" >
+            <Column DisplayName="原单/复印件" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="1"/>
+            <Column DisplayName="实际签收人" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="2">
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="原单/复印件" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="3"/>
+            <Column DisplayName="原单/复印件" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="4"/>
+            <Column DisplayName="原单/复印件" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="7"/>
+            <Column DisplayName="原单/复印件" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="10"/>
+            <Column DisplayName="卸货等待超时" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="14"/>
+            <Column DisplayName="签收情况" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="29"/>
+          </Column>
+          <Column DisplayName="自定义字段2" DbColumnName="Str2" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="到货差异天数" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="2"/>
+            <Column DisplayName="延误天数" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="14"/>
+            <Column DisplayName="回单返回情况" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="29"/>
+          </Column>
+          <Column DisplayName="自定义字段3" DbColumnName="Str3" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="是否正常到货" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="7" CustomerID="2"/>
+            <Column DisplayName="到货预报" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="14"/>
+          </Column>
+          <Column DisplayName="自定义字段4" DbColumnName="Str4" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="交付及时" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="14"/>
+          </Column>
+          <!--Str5 给Hilti 做短信发送标志，不要再配置-->
+          <Column DisplayName="自定义字段5" DbColumnName="Str5" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+          </Column>
+          <Column DisplayName="自定义日期1" DbColumnName="DateTime1" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+            <Column DisplayName="实际到货日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTime" Order="4" CustomerID="2"/>
+            <Column DisplayName="实际到货日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTime" Order="1" CustomerID="14"/>
+          </Column>
+          <Column DisplayName="自定义日期2" DbColumnName="DateTime1" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+          <!--DateTime3 给Nike做上传标记，不要再配置-->
+          <Column DisplayName="自定义日期3" DbColumnName="DateTime3" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+        </Table>
+        <Table Name="PodTrack">
+          <Column DisplayName="ID" DbColumnName="ID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="PodID" DbColumnName="PodID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="系统运单号" DbColumnName="SystemNumber" IsHide="1" IsKey="1" ForView="1" Order="1" />
+          <Column DisplayName="客户运单号" DbColumnName="CustomerOrderNumber" IsHide="1" IsKey="1" ForView="1" Order="99" />
+          <Column DisplayName="创建人" DbColumnName="Creator" IsHide="1" IsKey="0" Order="99" Type="TextBox" />
+          <Column DisplayName="创建时间" DbColumnName="CreateTime" IsHide="1" IsKey="0" Order="99" Type="DateTime" />
+          <Column DisplayName="自定义字段1" DbColumnName="Str1" IsKey="0" IsHide="1" IsImportColumn="1"  Type="TextBox" Order="3" >
+            <Column DisplayName="跟踪信息" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="3" CustomerID="1">
+            </Column>
+            <Column DisplayName="在途位置" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="2" CustomerID="2">
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="运输状态" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="2" CustomerID="3">
+            </Column>
+            <Column DisplayName="跟踪信息" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="1" CustomerID="4">
+            </Column>
+            <Column DisplayName="运单状态" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="2" CustomerID="6">
+            </Column>
+            <Column DisplayName="跟踪信息" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="1" CustomerID="7">
+            </Column>
+            <Column DisplayName="提货是否及时" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="CheckBox" Order="4" CustomerID="8">
+            </Column>
+            <Column DisplayName="运输状态" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="2" CustomerID="9">
+            </Column>
+            <Column DisplayName="跟踪信息" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="1" CustomerID="10">
+            </Column>
+            <Column DisplayName="在途位置" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="2" CustomerID="11">
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="在途位置" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="2" CustomerID="13">
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="起运地" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="2" CustomerID="14">
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="在途位置" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="2" CustomerID="15">
+              <RoleID>3</RoleID>
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段2" DbColumnName="Str2" IsKey="0" IsHide="1" IsImportColumn="1" Type="TextBox"  Order="4" >
+            <Column DisplayName="异常" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="4" CustomerID="1">
+            </Column>
+            <Column DisplayName="送货状态" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="3" CustomerID="2">
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="所在位置" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="3" CustomerID="3">
+            </Column>
+            <Column DisplayName="是否异常" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox"  Order="2" CustomerID="4">
+            </Column>
+            <Column DisplayName="跟踪类型" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="4" CustomerID="6">
+            </Column>
+            <Column DisplayName="跟踪人" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="2" CustomerID="7">
+            </Column>
+            <Column DisplayName="返货是否及时" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox"  Order="5" CustomerID="8">
+            </Column>
+            <Column DisplayName="在途位置" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="3" CustomerID="9">
+            </Column>
+            <Column DisplayName="跟踪人" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="2" CustomerID="10">
+            </Column>
+            <Column DisplayName="是否异常" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox"  Order="3" CustomerID="11">
+            </Column>
+            <Column DisplayName="运单状态" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="3" CustomerID="13">
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="当前位置" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="3" CustomerID="14">
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="送货状态" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="3" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段3" DbColumnName="Str3" IsKey="0" IsHide="1" IsImportColumn="1" Type="TextBox" Order="5" >
+            <Column DisplayName="跟踪人" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="1"/>
+            <Column DisplayName="延误原因" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="2" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="是否异常" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox" Order="4" CustomerID="3"/>
+            <Column DisplayName="跟踪人" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="4"/>
+            <Column DisplayName="跟踪信息" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="6"/>
+            <Column DisplayName="货物情况" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="11" CustomerID="8" />
+            <Column DisplayName="是否异常" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox"  Order="6" CustomerID="7" />
+            <Column DisplayName="跟踪人" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="11"/>
+            <Column DisplayName="跟踪人" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="14">
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段4" DbColumnName="Str4" IsKey="0" IsHide="1"  Type="CheckBox" Order="99" >
+            <Column DisplayName="运单状态" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="1"/>
+            <Column DisplayName="延误原因分类" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="2" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="责任归属" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="3"/>
+            <Column DisplayName="约定" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="7" CustomerID="6"/>
+            <Column DisplayName="是否异常" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox"  Order="12" CustomerID="8">
+            </Column>
+            <Column DisplayName="手机号" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="5" CustomerID="14">
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段5" DbColumnName="Str5" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+            <Column DisplayName="状态信息" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1"  Type="TextBox" Order="7" CustomerID="1">
+            </Column>
+            <Column DisplayName="货物情况" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="3"/>
+            <Column DisplayName="签收人" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="9" CustomerID="6"/>
+            <Column DisplayName="责任归属" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="13" CustomerID="8">
+            </Column>
+            <Column DisplayName="车牌号" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="6" CustomerID="14">
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段6" DbColumnName="Str6" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="项目组" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="7" CustomerID="3"/>
+            <Column DisplayName="上传MK状态" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="11" CustomerID="6"/>
+            <Column DisplayName="运输状态" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="14" CustomerID="8">
+            </Column>
+            <Column DisplayName="跟踪信息来源" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="7" CustomerID="14">
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段7" DbColumnName="Str7" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="省份" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="6"/>
+            <Column DisplayName="提货实收件数" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="20" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义字段8" DbColumnName="Str8" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="提货实收箱数" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="21" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义字段9" DbColumnName="Str9" IsKey="0" IsHide="1"  Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段10" DbColumnName="Str10" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+            <Column DisplayName="描述" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="8" CustomerID="3"/>
+            <Column DisplayName="描述" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="15" CustomerID="8"/>
+            <Column DisplayName="备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="5" CustomerID="9"/>
+            <Column DisplayName="备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="5" CustomerID="11"/>
+            <Column DisplayName="备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="7" CustomerID="7"/>
+            <Column DisplayName="跟踪备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="12" CustomerID="6"/>
+            <Column DisplayName="跟踪备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="4" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段11" DbColumnName="Str11" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="所在省份" DbColumnName="Str11" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="16" CustomerID="8">
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段12" DbColumnName="Str12" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="所在城市" DbColumnName="Str12" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="17" CustomerID="8">
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段13" DbColumnName="Str13" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定义字段14" DbColumnName="Str14" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="仓库实际货物数量" DbColumnName="Str14" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox"  Order="19" CustomerID="8">
+            </Column>
+          </Column>
+          <!--Str15 给MaryKay 做Delivery标志，不要再配置-->
+          <!--Str15 作为运单对外同步字段，0 或者空代表未同步，1代表已同步-->
+          <Column DisplayName="自定义字段15" DbColumnName="Str15" IsKey="0" IsHide="1"  Type="TextBox" Order="99" />
+          <Column DisplayName="自定义日期1" DbColumnName="DateTime1" IsKey="0" IsHide="1" IsImportColumn="1"  Type="DateTime" Order="2" >
+            <Column DisplayName="跟踪时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTime" Order="2" CustomerID="1"/>
+            <Column DisplayName="跟踪日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTime" Order="1" CustomerID="2" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="跟踪时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTime" Order="1" CustomerID="3"/>
+            <Column DisplayName="跟踪时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTime" Order="4" CustomerID="4"/>
+            <Column DisplayName="实际发货时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTime" Order="3" CustomerID="6"/>
+            <Column DisplayName="跟踪时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTime" Order="3" CustomerID="7"/>
+            <Column DisplayName="跟踪时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTime" Order="1" CustomerID="8"/>
+            <Column DisplayName="跟踪日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTime" Order="1" CustomerID="9"/>
+            <Column DisplayName="跟踪时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTime" Order="3" CustomerID="10"/>
+            <Column DisplayName="跟踪时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTime" Order="1" CustomerID="11"/>
+            <Column DisplayName="跟踪时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTime" Order="1" CustomerID="13">
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="跟踪时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTime" Order="1" CustomerID="14">
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="跟踪时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1"  Type="DateTimeWithTime" Order="1" CustomerID="15">
+              <RoleID>39</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期2" DbColumnName="DateTime2" IsKey="0" IsHide="1" Type="DateTime" Order="4" IsImportColumn="1" >
+            <Column DisplayName="到达时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" Type="DateTime" Order="4" IsImportColumn="1" CustomerID="1"/>
+            <Column DisplayName="到达时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" Type="DateTime" Order="5" IsImportColumn="1" CustomerID="4"/>
+            <Column DisplayName="跟踪时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" Type="DateTime" Order="1" IsImportColumn="1" CustomerID="6"/>
+            <Column DisplayName="预计到达时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" Type="DateTime" Order="4" IsImportColumn="1" CustomerID="7"/>
+            <Column DisplayName="预计提货日期" DbColumnName="DateTime2" IsKey="0" IsHide="0" Type="DateTime" Order="2" IsImportColumn="1" CustomerID="8"/>
+            <Column DisplayName="实际到达时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" Type="DateTime" Order="4" IsImportColumn="1" CustomerID="9"/>
+            <Column DisplayName="预计到达时间" DbColumnName="DateTime2" IsKey="0" IsHide="0" Type="DateTime" Order="4" IsImportColumn="1" CustomerID="10"/>
+          </Column>
+          <Column DisplayName="自定义日期3" DbColumnName="DateTime3" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+            <Column DisplayName="实际到达时间" DbColumnName="DateTime3" IsKey="0" IsHide="0" Type="DateTime" Order="8" IsImportColumn="1" CustomerID="6"/>
+            <Column DisplayName="实际到达时间" DbColumnName="DateTime3" IsKey="0" IsHide="0" Type="DateTime" Order="5" IsImportColumn="1" CustomerID="7"/>
+            <Column DisplayName="实际提货日期" DbColumnName="DateTime3" IsKey="0" IsHide="0" Type="DateTime" Order="3" IsImportColumn="1" CustomerID="8"/>
+            <Column DisplayName="实际到达时间" DbColumnName="DateTime3" IsKey="0" IsHide="0" Type="DateTime" Order="5" IsImportColumn="1" CustomerID="10"/>
+          </Column>
+          <Column DisplayName="自定义日期4" DbColumnName="DateTime4" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+            <Column DisplayName="货物出发日期" DbColumnName="DateTime4" IsKey="0" IsHide="0" Type="DateTime" Order="6" IsImportColumn="1" CustomerID="8"/>
+            <Column DisplayName="签收时间" DbColumnName="DateTime4" IsKey="0" IsHide="0" Type="DateTime" Order="10" IsImportColumn="1" CustomerID="6"/>
+          </Column>
+          <Column DisplayName="自定义日期5" DbColumnName="DateTime5" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+            <Column DisplayName="货物到达上海日期" DbColumnName="DateTime5" IsKey="0" IsHide="0" Type="DateTime" Order="7" IsImportColumn="1" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义日期6" DbColumnName="DateTime6" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+            <Column DisplayName="实际到货时间" DbColumnName="DateTime6" IsKey="0" IsHide="0" Type="DateTimeWithTime" Order="8" IsImportColumn="1" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义日期7" DbColumnName="DateTime7" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+            <Column DisplayName="预计退仓时间" DbColumnName="DateTime7" IsKey="0" IsHide="0" Type="DateTime" Order="9" IsImportColumn="1" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义日期8" DbColumnName="DateTime8" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+            <Column DisplayName="仓库实际收货日期" DbColumnName="DateTime8" IsKey="0" IsHide="0" Type="DateTime" Order="10" IsImportColumn="1" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义日期9" DbColumnName="DateTime9" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+            <Column DisplayName="预计到仓时间" DbColumnName="DateTime9" IsKey="0" IsHide="0" Type="DateTime" Order="8" IsImportColumn="1" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义日期10" DbColumnName="DateTime10" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+          </Column>
+        </Table>
+        <Table Name="PodException">
+          <Column DisplayName="ID" DbColumnName="ID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="PodID" DbColumnName="PodID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="系统运单号" DbColumnName="SystemNumber" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="客户运单号" DbColumnName="CustomerOrderNumber" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="创建人" DbColumnName="Creator" IsKey="0" IsHide="1"  Type="TextBox" Order="99" />
+          <Column DisplayName="创建时间" DbColumnName="CreateTime" IsKey="0" IsHide="1"  Type="DateTime" Order="99" />
+          <Column DisplayName="异常描述" DbColumnName="Str1" IsKey="0" IsHide="1" IsImportColumn="1" Type="TextBox" Order="1" >
+            <Column DisplayName="异常描述" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="1" />
+            <Column DisplayName="异常描述" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="2" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="类别" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="5" />
+            <Column DisplayName="是否存在异常" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox" Order="1" CustomerID="9" />
+            <Column DisplayName="货物状态" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="创建人" DbColumnName="Str2" IsKey="0" IsHide="1"  Type="TextBox" Order="99">
+            <Column DisplayName="创建人" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="1" />
+            <Column DisplayName="创建人" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="2" >
+              <RoleID>3</RoleID>
+            </Column>
+            <Column DisplayName="详细情况" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="5" />
+            <Column DisplayName="责任归属" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="9" />
+            <Column DisplayName="异常状态" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段3" DbColumnName="Str3" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="补单信息" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="5" />
+            <Column DisplayName="提货延误" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="9" />
+            <Column DisplayName="异常处理" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义字段4" DbColumnName="Str4" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="客户处理意见" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="4" CustomerID="5" />
+            <Column DisplayName="干线延误" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="9" />
+          </Column>
+          <Column DisplayName="自定义字段5" DbColumnName="Str5" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+            <Column DisplayName="虹迪处理意见" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="5" CustomerID="5" />
+            <Column DisplayName="派送延误" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="9" />
+          </Column>
+          <Column DisplayName="自定义字段6" DbColumnName="Str6" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+            <Column DisplayName="货品破损" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="9" />
+          </Column>
+          <Column DisplayName="自定义字段7" DbColumnName="Str7" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+            <Column DisplayName="货品受潮" DbColumnName="Str7" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="7" CustomerID="9" />
+          </Column>
+          <Column DisplayName="自定义字段8" DbColumnName="Str8" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+            <Column DisplayName="同城串货" DbColumnName="Str8" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="8" CustomerID="9" />
+          </Column>
+          <Column DisplayName="自定义字段9" DbColumnName="Str9" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+            <Column DisplayName="异地串货" DbColumnName="Str9" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="9" CustomerID="9" />
+          </Column>
+          <Column DisplayName="自定义字段10" DbColumnName="Str10" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+            <Column DisplayName="整箱短少" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="10" CustomerID="9" />
+          </Column>
+          <Column DisplayName="自定义字段11" DbColumnName="Str11" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+            <Column DisplayName="破箱内物短少" DbColumnName="Str11" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="11" CustomerID="9" />
+          </Column>
+          <Column DisplayName="自定义字段12" DbColumnName="Str12" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+            <Column DisplayName="实际在途时间(天)" DbColumnName="Str12" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="12" CustomerID="9" />
+            <Column DisplayName="异常分析" DbColumnName="Str12" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="14" >
+              <RoleID>3</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期1" DbColumnName="DateTime1" IsKey="0" IsHide="1" Type="DateTime" Order="99"  >
+            <Column DisplayName="创建时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTime" Order="3" CustomerID="1" />
+          </Column>
+          <Column DisplayName="自定义日期2" DbColumnName="DateTime2" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期3" DbColumnName="DateTime3" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+        </Table>
+        <Table Name="PodStatusLog">
+          <Column DisplayName="ID" DbColumnName="ID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="PodID" DbColumnName="PodID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="系统运单号" DbColumnName="SystemNumber" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="客户运单号" DbColumnName="CustomerOrderNumber" IsHide="1" IsKey="1" Order="1" />
+          <Column DisplayName="创建人" DbColumnName="Creator" IsHide="1" IsImportColumn="1" IsKey="1" Order="5" Type="TextBox" />
+          <Column DisplayName="创建时间" DbColumnName="CreateTime" IsKey="0" IsHide="1"  Type="DateTime" Order="99" />
+          <Column DisplayName="自定义字段1" DbColumnName="Str1" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="随车手机" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="1"/>
+            <Column DisplayName="随车手机" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="29"/>
+          </Column>
+          <Column DisplayName="新状态" DbColumnName="Str2" IsKey="0" IsHide="1" Type="TextBox" Order="3" >
+            <Column DisplayName="车牌号" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="1"/>
+            <Column DisplayName="车头牌号" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="29"/>
+          </Column>
+          <Column DisplayName="自定义字段3" DbColumnName="Str3" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="司机姓名" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="1"/>
+            <Column DisplayName="司机姓名" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="29"/>
+          </Column>
+          <Column DisplayName="自定义字段4" DbColumnName="Str4" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="车辆类型" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="1"/>
+            <Column DisplayName="车辆类型" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="29"/>
+          </Column>
+          <Column DisplayName="自定义字段5" DbColumnName="Str5" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+            <Column DisplayName="备注" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="5" CustomerID="1"/>
+            <Column DisplayName="备注" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="6" CustomerID="29"/>
+          </Column>
+          <Column DisplayName="自定义字段6" DbColumnName="Str6" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="车厢牌号" DbColumnName="Str6" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="29"/>
+          </Column>
+          <Column DisplayName="自定义字段7" DbColumnName="Str7" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定义字段8" DbColumnName="Str8" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定义字段9" DbColumnName="Str9" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+          </Column>
+          <!--给车辆信息做附件GroupID用，不要配置-->
+          <Column DisplayName="自定义字段10" DbColumnName="Str10" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="车辆照片" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="FileUpload" Order="4" CustomerID="1"/>
+          </Column>
+          <Column DisplayName="自定义日期1" DbColumnName="DateTime1" IsKey="0" IsHide="1"  Type="DateTime" Order="99" >
+          </Column>
+          <Column DisplayName="自定义日期2" DbColumnName="DateTime2" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期3" DbColumnName="DateTime3" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+        </Table>
+        <Table Name="PodFee">
+          <Column DisplayName="ID" DbColumnName="ID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="PodID" DbColumnName="PodID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="系统运单号" DbColumnName="SystemNumber" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="客户运单号" DbColumnName="CustomerOrderNumber" IsHide="1" IsKey="1" Order="1" />
+          <Column DisplayName="创建人" DbColumnName="Creator" IsHide="1" IsImportColumn="1" IsKey="1" Order="5" Type="TextBox" />
+          <Column DisplayName="创建时间" DbColumnName="CreateTime" IsKey="0" IsHide="1"  Type="DateTime" Order="99" />
+          <Column DisplayName="自定义字段1" DbColumnName="Str1" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="发车批次号" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定义字段2" DbColumnName="Str2" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="承运商" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定义字段3" DbColumnName="Str3" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="车牌号" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="3" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定义字段4" DbColumnName="Str4" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="重量(KG)" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定义字段5" DbColumnName="Str5" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+          </Column>
+          <Column DisplayName="自定义字段6" DbColumnName="Str6" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定义字段7" DbColumnName="Str7" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定义字段8" DbColumnName="Str8" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定义字段9" DbColumnName="Str9" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定义字段10" DbColumnName="Str10" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="18" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定义日期1" DbColumnName="DateTime1" IsKey="0" IsHide="1"  Type="DateTime" Order="99" >
+          </Column>
+          <Column DisplayName="自定义日期2" DbColumnName="DateTime2" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+          </Column>
+          <Column DisplayName="自定义日期3" DbColumnName="DateTime3" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+          </Column>
+          <Column DisplayName="自定义日期4" DbColumnName="DateTime4" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+          </Column>
+          <Column DisplayName="自定义日期5" DbColumnName="DateTime5" IsKey="0" IsHide="1" Type="DateTime" Order="99" >
+          </Column>
+          <Column DisplayName="自定金额1" DbColumnName="Decimal1" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="提货费(￥)(从工厂)" DbColumnName="Decimal1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="5" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定金额2" DbColumnName="Decimal2" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="提货费(￥)(从嘉托)" DbColumnName="Decimal2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定金额3" DbColumnName="Decimal3" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="卸货费(￥)" DbColumnName="Decimal3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="7" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定金额4" DbColumnName="Decimal4" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="油费" DbColumnName="Decimal4" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="8" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定金额5" DbColumnName="Decimal5" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="包车费(￥)" DbColumnName="Decimal5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="9" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定金额6" DbColumnName="Decimal6" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="起步费(￥)" DbColumnName="Decimal6" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="10" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定金额7" DbColumnName="Decimal7" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="点费(￥)" DbColumnName="Decimal7" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="12" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定金额8" DbColumnName="Decimal8" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="通行证费(￥)" DbColumnName="Decimal8" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="13" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定金额9" DbColumnName="Decimal9" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="其他费用(￥)" DbColumnName="Decimal9" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="14" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定金额10" DbColumnName="Decimal10" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="合计(￥)" DbColumnName="Decimal10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="15" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定金额11" DbColumnName="Decimal11" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="总计(￥)" DbColumnName="Decimal11" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="16" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定金额12" DbColumnName="Decimal12" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定金额13" DbColumnName="Decimal13" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定金额14" DbColumnName="Decimal14" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定金额15" DbColumnName="Decimal15" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定金额16" DbColumnName="Decimal16" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定金额17" DbColumnName="Decimal17" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定金额18" DbColumnName="Decimal18" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定金额19" DbColumnName="Decimal19" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定金额20" DbColumnName="Decimal20" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定数字1" DbColumnName="Int1" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="点数(个)" DbColumnName="Int1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="11" CustomerID="27"/>
+          </Column>
+          <Column DisplayName="自定数字2" DbColumnName="Int2" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定数字3" DbColumnName="Int3" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定是否1" DbColumnName="Bit1" IsKey="0" IsHide="1" Type="DropDownList" DefaultValue="N" Order="99" >
+          </Column>
+          <Column DisplayName="自定是否2" DbColumnName="Bit2" IsKey="0" IsHide="1" Type="DropDownList" DefaultValue="N" Order="99" >
+          </Column>
+          <Column DisplayName="自定是否3" DbColumnName="Bit3" IsKey="0" IsHide="1" Type="DropDownList" DefaultValue="N" Order="99" >
+          </Column>
+        </Table>
+        <Table Name="PodStatusTrack">
+          <Column DisplayName="ID" DbColumnName="ID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="PodID" DbColumnName="PodID" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="系统运单号" DbColumnName="SystemNumber" IsHide="1" IsKey="1" Order="99" />
+          <Column DisplayName="客户运单号" DbColumnName="CustomerOrderNumber" IsHide="1" IsKey="1" Order="1" />
+          <Column DisplayName="创建人" DbColumnName="Creator" IsHide="1" IsImportColumn="1" IsKey="1" Order="5" Type="TextBox" />
+          <Column DisplayName="创建时间" DbColumnName="CreateTime" IsKey="0" IsHide="1"  Type="DateTime" Order="99" />
+          <Column DisplayName="自定义字段1" DbColumnName="Str1" IsKey="0" IsHide="1" Type="TextBox" Order="99" >
+            <Column DisplayName="运单状态" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="1"/>
+            <Column DisplayName="运单状态" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="13"/>
+            <Column DisplayName="运单状态" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="29"/>
+            <Column DisplayName="运单状态" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="10"/>
+            <Column DisplayName="运单状态" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="2"/>
+            <Column DisplayName="运单状态" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="7"/>
+            <Column DisplayName="运单状态" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="1" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义字段2" DbColumnName="Str2" IsKey="0" IsHide="1" Type="TextBox" Order="2" >
+            <Column DisplayName="跟踪状态" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="1"/>
+            <Column DisplayName="跟踪状态" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="13"/>
+            <Column DisplayName="跟踪状态" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="29"/>
+            <Column DisplayName="跟踪状态" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="10"/>
+            <Column DisplayName="跟踪状态" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="2"/>
+            <Column DisplayName="跟踪状态" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="7"/>
+            <Column DisplayName="跟踪状态" DbColumnName="Str2" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="2" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义字段3" DbColumnName="Str3" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="当前位置" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="1"/>
+            <Column DisplayName="当前位置" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="13"/>
+            <Column DisplayName="当前位置" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="29"/>
+            <Column DisplayName="当前位置" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="10"/>
+            <Column DisplayName="当前位置" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="2"/>
+            <Column DisplayName="当前位置" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="7"/>
+            <Column DisplayName="当前位置" DbColumnName="Str3" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="4" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义字段4" DbColumnName="Str4" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="是否异常" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox" Order="5" CustomerID="1"/>
+            <Column DisplayName="是否异常" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox" Order="5" CustomerID="13"/>
+            <Column DisplayName="是否异常" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox" Order="5" CustomerID="29"/>
+            <Column DisplayName="是否异常" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox" Order="5" CustomerID="10"/>
+            <Column DisplayName="是否异常" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox" Order="5" CustomerID="2"/>
+            <Column DisplayName="是否异常" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox" Order="5" CustomerID="7"/>
+            <Column DisplayName="是否异常" DbColumnName="Str4" IsKey="0" IsHide="0" IsImportColumn="1" Type="CheckBox" Order="5" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义字段5" DbColumnName="Str5" IsKey="0" IsHide="1"  Type="TextArea" Order="99" >
+            <Column DisplayName="异常原因" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="1"/>
+            <Column DisplayName="异常原因" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="13"/>
+            <Column DisplayName="异常原因" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="29"/>
+            <Column DisplayName="异常原因" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="10"/>
+            <Column DisplayName="异常原因" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="2"/>
+            <Column DisplayName="异常原因" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="7"/>
+            <Column DisplayName="异常原因" DbColumnName="Str5" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextBox" Order="6" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义字段6" DbColumnName="Str6" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定义字段7" DbColumnName="Str7" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定义字段8" DbColumnName="Str8" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+          </Column>
+          <!--作为经纬度隐藏字段，不做配置-->
+          <Column DisplayName="自定义字段9" DbColumnName="Str9" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+          </Column>
+          <Column DisplayName="自定义字段10" DbColumnName="Str10" IsKey="0" IsHide="1"  Type="TextBox" Order="99" >
+            <Column DisplayName="备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="7" CustomerID="1"/>
+            <Column DisplayName="备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="7" CustomerID="13"/>
+            <Column DisplayName="备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="7" CustomerID="29"/>
+            <Column DisplayName="备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="7" CustomerID="10"/>
+            <Column DisplayName="备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="7" CustomerID="2"/>
+            <Column DisplayName="备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="7" CustomerID="7"/>
+            <Column DisplayName="备注" DbColumnName="Str10" IsKey="0" IsHide="0" IsImportColumn="1" Type="TextArea" Order="7" CustomerID="8"/>
+          </Column>
+          <Column DisplayName="自定义日期1" DbColumnName="DateTime1" IsKey="0" IsHide="1"  Type="DateTime" Order="99" >
+            <Column DisplayName="时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTimeWithTime" Order="3" CustomerID="1" />
+            <Column DisplayName="时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTimeWithTime" Order="3" CustomerID="13" />
+            <Column DisplayName="时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTimeWithTime" Order="3" CustomerID="29" />
+            <Column DisplayName="时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTimeWithTime" Order="3" CustomerID="10" />
+            <Column DisplayName="时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTimeWithTime" Order="3" CustomerID="2" />
+            <Column DisplayName="时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTimeWithTime" Order="3" CustomerID="7" />
+            <Column DisplayName="时间" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" Type="DateTimeWithTime" Order="3" CustomerID="8" />
+          </Column>
+          <Column DisplayName="自定义日期2" DbColumnName="DateTime2" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期3" DbColumnName="DateTime3" IsKey="0" IsHide="1" Type="DateTime" Order="99" />
+        </Table>
+      </Tables>
+    </Module>
+    <UseCustomerOrderNumber>1</UseCustomerOrderNumber>
+    <PODNumberCreator>BasicFramework.Web.Implement.AdidasCreatePodSystemNumber</PODNumberCreator>
+    <CalculateMethod></CalculateMethod>
+    <SettledPodConfigs>
+      <!--<SettledPodConfig Target="0" TargetID="1" UseNew="1" IsGroupedPods="1" InstanceName="BasicFramework.Web.Implement.SettledForAdidasInRunbowProject_New" />-->
+      <SettledPodConfig Target="0" TargetID="1" InstanceName="BasicFramework.Web.Implement.SettledForAddidasInRunbowProject" />
+      <SettledPodConfig Target="0" TargetID="2" InstanceName="BasicFramework.Web.Implement.SettledForHiltiInRunbowProject" />
+      <SettledPodConfig Target="0" TargetID="3" InstanceName="BasicFramework.Web.Implement.SettledForTotalInRunbowProject" />
+      <SettledPodConfig Target="0" TargetID="4" InstanceName="BasicFramework.Web.Implement.SettledForHaddadInRunbowProject" />
+      <SettledPodConfig Target="0" TargetID="5" InstanceName="BasicFramework.Web.Implement.SettledForOriflameInRunbowProject" />
+      <SettledPodConfig Target="0" TargetID="6" InstanceName="BasicFramework.Web.Implement.SettledForMaryKayInRunbowProject" />
+      <SettledPodConfig Target="0" TargetID="7" UseNew="1" IsGroupedPods="1" InstanceName="BasicFramework.Web.Implement.SettledForAkzoInRunbowProject_New" />
+      <SettledPodConfig Target="0" TargetID="8" InstanceName="BasicFramework.Web.Implement.SettledForNikeInRunbowProject" />
+      <SettledPodConfig Target="0" TargetID="10" UseNew="1" IsGroupedPods="1" InstanceName="BasicFramework.Web.Implement.SettledForAkzotbInRunbowProject_New" />
+      <SettledPodConfig Target="0" TargetID="13" InstanceName="BasicFramework.Web.Implement.SettledForAdidasPurchaseInRunbowProject" />
+      <SettledPodConfig Target="0" TargetID="28" InstanceName="BasicFramework.Web.Implement.SettledForHrgfgylInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="1" InstanceName="BasicFramework.Web.Implement.SettledForRBInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="2" InstanceName="BasicFramework.Web.Implement.SettledForshanxiaoWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="3" InstanceName="BasicFramework.Web.Implement.SettledForSFInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="4" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="5" InstanceName="BasicFramework.Web.Implement.SettledForhongfengWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="6" InstanceName="BasicFramework.Web.Implement.SettledForhuaqiWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="7" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="8" UseNew="1" IsGroupedPods="1" InstanceName="BasicFramework.Web.Implement.SettledForHEWLInRunbowProject_New" />
+      <SettledPodConfig Target="1" TargetID="9" InstanceName="BasicFramework.Web.Implement.SettledForJQWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="10" InstanceName="BasicFramework.Web.Implement.SettledForSFWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="11" InstanceName="BasicFramework.Web.Implement.SettledForshangshengWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="12" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="13" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="14" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="15" InstanceName="BasicFramework.Web.Implement.SettledForJYTIWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="16" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="17" InstanceName="BasicFramework.Web.Implement.SettledForMTWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="18" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="19" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="20" InstanceName="BasicFramework.Web.Implement.SettledForTKWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="21" InstanceName="BasicFramework.Web.Implement.SettledForTYWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="22" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="23" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="24" InstanceName="BasicFramework.Web.Implement.SettledForYMWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="25" InstanceName="BasicFramework.Web.Implement.SettledForDFWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="26" InstanceName="BasicFramework.Web.Implement.SettledForWJWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="27" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="28" InstanceName="BasicFramework.Web.Implement.SettledForHQWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="29" InstanceName="BasicFramework.Web.Implement.SettledForJingChuanWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="30" InstanceName="BasicFramework.Web.Implement.SettledForJMWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="31" InstanceName="BasicFramework.Web.Implement.SettledForchangxingWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="32" InstanceName="BasicFramework.Web.Implement.SettledForXBFWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="33" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="34" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="35" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="36" InstanceName="BasicFramework.Web.Implement.SettledForGSWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="37" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="38" InstanceName="BasicFramework.Web.Implement.SettledForEmsInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="39" InstanceName="BasicFramework.Web.Implement.SettledForXCSWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="40" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="41" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="42" InstanceName="BasicFramework.Web.Implement.SettledForYHWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="43" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="44" InstanceName="BasicFramework.Web.Implement.SettledForSTOInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="45" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="46" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="47" InstanceName="BasicFramework.Web.Implement.SettledForQFKDInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="49" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="50" InstanceName="BasicFramework.Web.Implement.SettledForCXWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="51" InstanceName="BasicFramework.Web.Implement.SettledForYSXFInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="52" InstanceName="BasicFramework.Web.Implement.SettledForJSYWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="53" InstanceName="BasicFramework.Web.Implement.SettledForXKWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="55" InstanceName="BasicFramework.Web.Implement.SettledForSHKXInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="56" InstanceName="BasicFramework.Web.Implement.SettledForHSWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="57" InstanceName="BasicFramework.Web.Implement.SettledForHNWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="58" InstanceName="BasicFramework.Web.Implement.SettledForTYWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="59" InstanceName="BasicFramework.Web.Implement.SettledForCDWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="60" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="61" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="62" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="63" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="64" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="65" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="66" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="67" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="68" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="69" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="70" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="71" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="72" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="73" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="74" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="75" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="76" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="77" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="78" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="79" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="80" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="81" UseNew="1" IsGroupedPods="1" InstanceName="BasicFramework.Web.Implement.SettledForSXWLInRunbowProject_New" />
+      <SettledPodConfig Target="1" TargetID="82" InstanceName="BasicFramework.Web.Implement.SettledForJQWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="83" InstanceName="BasicFramework.Web.Implement.SettledForHDWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="84" InstanceName="BasicFramework.Web.Implement.SettledForYSWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="85" InstanceName="BasicFramework.Web.Implement.SettledForNHWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="86" InstanceName="BasicFramework.Web.Implement.SettledForJCWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="87" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="88" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="89" InstanceName="BasicFramework.Web.Implement.SettledDefault" />
+      <SettledPodConfig Target="1" TargetID="90" InstanceName="BasicFramework.Web.Implement.SettledForDBWLInRunbowProject" />
+      <!--<SettledPodConfig Target="1" TargetID="91" UseNew="1" IsGroupedPods="1" InstanceName="BasicFramework.Web.Implement.SettledForCLWLInRunbowProject_New" />-->
+      <SettledPodConfig Target="1" TargetID="91" InstanceName="BasicFramework.Web.Implement.SettledForCLWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="97" InstanceName="BasicFramework.Web.Implement.SettledForLQInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="124" InstanceName="BasicFramework.Web.Implement.SettledForHFWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="125" InstanceName="BasicFramework.Web.Implement.SettledForCYWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="129" InstanceName="BasicFramework.Web.Implement.SettledForLJWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="130" InstanceName="BasicFramework.Web.Implement.SettledForJSLWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="131" InstanceName="BasicFramework.Web.Implement.SettledForJSHNWLInRunbowProject" />
+      <SettledPodConfig Target="1" TargetID="138" UseNew="1" IsGroupedPods="1" InstanceName="BasicFramework.Web.Implement.SettledForJXWLInRunbowProject_New" />
+    </SettledPodConfigs>
+  </Project>
+</Projects>

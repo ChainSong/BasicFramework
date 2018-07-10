@@ -1,0 +1,81 @@
+﻿@{
+    var ms = ViewData["menu"] as IEnumerable<BasicFramework.Entity.Menu>;
+}
+
+
+@if (ms != null && ms.Count() > 0)
+{
+    var firstMenus = ms.Where(m => m.SuperID==0).OrderBy(m => m.DisplayOrder);
+    @*<a href="#" class="visible-phone"><i class="icon icon-th"></i></a>*@
+    if (firstMenus.Count() > 0)
+    {
+        foreach (var itemFirst in firstMenus)
+        {
+            var secondMenus = ms.Where(p=>p.SuperID == itemFirst.ID).OrderBy(m => m.DisplayOrder);
+            var submenu = secondMenus.Count() > 0 ? "submenu":"";
+            <li class="@submenu">
+                <a href="javascript:void(0)"><i class="glyphicon @itemFirst.Glyphicon"></i><span>@itemFirst.Name</span></a> 
+                @{
+                    if (secondMenus.Count() > 0)
+                    {
+                        <ul>
+                            @foreach (var itemSecond in secondMenus)
+                            {
+                                var thirdMenus = ms.Where(p=>p.SuperID == itemSecond.ID).OrderBy(m => m.DisplayOrder);
+                                submenu = thirdMenus.Count() > 0 ? "submenu" : "";
+                                if(thirdMenus.Count() > 0)
+                                { 
+                                    <li class="@submenu">
+                                        <a href="javascript:void(0)" style="padding-left:40px;"><span>@itemSecond.Name</span><span class="label label-important">@thirdMenus.Count()</span></a>
+                                        @{
+                                            if (thirdMenus.Count() > 0)
+                                            {
+                                                <ul style="display:none;">
+                                                    @foreach (var itemThird in thirdMenus)
+                                                    {
+                                                        <li>
+                                                            @if (itemThird.Link.IndexOf('?') >= 0)
+                                                            { 
+                                                                <a href="@itemThird.Link&MenuID=@itemThird.ID" target="main" style="padding-left:60px"><span>@itemThird.Name</span></a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="@itemThird.Link?MenuID=@itemThird.ID" target="main" style="padding-left:60px"><span>@itemThird.Name</span></a>
+                                                            }
+                                                        </li>
+                                                     }
+                                                </ul>
+                                            }   
+                                    }
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        @if (itemSecond.Link.IndexOf('?') >= 0)
+                                        { 
+                                        <a href="@itemSecond.Link&MenuID=@itemSecond.ID" target="main" style="padding-left:40px" ><span>@itemSecond.Name</span></a>
+                                        }
+                                        else
+                                        {
+                                             <a href="@itemSecond.Link?MenuID=@itemSecond.ID" target="main" style="padding-left:40px" ><span>@itemSecond.Name</span></a>
+                                        }
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    }   
+                }
+            </li>  
+        }
+    }
+}
+
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<script src="../../../../../../../Scripts/Front/Home/layout.js"></script>

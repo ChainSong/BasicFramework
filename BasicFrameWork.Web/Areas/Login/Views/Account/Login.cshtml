@@ -1,0 +1,78 @@
+﻿@model BasicFramework.Web.Areas.Login.Models.LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><!--禁止浏览器缩放-->
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>登陆虹迪</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <link href="../../../../../../../Content/Login/Account/Login.css" rel="stylesheet" />
+</head>
+<body class="bg">
+    <div class="popMsg">
+       Loading......
+    </div>
+    <form action="/Login/Account/Login" method="post" enctype="application/x-www-form-urlencoded">
+    <div style="padding:0 5% 0 5%;">
+        <div id="mybody" class="container-fluid">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                    <div>
+                        <div>
+                            <h3 class="text-center" style="color:#fff;"><img src="../../../../../../../Image/风火轮.png" /></h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12 col-md-12 col-sm-12">
+                          <div class="input-group">
+                              <div class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
+                              <input id="txtUser" name="UserName" type="text" class="form-control" placeholder="账  号">
+                          </div>
+                      </div>
+                      
+                      <div class="col-xs-12 col-md-12 col-sm-12">
+                          <div class="input-group">
+                              <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+                              <input id="txtPwd" name="Password" type="password" class="form-control" placeholder="密  码">
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-md-12 col-sm-12">
+                          <button type="submit" class="btn btn-primary form-control" onclick="return login();">登 陆 GO</button>
+                      </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+    </div>
+    </form>
+    <div class="footer">
+         ©2015 Aden 上ICP证030173号
+    </div>
+</body>
+</html>
+<!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="../../../../../../../Scripts/Login/Account/Login.js"></script>
+
+

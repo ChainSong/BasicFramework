@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/_MyLayoutPage.cshtml";
+}
+
+<script type="text/javascript">
+
+    function ClickImg(str) {
+        $('#footerDiv').hide();
+        document.getElementById("ImgDiv").style.display = "none";
+        document.getElementById("ImgDetailDiv").style.display = "";
+        if (str == "1") {
+            document.getElementById("DDImg").src = "../img/M_3.jpg";
+        }
+        if (str == "2") {
+            document.getElementById("DDImg").src = "../img/M_1.jpg";
+        }
+        if (str == "3") {
+            document.getElementById("DDImg").src = "../img/M_2.jpg";
+        }
+        if (str == "4") {
+            document.getElementById("DDImg").src = "../img/M_4.jpg";
+        }
+
+    }
+    function HidDiv() {
+        document.getElementById("ImgDiv").style.display = "";
+        document.getElementById("ImgDetailDiv").style.display = "none";
+        $('#footerDiv').show();
+    }
+</script>
+
+<div id="ImgDiv" style="padding-top: 10%;"  class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6 col-md-6" style="text-align:center;"><img src="~/img/物流.png"  onclick="javascript:ClickImg(1);"/></div>
+        <div class="col-xs-6 col-md-6" style="text-align:center;"><img src="~/img/商贸流.png"  onclick="javascript:ClickImg(2);" /></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-6" style="text-align:center;"><img src="~/img/资金流.png"  onclick="javascript:ClickImg(3);" /></div>
+        <div class="col-xs-6 col-md-6" style="text-align:center;"><img src="~/img/信息流.png"  onclick="javascript:ClickImg(4);" /></div>
+    </div>
+</div>
+<div id="ImgDetailDiv" style="width:100%;height:100%;display:none;margin-top:-40px;"  >
+   
+        <div   style="text-align:center;"><img id="DDImg" src="~/img/M_1.jpg"  style="width:100%;height:100%;" onclick="javascript:HidDiv();" /></div>
+        
+</div>
+
+@section myCss{
+}
+
+@section myJs{
+    <script type="text/javascript">
+        window.onload = function () {
+            $("body").addClass("bg");
+        };
+
+    </script>
+}

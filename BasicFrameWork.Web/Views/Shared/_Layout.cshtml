@@ -1,0 +1,65 @@
+﻿
+@{
+    if (ViewBag.JQueryBaseJs == null)
+    {
+        ViewBag.JQueryBaseJs = true;
+    }
+    if (ViewBag.CommonJs == null)
+    {
+        ViewBag.CommonJs = true;
+    }
+    if (ViewBag.PageCssFile == null)
+    {
+        ViewBag.PageCssFile = true;
+    }
+    if (ViewBag.PageJsFile == null)
+    {
+        ViewBag.PageJsFile = true;
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <title>@ViewBag.Title</title>
+   
+    @Url.JQueryBaseJs((bool)ViewBag.JQueryBaseJs)
+    @Url.CommonJsMain((bool)ViewBag.CommonJs)
+    @RenderSection("headStart", false)
+    @Url.LoadPageCssJs((bool)ViewBag.PageCssFile, (bool)ViewBag.PageJsFile)
+    @Url.FrameworkCss("jquery.ui.all.css")
+    @Url.FrameworkJs("jquery-ui-1.8.20.min.js")
+    @Url.FrameworkJs("jquery.ui.datepicker-zh-CN.js")
+    @Url.DateTimeResource()
+    @Url.PopupJs()
+
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    @Url.CommonCssMain()
+    @RenderSection("headEnd", false)
+
+</head>
+
+<body style="background-color: #333; color:#666;">
+    <div class="page" style="background-color: #333;">
+         <div class="popMsg">
+            提示！
+        </div>
+        <div id="main" style="background-color: #333;">
+            @RenderBody()
+        </div>
+        @*<div id="footer">
+            </div>*@
+    </div>
+    @Html.Partial("MsgMask")
+    @Html.Partial("Popup")
+    @Html.Hidden("CanAdd", (string)ViewBag.CanAdd)
+    @Html.Hidden("CanEdit", (string)ViewBag.CanEdit)
+    @Html.Hidden("CanDelete", (string)ViewBag.CanDelete)
+    @Html.Hidden("CanExport", (string)ViewBag.CanExport)
+</body>
+</html>
+<script>
+    parent.document.getElementById("myIframe").style.display = "";
+</script>

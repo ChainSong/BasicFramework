@@ -1,0 +1,27 @@
+﻿.pager
+{
+	padding-top: 5px;
+	display: none;
+}
+
+.pagerSpan
+{
+	padding: 0px 2px 0px 2px;
+}
+
+.current
+{
+	padding-right: 0px;
+}
+
+.clickable
+{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.customInupt
+{
+	width: 40px !important;
+	margin: 0;
+}

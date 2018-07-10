@@ -1,0 +1,249 @@
+﻿@model BasicFramework.Web.Areas.ShipperManagement.Models.VehicleIndexViewModel
+@using (Html.BeginForm())
+{
+     @Html.HiddenFor(m => m.SearchCondition.StartBoardlotTime)
+    @Html.HiddenFor(m => m.SearchCondition.EndBoardlotTime)
+    @Html.HiddenFor(m => m.SearchCondition.StartServiceTime)
+    @Html.HiddenFor(m => m.SearchCondition.EndServiceTime)
+    <fieldset>
+        <legend>查询条件</legend>
+        <div class ="row">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>车牌号码</span></div>
+                    @Html.TextBoxFor(m => m.SearchCondition.CarNo)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>车型编码</span></div>
+                    @Html.TextBoxFor(m => m.SearchCondition.CarTypeNo)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>车身颜色</span></div>
+                    @Html.TextBoxFor(m => m.SearchCondition.CarBodyColor)
+                </div>
+            </div>
+        </div>
+           @* <tr>
+                <td class="TableColumnTitle" style="width: 11%;">车牌号码</td>
+                <td style="width: 21%;">
+                    @Html.TextBoxFor(m => m.SearchCondition.CarNo, new { @class ="form-control"})
+                  
+
+                </td>
+                <td class="TableColumnTitle" style="width: 11%;">车型编码</td>
+                <td style="width: 21%;">
+                    @Html.TextBoxFor(m => m.SearchCondition.CarTypeNo, new { @class ="form-control"})
+                    
+                </td>
+                <td class="TableColumnTitle">车身颜色</td>
+                <td>
+                    @Html.TextBoxFor(m => m.SearchCondition.CarBodyColor, new { @class ="form-control"})
+                    
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>已行驶公里数</span></div>
+                    @Html.TextBoxFor(m => m.SearchCondition.DrivedJourney)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>物流公司</span></div>
+                    @Html.TextBoxFor(m => m.SearchCondition.LogisticCompany)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>整备质量</span></div>
+                    @Html.TextBoxFor(m => m.SearchCondition.EntireCarWeight)
+                </div>
+            </div>
+        </div>
+           @* <tr>
+
+                <td class="TableColumnTitle">已行驶公里数</td>
+                <td>
+                @Html.TextBoxFor(m => m.SearchCondition.DrivedJourney, new { @class ="form-control"})
+                
+
+                <td class="TableColumnTitle" style="width: 11%;">物流公司</td>
+                <td style="width: 21%;">
+                    @Html.TextBoxFor(m => m.SearchCondition.LogisticCompany, new { @class ="form-control"})
+                   
+                </td>
+                <td class="TableColumnTitle">整备质量</td>
+                <td>
+                    @Html.TextBoxFor(m => m.SearchCondition.EntireCarWeight, new { @class ="form-control"})
+                  
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>车龄</span></div>
+                     @Html.DropDownListFor(m => m.SearchCondition.CarAge, Model.CarAge, "==请选择==")
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>号牌种类</span></div>
+                    @Html.DropDownListFor(m => m.SearchCondition.CarNumType, Model.CarNum, "==请选择==")
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>燃料种类</span></div>
+                    @Html.DropDownListFor(m => m.SearchCondition.FuelType, Model.Fuel, "==请选择==")
+                </div>
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle">车龄</td>
+                <td>
+                    @Html.DropDownListFor(m => m.SearchCondition.CarAge, Model.CarAge, "==请选择==", new { @class ="form-control",style = "width:60%"})
+
+                   
+                </td>
+                <td class="TableColumnTitle">号牌种类</td>
+                <td>
+                    @Html.DropDownListFor(m => m.SearchCondition.CarNumType, Model.CarNum, "==请选择==", new { @class ="form-control",style = "width:60%"})
+                    
+                </td>
+                <td class="TableColumnTitle">燃料种类</td>
+                <td>
+                    @Html.DropDownListFor(m => m.SearchCondition.FuelType, Model.Fuel, "==请选择==", new { @class ="form-control",style = "width:60%"})
+                    
+                </td>
+
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>生产厂家</span></div>
+                     @Html.TextBoxFor(m => m.SearchCondition.Manufacturer)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group" style ="width :100%;">
+                    <div class ="input-group-addon"><span>上牌日期</span></div>
+                     @Html.CalendarRange("BoardlotTime", "calendarRange")
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group" style ="width:100%">
+                    <div class ="input-group-addon"><span>加入虹迪服务时间</span></div>
+                     @Html.CalendarRange("ServiceTime", "calendarRange")
+                </div>
+            </div>
+        </div>
+           @* <tr>
+                <td class="TableColumnTitle">生产厂家</td>
+                <td>
+                    @Html.TextBoxFor(m => m.SearchCondition.Manufacturer, new { @class ="form-control"})
+                   
+                </td>
+                <td class="TableColumnTitle">上牌日期</td>
+                <td>
+                     @Html.CalendarRange("BoardlotTime", "calendarRange form-control")
+                   
+                </td>
+
+                <td class="TableColumnTitle">加入虹迪服务时间</td>
+                <td>
+                    @Html.CalendarRange("ServiceTime", "calendarRange form-control")
+                    
+                </td>
+
+            </tr>*@
+        @*<div class="row">
+            <div class="col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+                <input type="submit" value="查询" id="btnSearch" class="btn btn-primary" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" id="btnAdd" class="btn btn-primary AddButton" value="新增" onclick="javascript: window.location.href = '/System/User/CreateOrUpdate'" />
+            </div>
+        </div>*@
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+            <input type="submit" class="btn btn-primary" value="查询" id="searchButton" name="Action" />
+            &nbsp;&nbsp;&nbsp;
+            <input type="submit" class="btn btn-primary" value="导出" id="exportButton" name="Action" />
+            &nbsp;&nbsp;&nbsp;
+            <input type="button" class="btn btn-primary" value ="新增" id ="btnAdd" onclick="javascript:window.location.href='/ShipperManagement/Vehicle/CreateOrUpdate?ViewType=0'" />
+            
+            @*<button type="button" class="btn btn-primary" onclick="javascript:window.location.href='/ShipperManagement/VehicleManagement/VehicleToDriver'">司机分配</button>*@ 
+            </div>
+        </div>
+    </fieldset>
+
+
+    <fieldset class="myFieldset">
+        <legend class="myLegend">车辆信息列表
+        </legend>
+        <table id="vehiclesInfoTable">
+                <tr>
+                    <th>车牌<br />号码</th>
+                    <th>营运<br />证号</th>
+                    <th>车型<br />编码</th>
+                    <th>物流<br />公司</th>
+                    <th>已行驶<br />公里数</th>
+                    <th>上牌<br />日期</th>
+                    <th>号牌<br />种类</th>
+                    <th>燃料<br />种类</th>
+                    <th>车身<br />颜色</th>
+                    <th>生产<br />厂家</th>
+                    <th>加入虹迪<br />服务时间</th>
+                    <th>整备<br />质量</th>
+                    <th>车型<br />类别</th>
+                    <th>更新人</th>
+                    <th>更新<br />日期</th>
+                    <th>操作</th>
+                </tr>
+            
+            <tbody>
+                @if (Model.VehicleCollection != null && Model.VehicleCollection.Any())
+                {
+                    foreach (var item in Model.VehicleCollection)
+                    {
+                        <tr>
+                            <td><a href="/ShipperManagement/Vehicle/CreateOrUpdate?id=@item.ID&type=1"><strong>@item.CarNo</strong></a></td>
+                            <td>@item.RunNo</td>
+                            <td>@item.CarTypeNo</td>
+                            <td>@item.LogisticCompany</td>
+                            <td>@item.DrivedJourney</td>
+                            <td>@item.BoardlotDate.ToString("yyyy-MM-dd")</td>
+                            <td>@item.CarNumType</td>
+                            <td>@item.FuelType</td>
+                            <td>@item.CarBodyColor</td>
+                            <td>@item.Manufacturer</td>
+                            <td>@item.StartServiceDate.ToString("yyyy-MM-dd")</td>
+                            <td>@item.EntireCarWeight</td>
+                            <td>@item.CarType</td>
+                            <td>@item.UpdateUser</td>
+                            <td>@item.UpdateTime</td>
+                            <td>
+                               <label id="UpdateVehicle" style="cursor:pointer;" class ="btn btn-primary btn-xs EditButton" data-id="@item.ID">编辑</label>
+                               <label id="deleteVehicle" style="cursor:pointer;" class ="btn btn-primary btn-xs EditButton" data-id="@item.ID">删除</label>
+                               <label id ="VeDrMapping" style="cursor:pointer;" class ="btn btn-primary btn-xs EditButton" data-id ="@item.ID">司机分配</label>
+                            </td>
+                        </tr> 
+                    }
+
+                }
+            </tbody>
+        </table>
+      
+        @Html.Pager(Model.PageIndex, Model.PageCount, "")
+     
+    </fieldset>
+}
+

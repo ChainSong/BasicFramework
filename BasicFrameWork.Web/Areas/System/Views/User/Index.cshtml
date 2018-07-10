@@ -1,0 +1,100 @@
+﻿@model BasicFramework.Web.Areas.System.Models.UserIndexViewModel
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend class="myLegend">查询条件</legend>
+        <div class="row">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>登陆名称</span></div>
+                    @Html.TextBoxFor(model => model.User.Name)
+                </div>
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>显示名称</span></div>
+                    @Html.TextBoxFor(model => model.User.DisplayName)
+                </div>
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>使用状态</span></div>
+                    @Html.DropDownListFor(model => model.User.State, Model.States)
+                </div>
+            </div>
+
+        </div>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>用户类型</span></div>
+                    @Html.DropDownListFor(model => model.User.UserType, Model.UserTypes, "==请选择==")
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+                <input type="submit" value="查询" id="btnSearch" class="btn btn-primary" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" id="btnAdd" class="btn btn-primary AddButton" value="新增" onclick="javascript: window.location.href = '/System/User/CreateOrUpdate'" />
+            </div>
+        </div>
+    </fieldset>
+    
+    if (Model != null && Model.UserCollection != null)
+    { 
+    <fieldset class="myFieldset">
+        <legend class="myLegend">用户列表
+        </legend>
+        <table id="usersInfoTable">
+            <tr>
+                <th>登陆名称</th>
+                <th>显示名称</th>
+                <th>状态</th>
+                <th>性别</th>
+                <th>固定电话</th>
+                <th>移动电话</th>
+                <th>邮箱</th>
+                <th>用户类型</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+            <tbody>
+                @if (Model.UserCollection != null && Model.UserCollection.Any())
+                {
+                    foreach (var user in Model.UserCollection)
+                    {
+                    <tr>
+                        <td>@user.Name</td>
+                        <td>@user.DisplayName</td>
+                        <td>
+                            @Html.Raw(BasicFramework.Web.Common.ApplicationConfigHelper.GetTargetApplicationConfigName("States", user.State.ToString()))
+                        </td>
+                        <td>@user.Sex</td>
+                        <td>@user.Tel</td>
+                        <td>@user.Mobile</td>
+                        <td>@user.Email</td>
+                        <td>
+                            @Html.Raw(BasicFramework.Web.Common.ApplicationConfigHelper.GetTargetApplicationConfigName("UserType", user.UserType.ToString()))
+                        </td>
+                        <td>
+                            @user.CreateDate.ToString()
+                        </td>
+                        <td>
+                            <label id="btnEdit" style="cursor:pointer;" class="btn btn-primary btn-xs EditButton" data-id="@user.ID" onclick="javascript: window.location.href = '/System/User/CreateOrUpdate/@user.ID'">编辑</label>
+                            &nbsp;
+                            @if (user.State.Value)
+                            { 
+                                <label id="btnRoleAllocate" style="cursor:pointer;" class="btn btn-primary btn-xs EditButton" data-id="@user.ID" onclick="javascript: window.location.href = '/System/Mapping/UserRoleMapping/@user.ID'">角色分配</label>
+                            }
+
+                        </td>
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        @Html.Pager(Model.PageIndex, Model.PageCount, Model.TotalCount, "")
+    </fieldset>
+    }
+}

@@ -1,0 +1,92 @@
+﻿@model BasicFramework.MobileWeb.Models.Resource.DriverViewModel
+@{
+    ViewBag.PageTitle = "司机管理";
+    Layout = "~/Views/_MyLayoutPage.cshtml";
+}
+
+<div>
+    <input id="txt_search" type="text" class="txt_search" placeholder="输入关键字">
+    <button type="button" class="btn_search" onclick="search();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+</div>
+@if (Model.CRMDriverCollection != null && Model.CRMDriverCollection.Count() > 0)
+{
+    <div class="myList">
+        <ul class="list-group">
+            @foreach (var item in Model.CRMDriverCollection)
+            {
+                <li class="list-group-item">
+                    <a href="/Resource/DriverInfos/@item.ID" style="color: #555;">
+                        <h4><strong>@item.DriverName</strong></h4>
+                    </a>
+                    <div class="">身份证号：<span class="text-danger">@item.DriverIDCard</span></div>
+                    <div class="">
+                        出生日期：
+                        @if (@item.DriverBirthday.ToString("yyyy-MM-dd") != "0001-01-01")
+                        {
+                            <span>@item.DriverBirthday.ToString("yyyy-MM-dd")</span>
+                        }
+                        else
+                        {
+                            <span></span>
+                        }
+                    </div>
+                    <div style="">
+                       <div style="float: left">
+                            领证日期：
+                              @if (@item.DriverFirstTimeGetCardDate.ToString("yyyy-MM-dd") != "0001-01-01")
+                              {
+                                  <span>@item.DriverFirstTimeGetCardDate.ToString("yyyy-MM-dd")</span>
+                              }
+                              else
+                              {
+                                  <span></span>
+                              }
+                        </div>
+                        <div style="float: right">驾照类型：<span class="text-danger">@item.DriverCardType</span></div>
+                    </div>
+                    <br />
+                    <div style="">
+                         <div style="float: left">所属公司：<span>@item.DriverLogisticsCompany</span></div>
+                        <div style="float: right">公司联系人：<span>@item.DriverLogisticsContactPerson</span></div>
+                        
+                    </div>
+                    <br />
+                    <div style="">
+                        <div style="float: left">驾驶车辆牌号：<span class="text-danger">@item.DriverCarNo</span></div>
+                        <div style="float: right">服务区域：<span>@item.DriverServiceArea</span></div>
+                    </div>
+                    <br />
+                    <div style="">
+                        公司电话：
+                            @if (!string.IsNullOrEmpty(@item.DriverLogisticsCompanyContactPhone))
+                            {
+                                <a href="tel:@item.DriverLogisticsCompanyContactPhone" class="text-danger"><span class="glyphicon glyphicon-earphone"></span>：@item.DriverLogisticsCompanyContactPhone</a>
+                            }
+                    </div>
+                    <div style="">
+                        手机号码：
+                            @if (!string.IsNullOrEmpty(@item.DriverPhone))
+                            {
+                                <a href="tel:@item.DriverPhone" class="text-danger"><span class="glyphicon glyphicon-earphone"></span>：@item.DriverPhone</a>
+                            }
+
+                    </div>
+                    <br />
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="pageMore" onclick="getDriverMore();">
+        <div class="bg-primary">加载更多</div>
+    </div>
+
+}
+
+
+@*@section myJs{
+    <script src="~/js/Resource/Driver.js"></script>
+}*@
+
+
+

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{99059584-B657-4BAF-8D7A-1160879646DA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BasicFramework.Entity</RootNamespace>
+    <AssemblyName>BasicFramework.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application\Column.cs" />
+    <Compile Include="Application\Group.cs" />
+    <Compile Include="Application\Groups.cs" />
+    <Compile Include="Application\Module.cs" />
+    <Compile Include="Application\Project.cs" />
+    <Compile Include="Application\Projects.cs" />
+    <Compile Include="Application\SettledPodConfig.cs" />
+    <Compile Include="Application\SettledPodConfigs.cs" />
+    <Compile Include="Application\Table.cs" />
+    <Compile Include="Application\Tables.cs" />
+    <Compile Include="DataBaseEntity\AttachmentsToDb.cs" />
+    <Compile Include="DataBaseEntity\SimpleMappingToDb.cs" />
+    <Compile Include="DataBaseEntity\UserRoleMappingToDb.cs" />
+    <Compile Include="DataBaseEntity\UserToDb.cs" />
+    <Compile Include="DataBaseEntity\CRMDriverToDb.cs" />
+    <Compile Include="DataBaseEntity\CRMShipperCoopperationToDb.cs" />
+    <Compile Include="DataBaseEntity\CRMShipperTerminalInfoToDb.cs" />
+    <Compile Include="DataBaseEntity\CRMShipperToDb.cs" />
+    <Compile Include="DataBaseEntity\CRMShipperToVehicleToDb.cs" />
+    <Compile Include="DataBaseEntity\CRMShipperTransportationLineToDb.cs" />
+    <Compile Include="DataBaseEntity\CRMVehicleToDb.cs" />
+    <Compile Include="DataBaseEntity\CRMVehicleToDriverToDb.cs" />
+    <Compile Include="DataBaseEntity\DbParam.cs" />
+    <Compile Include="DataBaseEntity\ExecuteType.cs" />
+    <Compile Include="DataBaseEntity\IdsForInt32.cs" />
+    <Compile Include="DataBaseEntity\IdsForInt64.cs" />
+    <Compile Include="DataBaseEntity\RolesToDb.cs" />
+    <Compile Include="DataBaseEntity\StringsToDb.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShipperManagement\CRMCar.cs" />
+    <Compile Include="ShipperManagement\Shipper.cs" />
+    <Compile Include="ShipperManagement\ShipperCooperation.cs" />
+    <Compile Include="ShipperManagement\CRMShipperInfo.cs" />
+    <Compile Include="ShipperManagement\ShipperSearchCondition.cs" />
+    <Compile Include="ShipperManagement\ShipperTerminalInfo.cs" />
+    <Compile Include="ShipperManagement\ShipperTransportationLine.cs" />
+    <Compile Include="ShipperManagement\DriverManagement\Driver.cs" />
+    <Compile Include="ShipperManagement\DriverManagement\DriverSearchCondition.cs" />
+    <Compile Include="ShipperManagement\ShipperVehicleMapping.cs" />
+    <Compile Include="ShipperManagement\VehicleInfos.cs" />
+    <Compile Include="ShipperManagement\VehicleManagement\CRMDriverName.cs" />
+    <Compile Include="ShipperManagement\VehicleManagement\Vehicle.cs" />
+    <Compile Include="ShipperManagement\VehicleManagement\VehicleSearchCondition.cs" />
+    <Compile Include="ShipperManagement\VehicleManagement\VehicleInfo.cs" />
+    <Compile Include="ShipperManagement\VehicleManagement\VehicleDriverMapping.cs" />
+    <Compile Include="System\ApplicationConfig.cs" />
+    <Compile Include="System\Attachment.cs" />
+    <Compile Include="System\CheckedMenu.cs" />
+    <Compile Include="System\Config.cs" />
+    <Compile Include="System\LogHistory.cs" />
+    <Compile Include="System\Map.cs" />
+    <Compile Include="System\Mapping.cs" />
+    <Compile Include="System\Menu.cs" />
+    <Compile Include="System\PodType.cs" />
+    <Compile Include="System\Region.cs" />
+    <Compile Include="System\Role.cs" />
+    <Compile Include="System\User.cs" />
+    <Compile Include="System\UserRoleMapping.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BasicFramework.Common\BasicFramework.Common.csproj">
+      <Project>{a8de5d57-c805-44c0-955a-79995e3b2466}</Project>
+      <Name>BasicFramework.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Front\" />
+    <Folder Include="MobileWeb\" />
+    <Folder Include="Phone\" />
+    <Folder Include="Reports\" />
+    <Folder Include="WebApi\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,41 @@
+﻿@model BasicFramework.Web.Areas.System.Models.RoleIndexViewModel
+@Html.HiddenFor(m => m.Role.ID)
+@Html.HiddenFor(m => m.Role.CreateDate)
+@Html.Hidden("Error", (string)ViewBag.Error)
+<fieldset>
+    <legend>@ViewBag.Message</legend>
+    <div class="row">
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>角色名称 <span style="color:red;">*</span></span></div>
+                @if (Model.Role.ID != 0)
+                {
+                    @Html.TextBoxFor(model => model.Role.Name, new { @readonly = "readonly" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(model => model.Role.Name)
+                }
+            </div>
+        </div>
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>角色描述</span></div>
+                @Html.TextBoxFor(model => model.Role.Description)
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>使用状态</span></div>
+                @Html.DropDownListFor(model => model.Role.State, Model.States)
+            </div>
+        </div>
+    </div>
+
+    <div class="row col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+        <input type="button" value="提交" id="btnSubmit" class="btn btn-primary AddButton EditButton" />
+        <input type="button" value="返回" id="btnReturn" class="btn btn-primary" />
+    </div>
+</fieldset>

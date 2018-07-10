@@ -1,0 +1,87 @@
+﻿@model BasicFramework.Web.Areas.System.Models.UserIndexViewModel
+@Html.HiddenFor(m => m.User.ID)
+@Html.HiddenFor(m => m.User.CreateDate)
+@Html.Hidden("Error", (string)ViewBag.Error)
+<fieldset>
+    <legend>@ViewBag.Message</legend>
+    <div class="row">
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>登陆名称 <span style="color:red;">*</span></span></div>
+                @if (Model.User.ID != 0)
+                {
+                    @Html.TextBoxFor(model => model.User.Name, new { @readonly = "readonly" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(model => model.User.Name)
+                }
+            </div>
+        </div>
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>显示名称 <span style="color:red;">*</span></span></div>
+                @Html.TextBoxFor(model => model.User.DisplayName)
+                
+            </div>
+        </div>
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                @if (Model.User.ID == 0)
+                { 
+                <div class="input-group-addon"><span>密码 <span style="color:red;">*</span></span></div>
+                }
+                else
+                { 
+                    <div class="input-group-addon"><span>密码</span></div>
+                }
+                @Html.PasswordFor(model => model.User.Password)
+                @Html.HiddenFor(model => model.OriginalPassword)
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 30px;">
+         <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>用户类型 <span style="color:red;">*</span></span></div>
+                 @Html.DropDownListFor(model => model.User.UserType, Model.UserTypes)
+            </div>
+        </div>
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>性别</span></div>
+                @Html.DropDownListFor(model => model.User.Sex, Model.Sexs)
+            </div>
+        </div>
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>固定电话</span></div>
+                @Html.TextBoxFor(model => model.User.Tel)
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>移动电话</span></div>
+                @Html.TextBoxFor(model => model.User.Mobile)
+            </div>
+        </div>
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>电子邮件</span></div>
+                @Html.TextBoxFor(model => model.User.Email)
+            </div>
+        </div>
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>使用状态 <span style="color:red;">*</span></span></div>
+                @Html.DropDownListFor(model => model.User.State, Model.States)
+            </div>
+        </div>
+    </div>
+    <div class="row col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+        <input type="button" value="提交" id="btnSubmit" class="btn btn-primary" />
+        <input type="button" value="返回" id="btnReturn" class="btn btn-primary" />
+    </div>
+</fieldset>

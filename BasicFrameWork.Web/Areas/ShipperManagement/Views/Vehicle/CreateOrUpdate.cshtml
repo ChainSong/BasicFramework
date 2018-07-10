@@ -1,0 +1,1912 @@
+﻿@model BasicFramework.Web.Areas.ShipperManagement.Models.VehicleIndexViewModel
+@using (Html.BeginForm())
+{
+@Html.HiddenFor(m=>m.ViewType)
+ if (Model.ViewType == 1)
+ {
+      @Html.HiddenFor(m=>m.Vehicle.CarType)
+ }
+    <fieldset>
+        <legend>车辆档案</legend>
+         <div class ="row">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                @if (Model.ViewType == 0)
+                { 
+                    <div class ="input-group">
+                        <div class ="input-group-addon"><span>车牌号码 <span style ="color :red;">*</span></span></div>
+                        @Html.TextBoxFor(m=>m.Vehicle.CarNo)
+                    </div>
+                }
+                else
+                {
+                   
+                    <span style ="font-size:20px;">车牌号码 <span style ="color :red;">*</span>：@Model.Vehicle.CarNo</span>
+                    
+                    @Html.HiddenFor(m=>m.Vehicle.CarNo)
+                      
+                }
+            </div>
+
+
+             <div class ="col-xs-4 col-md-4 col-sm-12">
+                  @if(Model.ViewType==0)
+                    {
+                   
+                    <div class ="input-group">
+                     <div class ="input-group-addon"><span>营运证号 <span style ="color :red;">*</span></span></div>
+                         @Html.TextBoxFor(m=>m.Vehicle.RunNo)
+                    </div>
+                    }
+                    else
+                    {
+                     <span style ="font-size:20px;">营运证号 <span style ="color :red;">*</span>：@Model.Vehicle.RunNo</span>
+                        
+                    }
+                 </div>
+            
+             <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                     @if(Model.ViewType==0)
+                    {     
+                          <div class ="input-group">
+                     <div class ="input-group-addon"><span>车型编码 <span style ="color :red;">*</span></span></div> 
+                    @Html.TextBoxFor(m=>m.Vehicle.CarTypeNo)
+                    </div>
+                    }
+                    else
+                    {
+                         <span style ="font-size:20px;">车型编码 <span style ="color :red;">*</span>：@Model.Vehicle.CarTypeNo</span>
+                        
+                    }
+                 </div>
+             </div>
+          
+           @* <tr>
+                <td class="TableColumnTitle" style="width: 11%;">车牌号码
+                    @Html.NecessaryFlag()
+                </td>
+                <td style="width: 21%;">
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.CarNo)
+                    
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.CarNo
+                    }
+                   
+                </td>
+                <td class="TableColumnTitle" style="width: 11%;">营运证号
+                    @Html.NecessaryFlag()
+                </td>
+                <td style="width: 21%;">
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.RunNo)
+                    
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.RunNo
+                    }
+                   
+                </td>
+                <td class="TableColumnTitle" style="width: 11%;">车型编码
+                    @Html.NecessaryFlag()
+                </td>
+                <td style="width: 21%;">
+                    @if(Model.ViewType==0)
+                    {      
+                    @Html.TextBoxFor(m=>m.CRMVehicle.CarTypeNo)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.CarTypeNo
+                    }
+                    
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top:30px">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>车辆VIN <span style ="color :red;">*</span></span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.CarVin)
+                        </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">车辆VIN <span style ="color :red;">*</span>：@Model.Vehicle.CarVin</span>
+                        
+                    }
+                </div>
+             
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+               
+                    @if(Model.ViewType==0)
+                    {
+                         <div class ="input-group">
+                    <div class ="input-group-addon"><span>物流公司 <span style ="color :red;">*</span></span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.LogisticCompany)
+                    </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">物流公司 <span style ="color :red;">*</span>：@Model.Vehicle.LogisticCompany</span>
+                        
+                    }
+                
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                     @if(Model.ViewType==0)
+                    {
+                         <div class ="input-group">
+                    <div class ="input-group-addon"><span>物流公司安全专员联系电话 <span style ="color :red;">*</span></span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.SecurityContactNum)
+                    </div>
+                    }
+                    else
+                    {
+                         <span style ="font-size :20px;">物流公司安全专员联系电话 <span style ="color :red;">*</span>： @Model.Vehicle.SecurityContactNum</span>
+                       
+                    }
+                
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle">车辆VIN
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.CarVin)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.CarVin
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">物流公司
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.LogisticCompany)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.LogisticCompany
+                    }
+
+                </td>
+                <td class="TableColumnTitle">物流公司安全专员联系电话
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.SecurityContactNum)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.SecurityContactNum
+                    }
+                       
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>已行驶公里数(KM) <span style ="color :red;">*</span></span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.DrivedJourney)
+                     </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">已行驶公里数(KM) <span style ="color :red;">*</span>：@Model.Vehicle.DrivedJourney</span>
+                        
+                        
+                    }
+               
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>资质 <span style ="color :red;">*</span></span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.Qualify)
+                  </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">资质 <span style ="color :red;">*</span>：@Model.Vehicle.Qualify</span>
+                        
+                    }
+                
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>车龄 <span style ="color :red;">*</span></span></div>
+                    @Html.DropDownListFor(m=>m.Vehicle.CarAge, Model.CarAge)
+                    </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">车龄 <span style ="color :red;">*</span>：@Model.Vehicle.CarAge
+                        @Html.Raw("年")</span>
+                        
+                    }
+               
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle">已行驶公里数（KM)
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.DrivedJourney)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.DrivedJourney
+                        
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">资质
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.Qualify)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.Qualify
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">车龄
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.DropDownListFor(m=>m.CRMVehicle.CarAge, Model.CarAge)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.CarAge
+                        @Html.Raw("年")
+                    }
+                   
+                </td>
+                
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                     @if(Model.ViewType==0)
+                    {
+                         <div class ="input-group">
+                    <div class ="input-group-addon"><span>速度传感器制式 <span style ="color :red;">*</span></span></div>
+                    @Html.DropDownListFor(m=>m.Vehicle.Velocity_transducers, Model.Transducers)
+                   </div>
+                    }
+                    else
+                    {
+                         <span style ="font-size:20px;">速度传感器制式 <span style ="color :red;">*</span>：@Model.Vehicle.Velocity_transducers</span>
+                        
+                    }
+                
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>号牌种类 <span style ="color :red;">*</span></span></div>
+                    @Html.DropDownListFor(m=>m.Vehicle.CarNumType, Model.CarNum)
+                            </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">号牌种类 <span style ="color :red;">*</span>：@Model.Vehicle.CarNumType</span>
+                        
+                    }
+                
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>燃料种类 <span style ="color :red;">*</span></span></div>
+                    @Html.DropDownListFor(m=>m.Vehicle.FuelType, Model.Fuel)
+                     </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">燃料种类 <span style ="color :red;">*</span>：@Model.Vehicle.FuelType</span>
+                        
+                    }
+               
+            </div>
+        </div>
+           @* <tr>
+               <td class="TableColumnTitle">速度传感器制式
+                   @Html.NecessaryFlag()
+               </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.DropDownListFor(m=>m.CRMVehicle.Velocity_transducers, Model.Transducers)
+                   // @Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.Velocity_transducers
+                    }
+                      
+                </td>
+                <td class="TableColumnTitle">号牌种类
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.DropDownListFor(m=>m.CRMVehicle.CarNumType, Model.CarNum)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.CarNumType
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">燃料种类
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.DropDownListFor(m=>m.CRMVehicle.FuelType, Model.Fuel)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.FuelType
+                    }
+                   
+                </td>
+            </tr>*@
+        <div class ="row" style="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>车身颜色 <span style ="color :red;">*</span></span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.CarBodyColor)
+                            </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">车身颜色 <span style ="color :red;">*</span>：@Model.Vehicle.CarBodyColor</span>
+                        
+                    }
+                
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>生产厂家 <span style ="color :red;">*</span></span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.Manufacturer)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">生产厂家 <span style ="color :red;">*</span>：@Model.Vehicle.Manufacturer</span>
+                        
+                    }
+               
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                     @if(Model.ViewType==0)
+                    {
+                         <div class ="input-group">
+                    <div class ="input-group-addon"><span>整备质量(KG) <span style ="color :red;">*</span></span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.EntireCarWeight)
+                               </div>
+                    }
+                    else
+                    {
+                         <span style ="font-size:20px;">整备质量(KG) <span style ="color :red;">*</span>：@Model.Vehicle.EntireCarWeight</span>
+                        
+                        
+                    }
+              
+            </div>
+        </div>
+           @* <tr>
+                <td class="TableColumnTitle">车身颜色
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.CarBodyColor)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.CarBodyColor
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">生产厂家
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.Manufacturer)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.Manufacturer
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">整备质量（KG）
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.EntireCarWeight)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.EntireCarWeight
+                        
+                    }
+                      
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>上牌日期 <span style ="color :red;">*</span></span></div>
+                    @Html.CalendarFor(m => m.Vehicle.BoardlotDate)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size :20px;">上牌日期 <span style ="color :red;">*</span>：@Model.Vehicle.BoardlotDate.ToString("yyyy-MM-dd") </span>
+                         
+                    }
+               
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>加入虹迪服务时间 <span style ="color :red;">*</span></span></div>
+                    @Html.CalendarFor(m => m.Vehicle.StartServiceDate)
+                            </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">加入虹迪服务时间 <span style ="color :red;">*</span>： @Model.Vehicle.StartServiceDate.ToString("yyyy-MM-dd")</span>
+                       
+                    }
+                
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>保险有效截至日期 <span style ="color :red;">*</span></span></div>
+                    @Html.CalendarFor(m => m.Vehicle.InsuranceEndDate)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">保险有效截至日期 <span style ="color :red;">*</span>：@Model.Vehicle.InsuranceEndDate.ToString("yyyy-MM-dd")</span>
+                        
+                    }
+               
+            </div>
+        </div>
+           @* <tr>
+                 <td class="TableColumnTitle">上牌日期
+                     @Html.NecessaryFlag()
+                 </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.CalendarFor(m => m.CRMVehicle.BoardlotDate)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                      @Model.CRMVehicle.BoardlotDate.ToString("yyyy-MM-dd")    
+                    }
+                        
+                        
+                </td>
+                
+                <td class="TableColumnTitle">加入虹迪服务时间
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.CalendarFor(m => m.CRMVehicle.StartServiceDate)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.StartServiceDate.ToString("yyyy-MM-dd")
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">保险有效截至日期
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.CalendarFor(m => m.CRMVehicle.InsuranceEndDate)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.InsuranceEndDate.ToString("yyyy-MM-dd")
+                    }
+                       
+                </td>
+            </tr>*@
+        <div class ="row" style ="margin-top :30px">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>下次年检日期 <span style ="color :red;">*</span></span></div>
+                    @Html.CalendarFor(m => m.Vehicle.NextYearCheckDate)
+                            </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">下次年检日期 <span style ="color :red;">*</span>：@Model.Vehicle.NextYearCheckDate.ToString("yyyy-MM-dd")</span>
+                        
+                    }
+                
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                     @Html.HiddenFor(m => m.Vehicle.CarBodyPhoto)
+                     @if(Model.ViewType==0)
+                     {
+                         <div class ="input-group">
+                    <div class ="input-group-addon"><span>车辆全身照</span></div>
+                     @Html.SingleFileUpload("fileAttachmentGroupID_CarBody", "Hidden_AttachmentGroupID_CarBody", Model.Vehicle.CarBodyPhoto, false, true, false, false)
+                  </div>
+                     }
+                    else
+                    {
+                         <span style ="font-size:20px;">车辆全身照：</span>
+                         @Html.SingleFileUpload("fileAttachmentGroupID_CarBody", "Hidden_AttachmentGroupID_CarBody", Model.Vehicle.CarBodyPhoto,true , true, false, false)
+                     }  
+               
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                     @Html.HiddenFor(m => m.Vehicle.CarFrontPhoto)
+                     @if(Model.ViewType==0)
+                     {
+                         <div class ="input-group">
+                    <div class ="input-group-addon"><span>车辆正侧面照</span></div>
+                    @Html.SingleFileUpload("fileAttachmentGroupID_CarFront", "Hidden_AttachmentGroupID_CarFront", Model.Vehicle.CarFrontPhoto, false, true, false, false)  
+                         </div>
+                     }
+                    else
+                    {
+                         <span style ="font-size:20px;">车辆正侧面照：</span>
+                         @Html.SingleFileUpload("fileAttachmentGroupID_CarFront", "Hidden_AttachmentGroupID_CarFront", Model.Vehicle.CarFrontPhoto, true, true, false, false)
+                     }
+              
+            </div>
+        </div>
+           @* <tr>
+                <td class="TableColumnTitle">下次年检日期
+                    @Html.NecessaryFlag()
+                </td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.CalendarFor(m => m.CRMVehicle.NextYearCheckDate)
+                    //@Html.NecessaryFlag()
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.NextYearCheckDate.ToString("yyyy-MM-dd")
+                    }
+                        
+                </td>
+                
+                
+                <td class="TableColumnTitle">车辆全身照</td>
+                <td>
+                     @Html.HiddenFor(m => m.CRMVehicle.CarBodyPhoto)
+                     @if(Model.ViewType==0)
+                     {
+                         
+                     @Html.SingleFileUpload("fileAttachmentGroupID_CarBody", "Hidden_AttachmentGroupID_CarBody", Model.CRMVehicle.CarBodyPhoto, false, true, false, false)
+                 
+                     }
+                    else
+                    {
+                         @Html.SingleFileUpload("fileAttachmentGroupID_CarBody", "Hidden_AttachmentGroupID_CarBody", Model.CRMVehicle.CarBodyPhoto,true , true, false, false)
+                     }    
+                    
+                </td>
+                <td class="TableColumnTitle">车辆正侧面照</td>
+                <td>
+                    @Html.HiddenFor(m => m.CRMVehicle.CarFrontPhoto)
+                     @if(Model.ViewType==0)
+                     {
+                    @Html.SingleFileUpload("fileAttachmentGroupID_CarFront", "Hidden_AttachmentGroupID_CarFront", Model.CRMVehicle.CarFrontPhoto, false, true, false, false)  
+                       
+                     }
+                    else
+                    {
+                         @Html.SingleFileUpload("fileAttachmentGroupID_CarFront", "Hidden_AttachmentGroupID_CarFront", Model.CRMVehicle.CarFrontPhoto, true, true, false, false)
+                     }
+                   
+                </td>
+            </tr>*@
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                     @Html.HiddenFor(m => m.Vehicle.CarBackPhoto)
+                     @if(Model.ViewType==0)
+                     {
+                         <div class ="input-group">
+                    <div class ="input-group-addon"><span>后侧面照</span></div>
+                      @Html.SingleFileUpload("fileAttachmentGroupID_CarBack", "Hidden_AttachmentGroupID_CarBack", Model.Vehicle.CarBackPhoto, false, true, false, false)
+                       </div>
+                     }
+                    else
+                    {
+                         <span style ="font-size:20px;">后侧面照：</span>
+                         @Html.SingleFileUpload("fileAttachmentGroupID_CarBack", "Hidden_AttachmentGroupID_CarBack", Model.Vehicle.CarBackPhoto, true, true, false, false)
+                     }
+              
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                     @Html.HiddenFor(m => m.Vehicle.CarFloorPhoto)
+                     @if(Model.ViewType==0)
+                     {
+                         <div class ="input-group">
+                    <div class ="input-group-addon"><span>货箱地板照</span></div>
+                      @Html.SingleFileUpload("fileAttachmentGroupID_CarFloor", "Hidden_AttachmentGroupID_CarFloor", Model.Vehicle.CarFloorPhoto, false, true, false, false) 
+                      </div>
+                     }
+                    else
+                    {
+                         <span style ="font-size:20px;">货箱地板照：</span>
+                         @Html.SingleFileUpload("fileAttachmentGroupID_CarFloor", "Hidden_AttachmentGroupID_CarFloor", Model.Vehicle.CarFloorPhoto, true, true, false, false) 
+                     }
+               
+            </div>
+        </div>
+            @*<tr>    
+                
+                <td class="TableColumnTitle">后侧面照</td>
+                <td>
+                    @Html.HiddenFor(m => m.CRMVehicle.CarBackPhoto)
+                     @if(Model.ViewType==0)
+                     {
+                      @Html.SingleFileUpload("fileAttachmentGroupID_CarBack", "Hidden_AttachmentGroupID_CarBack", Model.CRMVehicle.CarBackPhoto, false, true, false, false)
+                     
+                     }
+                    else
+                    {
+                         @Html.SingleFileUpload("fileAttachmentGroupID_CarBack", "Hidden_AttachmentGroupID_CarBack", Model.CRMVehicle.CarBackPhoto, true, true, false, false)
+                     }
+                         
+                </td>
+                <td class="TableColumnTitle">货箱地板照</td>
+                <td>
+                   @Html.HiddenFor(m => m.CRMVehicle.CarFloorPhoto)
+                     @if(Model.ViewType==0)
+                     {
+                      @Html.SingleFileUpload("fileAttachmentGroupID_CarFloor", "Hidden_AttachmentGroupID_CarFloor", Model.CRMVehicle.CarFloorPhoto, false, true, false, false) 
+                     
+                     }
+                    else
+                    {
+                         @Html.SingleFileUpload("fileAttachmentGroupID_CarFloor", "Hidden_AttachmentGroupID_CarFloor", Model.CRMVehicle.CarFloorPhoto, true, true, false, false) 
+                     }
+                        
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-12 col-md-12 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group" @*style ="width:100%;"*@>
+                    <div class ="input-group-addon"><span>主要行驶路线</span></div>
+                    @Html.TextAreaFor(m => m.Vehicle.MainRoute, new { @style ="width:100%;font-size:20px;" })
+                            </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">主要行驶路线：@Model.Vehicle.MainRoute</span>
+                        
+                    }
+                
+             </div>
+        </div>
+           @* <tr>
+                <td class="TableColumnTitle">主要行驶路线</td>
+                <td colspan="5">
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextAreaFor(m => m.CRMVehicle.MainRoute, new { style = "width:95%", rows ="2", cols = "20"  })
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.MainRoute
+                    }
+                       
+                </td>
+            </tr>*@
+            
+
+        
+ </fieldset>
+    
+
+    <fieldset>
+        <legend>车型资料</legend>
+        <div class ="row">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>核载（吨）</span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.LoadWeight)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">核载（吨）：@Model.Vehicle.LoadWeight</span>
+                        
+                        
+                    }
+               
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+               
+                    @if(Model.ViewType==0)
+                    {
+                         <div class ="input-group">
+                    <div class ="input-group-addon"><span>核定载客（人）</span></div>  
+                    @Html.TextBoxFor(m=>m.Vehicle.LoadPerson)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">核定载客（人）：@Model.Vehicle.LoadPerson</span>
+                        
+                    }
+                
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>尺寸（长*宽*高）</span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.Size)
+                            </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">尺寸(长*宽*高)：@Model.Vehicle.Size</span>
+                        
+                    }
+                
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle" style="width: 11%;">核载（吨）</td>
+                <td style="width: 21%;">
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.LoadWeight)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.LoadWeight
+                        
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle" style="width: 11%;">核定载客（人）</td>
+                <td style="width: 21%;">
+                    @if(Model.ViewType==0)
+                    {  
+                    @Html.TextBoxFor(m=>m.CRMVehicle.LoadPerson)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.LoadPerson
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle" style="width: 11%;">尺寸（长*宽*高）</td>
+                <td style="width: 21%;">
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.Size)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.Size
+                    }
+                       
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>总质量（吨）</span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.TotalWeight)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">总质量（吨）： @Model.Vehicle.TotalWeight</span>
+                       
+                        
+                    }
+               
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>牵引总质量（吨）</span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.TractionWeight)
+                              </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">牵引总质量（吨）：@Model.Vehicle.TractionWeight</span>
+                        
+                        
+                    }
+              
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>安全带数量</span></div>
+                    @Html.DropDownListFor(m=>m.Vehicle.SafetyBeltAmount, Model.SafetyBeltAmount)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">安全带数量： @Html.Raw("&nbsp;&nbsp;")
+                        @Model.Vehicle.SafetyBeltAmount
+                        @Html.Raw("个")</span>
+                        
+                    }
+               
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle">总质量（吨）</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.TotalWeight)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.TotalWeight
+                        
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">牵引总质量（吨）</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.TractionWeight)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.TractionWeight
+                        
+                    }
+                        
+                <td class="TableColumnTitle">安全带数量</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.DropDownListFor(m=>m.CRMVehicle.SafetyBeltAmount, Model.SafetyBeltAmount)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.SafetyBeltAmount
+                        @Html.Raw("个")
+                    }
+                        
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>倒车蜂鸣器</span></div>
+                        @Html.CheckBoxFor(m=>m.Vehicle.BackUpBuzze)
+                        <label style ="font-size:20px;">有</label>
+                         </div>
+                     
+                    }
+                    else
+                    {
+                        <span style ="font-size :20px;">倒车蜂鸣器： 
+                        @Html.Raw("&nbsp;&nbsp;")
+                        @if (Model.Vehicle.BackUpBuzze == true)
+                        {
+                            <label>有</label> 
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }</span>
+                        
+                    }
+               
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>油罐车溢油保护装置</span></div>
+                        @Html.CheckBoxFor(m=>m.Vehicle.TheTankerOilSpillProtectionDevice)
+                        <label style ="font-size:20px;">有</label>
+                      </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size :20px;">油罐车溢油保护装置：
+                             @Html.Raw("&nbsp;&nbsp;")
+                        @if (Model.Vehicle.TheTankerOilSpillProtectionDevice == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                        </span>
+                        
+                    }
+              
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>防溢油工具</span></div>
+                        @Html.CheckBoxFor(m=>m.Vehicle.OilSpillPreventiontools)
+                        <label style ="font-size:20px;">有</label>
+                     </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">防溢油工具：
+                             @Html.Raw("&nbsp;&nbsp;")
+                        @if (Model.Vehicle.OilSpillPreventiontools == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                        </span>
+                        
+                    }
+               
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle">倒车蜂鸣器</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                        @Html.CheckBoxFor(m=>m.CRMVehicle.BackUpBuzze)
+                        @Html.Raw("&nbsp有")
+                     
+                    }
+                    else
+                    {
+                        if (Model.CRMVehicle.BackUpBuzze == true)
+                        {
+                            <label>有</label> 
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">油罐车溢油保护装置</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                        @Html.CheckBoxFor(m=>m.CRMVehicle.TheTankerOilSpillProtectionDevice)
+                        @Html.Raw("&nbsp有")
+                    
+                    }
+                    else
+                    {
+                        if (Model.CRMVehicle.TheTankerOilSpillProtectionDevice == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                    }
+                        
+                </td>
+                <td class="TableColumnTitle">防溢油工具</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                        @Html.CheckBoxFor(m=>m.CRMVehicle.OilSpillPreventiontools)
+                        @Html.Raw("&nbsp有")
+                    
+                    }
+                    else
+                    {
+                        if (Model.CRMVehicle.OilSpillPreventiontools == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                    }
+                       
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>反射条</span></div>
+                        @Html.CheckBoxFor(m=>m.Vehicle.ReflectBar)
+                       <label style ="font-size:20px;">有</label>
+                      </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">反射条：
+                             @Html.Raw("&nbsp;&nbsp;")
+                        @if (Model.Vehicle.ReflectBar == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                        </span>
+                       
+                    }
+               
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>高位刹车灯</span></div>
+                        @Html.CheckBoxFor(m=>m.Vehicle.HighSideStopLamps)
+                        <label style ="font-size:20px;">有</label>
+                     </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">高位刹车灯：
+                             @Html.Raw("&nbsp;&nbsp;")
+                        @if (Model.Vehicle.HighSideStopLamps == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                        </span>
+                       
+                    }
+               
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>危险品标记</span></div>
+                        @Html.CheckBoxFor(m=>m.Vehicle.DangerousMark)
+                        <label style ="font-size:20px;">有</label>
+                         </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">危险品标记：
+                             @Html.Raw("&nbsp;&nbsp;")
+                        @if (Model.Vehicle.DangerousMark == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                        </span>
+                       
+                    }
+             
+            </div>
+        </div>
+        
+           @* <tr>
+                <td class="TableColumnTitle">反射条</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                        @Html.CheckBoxFor(m=>m.CRMVehicle.ReflectBar)
+                        @Html.Raw("&nbsp有")
+                     
+                    }
+                    else
+                    {
+                        if (Model.CRMVehicle.ReflectBar == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">高位刹车灯</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                        @Html.CheckBoxFor(m=>m.CRMVehicle.HighSideStopLamps)
+                        @Html.Raw("&nbsp有")
+                    
+                    }
+                    else
+                    {
+                        if (Model.CRMVehicle.HighSideStopLamps == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">危险品标记</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                        @Html.CheckBoxFor(m=>m.CRMVehicle.DangerousMark)
+                        @Html.Raw("&nbsp有")
+                      
+                    }
+                    else
+                    {
+                        if (Model.CRMVehicle.DangerousMark == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                    }
+                       
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>后部行人保护装置</span></div>
+                        @Html.CheckBoxFor(m=>m.Vehicle.BackProtection)
+                        <label style ="font-size:20px;">有</label>
+                      </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">后部行人保护装置：
+                        @Html.Raw("&nbsp;&nbsp;")
+                        @if (Model.Vehicle.BackProtection == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                        </span>
+                        
+                    }
+              
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+               
+                    @if(Model.ViewType==0)
+                    { 
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>三点式带传感器安全带</span></div>
+                        @Html.CheckBoxFor(m=>m.Vehicle.ThreePointBelt)
+                       <label style ="font-size:20px;">有</label>
+                       </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">三点式带传感器安全带：
+                        @Html.Raw("&nbsp;&nbsp;")
+                        @if (Model.Vehicle.ThreePointBelt == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                        </span>
+                        
+                    }
+              
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>翻车保护装置</span></div>
+                        @Html.CheckBoxFor(m=>m.Vehicle.RolloverProtect)
+                        <label style ="font-size:20px;">有</label>
+                      </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size :20px;">翻车保护装置：
+                            @Html.Raw("&nbsp;&nbsp;")
+                        @if (Model.Vehicle.RolloverProtect == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                        </span>
+                        
+                    }
+               
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle">后部行人保护装置</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                        @Html.CheckBoxFor(m=>m.CRMVehicle.BackProtection)
+                        @Html.Raw("&nbsp有")
+                    
+                    }
+                    else
+                    {
+                        if (Model.CRMVehicle.BackProtection == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">三点式带传感器安全带</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                        @Html.CheckBoxFor(m=>m.CRMVehicle.ThreePointBelt)
+                        @Html.Raw("&nbsp有")
+                     
+                    }
+                    else
+                    {
+                        if (Model.CRMVehicle.ThreePointBelt == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                    }
+                     
+                </td>
+                <td class="TableColumnTitle">翻车保护装置</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                        @Html.CheckBoxFor(m=>m.CRMVehicle.RolloverProtect)
+                        @Html.Raw("&nbsp有")
+                     
+                    }
+                    else
+                    {
+                        if (Model.CRMVehicle.RolloverProtect == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                    }
+                       
+                </td>
+            </tr>*@
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>ABS</span></div>
+                        @Html.CheckBoxFor(m=>m.Vehicle.ABS)
+                        <label style ="font-size:20px;">有</label>
+                      </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size :20px;">ABS：
+                            @Html.Raw("&nbsp;&nbsp;")
+                        @if (Model.Vehicle.ABS == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                        </span>
+                        
+                    }
+               
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                     @if(Model.ViewType==0)
+                    {
+                         <div class ="input-group">
+                    <div class ="input-group-addon"><span>安全气囊数量</span></div>
+                    @Html.DropDownListFor(m=>m.Vehicle.AirbagAmount, Model.AirbagAmount)
+                              </div>
+                    }
+                    else
+                    {
+                         <span style ="font-size:20px;">安全气囊数量：
+                             @Html.Raw("&nbsp;&nbsp;")
+                        @Model.Vehicle.AirbagAmount
+                        @Html.Raw("个")
+                         </span>
+                         
+                    }
+               
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>承运范围</span></div>
+                        @Html.CheckBoxFor(m=>m.Vehicle.CarriageScope)
+                        <label style ="font-size:20px;">有</label>
+                      </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">承运范围：
+                            @Html.Raw("&nbsp;&nbsp;")
+                        @if (Model.Vehicle.CarriageScope == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                        </span>
+                        
+                    }
+               
+            </div>
+        </div>
+
+            @*<tr>
+                <td class="TableColumnTitle">ABS</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                        @Html.CheckBoxFor(m=>m.CRMVehicle.ABS)
+                        @Html.Raw("&nbsp有")
+                     
+                    }
+                    else
+                    {
+                        if (Model.CRMVehicle.ABS == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">安全气囊数量</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.DropDownListFor(m=>m.CRMVehicle.AirbagAmount, Model.AirbagAmount)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.AirbagAmount
+                        @Html.Raw("个")
+                    }
+                      
+                </td>
+                <td class="TableColumnTitle">承运范围</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                        @Html.CheckBoxFor(m=>m.CRMVehicle.CarriageScope)
+                        @Html.Raw("&nbsp有")
+                     
+                    }
+                    else
+                    {
+                        if (Model.CRMVehicle.CarriageScope == true)
+                        {
+                            <label>有</label>
+                        }
+                        else
+                        {
+                            <label>无</label>
+                        }
+                    }
+                      
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>车型类别</span></div>
+                    @Html.DropDownListFor(m=>m.Vehicle.CarType, Model.CarType,"==请选择==")   
+                             </div>                
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px; ">车型类别：
+                        
+                        @Model.Vehicle.CarType
+                        </span>
+                        
+                    }
+                </div>
+
+           
+        </div>
+           @* <tr>
+                <td class="TableColumnTitle">车型类别</td>     
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.DropDownListFor(m=>m.CRMVehicle.CarType, Model.CarType,"==请选择==")                   
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.CarType
+                    }
+                       
+                </td>
+            </tr>
+        *@
+    </fieldset>
+    
+ 
+    <fieldset id="guache" style="display:none;">
+        <legend>挂车资料</legend>
+        <div class ="row">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>挂车号牌</span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.TrailerNo)
+                            </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size :20px;">挂车号牌：@Model.Vehicle.TrailerNo</span>
+                        
+                    }
+                
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>核载（吨）</span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.TrailerLoadWeight)    
+                            </div>  
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">核载（吨）：@Model.Vehicle.TrailerLoadWeight</span>
+                        
+                    }
+                
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>尺寸</span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.TrailerSize)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">尺寸：@Model.Vehicle.TrailerSize</span>
+                        
+                    }
+               
+            </div>
+        </div>
+           @* <tr>
+                <td class="TableColumnTitle" style="width: 11%;">挂车号牌</td>
+                <td style="width: 21%;">
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.TrailerNo)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.TrailerNo
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle" style="width: 11%;">核载（吨）</td>
+                <td style="width: 21%;">
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.TrailerLoadWeight)      
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.TrailerLoadWeight
+                    }
+                     
+                </td>
+                <td class="TableColumnTitle" style="width: 11%;">尺寸</td>
+                <td style="width: 21%;">
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.TrailerSize)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.TrailerSize
+                    }
+                       
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>总质量（吨）</span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.TrailerTotalWeight)
+                              </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size :20px;">总质量（吨）：@Model.Vehicle.TrailerTotalWeight</span>
+                        
+                    }
+              
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>整备质量（吨）</span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.TrailerEntireWeight)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size :20px;">整备质量（吨）：@Model.Vehicle.TrailerEntireWeight</span>
+                        
+                    }
+               
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>车型编号</span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.TrailerTypeNo)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size :20px;">车型编号：@Model.Vehicle.TrailerTypeNo</span>
+                        
+                    }
+               
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle">总质量（吨）</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.TrailerTotalWeight)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.TrailerTotalWeight
+                    }
+                       
+                </td>
+                <td class="TableColumnTitle">整备质量（吨）</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.TrailerEntireWeight)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.TrailerEntireWeight
+                    }
+                       
+                <td class="TableColumnTitle">车型编号</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.TrailerTypeNo)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.TrailerTypeNo
+                    }
+                        
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>上牌日期</span></div>
+                    @Html.CalendarFor(m=>m.Vehicle.TrailerBoardlotDate)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size :20px;">上牌日期：@Model.Vehicle.TrailerBoardlotDate</span>
+                        
+                    }
+               
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if(Model.ViewType==0)
+                    {
+                        <div class ="input-group">
+                    <div class ="input-group-addon"><span>车辆VIN</span></div>
+                    @Html.TextBoxFor(m=>m.Vehicle.TrailerVin)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size :20px;">车辆VIN：@Model.Vehicle.TrailerVin</span>
+                        
+                    }
+               
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+               
+                    @if(Model.ViewType==0)
+                    {
+                         <div class ="input-group">
+                    <div class ="input-group-addon"><span>下次年检日期</span></div>
+                    @Html.CalendarFor(m=>m.Vehicle.TrailerNextYearCheckDate)
+                              </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size :20px;">下次年检日期：@Model.Vehicle.TrailerNextYearCheckDate</span>
+                        
+                    }
+
+               
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle">上牌日期</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.CalendarFor(m=>m.CRMVehicle.TrailerBoardlotDate)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.TrailerBoardlotDate
+                    }
+                      
+                </td>
+                <td class="TableColumnTitle">车辆VIN</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.TextBoxFor(m=>m.CRMVehicle.TrailerVin)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.TrailerVin
+                    }
+                      
+                <td class="TableColumnTitle">下次年检日期</td>
+                <td>
+                    @if(Model.ViewType==0)
+                    {
+                    @Html.CalendarFor(m=>m.CRMVehicle.TrailerNextYearCheckDate)
+                    }
+                    else
+                    {
+                        @Model.CRMVehicle.TrailerNextYearCheckDate
+                    }
+                       
+                </td>
+            </tr>*@
+      
+    </fieldset>
+    
+     <div class="row col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+        @{
+                    if (Model.ViewType==0)
+                    {
+            <input type="submit" class="btn btn-primary"  value="提交" id="submitButton" />
+              @Html.Raw("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")          
+            <input type="button" class="btn btn-primary"  value="返回" id="returnButton" />
+                    }
+                    if (Model.ViewType != 0)
+                    {
+                        <input type ="button" class ="btn btn-primary" value ="司机查看" id ="driverView" />
+            @Html.Raw("&nbsp;&nbsp;&nbsp;&nbsp;");
+            <input type="button" class="btn btn-primary"  value="返回" id="returnButton" />
+                    }
+        }
+    </div>
+                  
+                    
+}

@@ -1,0 +1,33 @@
+﻿@using BasicFramework.Common;
+
+@model DateTime?
+@{
+    var time = Model == null ? string.Empty : Model.Value.ToString("yyyy-MM-dd HH:mm");
+
+    if (Html.IsReadonly())
+    {
+        @time
+        return;
+    }
+
+    string name = (ViewData["DateTimeName_DateTimePicker"] ?? string.Empty).ToString();
+    string className = (ViewData["ClassName_DateTimePicker"] ?? string.Empty).ToString();
+
+    if (!ViewContext.Controller.ViewData.ContainsKey("DateTimePicker_DateTime"))
+    {     
+        var format = ViewBag.TimeFormat == null ? "yy-mm-dd" : (string)ViewBag.TimeFormat;
+        
+        <script type="text/javascript">
+          function ShowCalendarDateTime(txt) {
+              $(txt).datetimepicker({
+                  step: 5, format: 'Y-m-d H:i', formatDate: 'Y-m-d', allowBlank: true
+                  
+
+              }).datetimepicker('show');
+           }
+         </script>
+         ViewContext.Controller.ViewData["DateTimePicker_DateTime"] = true;
+    }
+    
+    @Html.TextBox(name, time, new { onclick = "ShowCalendarDateTime(this)", style = "cursor:pointer", @class = className })
+}

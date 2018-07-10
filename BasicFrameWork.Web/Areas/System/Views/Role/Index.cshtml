@@ -1,0 +1,85 @@
+﻿@model BasicFramework.Web.Areas.System.Models.RoleIndexViewModel
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend class="myLegend">查询条件</legend>
+        <div class="row">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>角色名称</span></div>
+                    @Html.TextBoxFor(model => model.Role.Name)
+                </div>
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>角色描述</span></div>
+                    @Html.TextBoxFor(model => model.Role.Description)
+                </div>
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>使用状态</span></div>
+                    @Html.DropDownListFor(model => model.Role.State, Model.States)
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+                <input type="submit" value="查询" id="btnSearch" class="btn btn-primary" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" id="btnAdd" class="btn btn-primary AddButton" value="新增" onclick="javascript: window.location.href = '/System/Role/CreateOrUpdate'" />
+            </div>
+        </div>
+    </fieldset>
+    if (Model != null)
+    {
+    <fieldset class="myFieldset">
+        <legend class="myLegend">角色列表</legend>
+        <table id="RoleInfoTable">
+            <tr>
+                <th>角色名称</th>
+                <th>角色描述</th>
+                <th>创建时间</th>
+                <th>角色状态</th>
+                <th>操作</th>
+            </tr>
+
+            @if (Model.RoleCollection != null)
+            {
+                foreach (var role in Model.RoleCollection)
+                {
+                <tr>
+                    <td>
+                        @role.Name
+                    </td>
+                    <td>@role.Description</td>
+                    <td>@role.CreateDate.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        @{
+                    if (role.State.HasValue && role.State.Value)
+                    {
+                            @Html.Raw("正常")
+                    }
+                    else
+                    {
+                            @Html.Raw("禁用")
+                    }
+                        }
+                    </td>
+                    <td>
+                        <label id="btnEdit" style="cursor:pointer;" class="btn btn-primary btn-xs EditButton" data-id="@role.ID" onclick="javascript: window.location.href = '/System/Role/CreateOrUpdate/@role.ID'">编辑</label>
+                        &nbsp;
+                        @if (role.State.Value)
+                        { 
+                            <label id="btnRoleMenuAllocate" style="cursor:pointer;" class="btn btn-primary btn-xs EditButton" data-id="@role.ID" onclick="javascript: window.location.href = '/System/Mapping/RoleMenuMapping/@role.ID'">分配菜单</label>
+                        }
+                    </td>
+                </tr>
+                }
+
+            }
+        </table>
+        @Html.Pager(Model.PageIndex, Model.PageCount, Model.TotalCount, "")
+    </fieldset>
+    }
+
+}   

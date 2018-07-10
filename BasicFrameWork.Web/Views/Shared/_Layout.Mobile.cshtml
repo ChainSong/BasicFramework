@@ -1,0 +1,127 @@
+﻿@{
+    if (ViewBag.JQueryBaseJs == null)
+    {
+        ViewBag.JQueryBaseJs = true;
+    }
+    if (ViewBag.CommonJs == null)
+    {
+        ViewBag.CommonJs = true;
+    }
+    if (ViewBag.PageCssFile == null)
+    {
+        ViewBag.PageCssFile = true;
+    }
+    if (ViewBag.PageJsFile == null)
+    {
+        ViewBag.PageJsFile = true;
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    @RenderSection("headStart", false)
+    @Url.JqueryMobileResource()
+    @*    @Url.LoadPageCssJs((bool)ViewBag.PageCssFile, (bool)ViewBag.PageJsFile)*@
+    @RenderSection("headEnd", false)
+    @Url.RateStarResource()
+    @RenderSection("headEnd", false)
+   @* @Url.BootStrapResource()*@
+    @*  @Url.PhoneCss("scrollbar.css")*@
+
+    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+    <style>
+        #my-page *
+        {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+
+        dl
+        {
+            font-family: "Times New Roman", Times, serif;
+            padding: 1em;
+        }
+
+        dt
+        {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+            dt span
+            {
+                font-size: .5em;
+                color: #777;
+                margin-left: .5em;
+            }
+
+        dd
+        {
+            font-size: 1.25em;
+            margin: 1em 0 0;
+            padding-bottom: 1em;
+            border-bottom: 1px solid #eee;
+        }
+
+        .back-btn
+        {
+            float: right;
+            margin: 0 2em 1em 0;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).on("pagecreate", "#my-page", function () {
+            $(document).on("swipeleft swiperight", "#my-page", function (e) {
+                // We check if there is no open panel on the page because otherwise
+                // a swipe to close the left panel would also open the right panel (and v.v.).
+                // We do this by checking the data that the framework stores on the page element (panel: open).
+                if ($(".ui-page-active").jqmData("panel") !== "open") {
+                    if (e.type === "swipeleft") {
+                        $("#right-panel").panel("open");
+                    } else if (e.type === "swiperight") {
+                        $("#left-panel").panel("open");
+                    }
+                }
+            });
+        });
+        
+    </script>
+</head>
+<body>
+    <div data-role="page" id="my-page" data-url="my-page">
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <a href="#left-panel" data-icon="bullets" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon">Open left panel</a>
+            @if (IsSectionDefined("Header"))
+            {
+                @RenderSection("Header")
+            }
+            else
+            {
+                <h1>@ViewBag.Title</h1>
+            }
+        </div>
+        <div data-role="content">  
+           
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+
+                @RenderBody()
+            </section>
+
+        </div>
+        <div data-role="panel" id="left-panel" data-theme="b">
+
+            <a href="#" data-role="button" data-icon="search" data-transition="slide" onclick="window.location('/Phone/Pod/QueryPod?Id=&Type=1')">运单管理</a>
+            <a href="#" data-role="button" data-icon="plus" data-transition="slide" onclick="window.location('/Phone/Pod/QueryPod?Id=&Type=1')">回单上传</a>
+            <a href="#" data-role="button" data-icon="delete" data-rel="close">关闭菜单</a>
+        </div>
+    </div>
+    @RenderSection("pages", required: false)
+    @RenderSection("scripts", required: false)
+</body>
+</html>

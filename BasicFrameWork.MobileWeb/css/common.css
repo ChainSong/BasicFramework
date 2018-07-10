@@ -1,0 +1,218 @@
+﻿html
+{
+	min-height:100%;
+}
+.popMsg
+{
+	z-index:999;
+	width:100%;
+	height:80px;
+	text-align:center;
+	display:none;
+	top:40px;
+	position:fixed;
+	filter: alpha(opacity=40);
+	background-color: rgb(0, 0, 0);
+	border-color: rgb(0, 0, 0);
+	border-color: rgba(0, 0, 0,0.5);
+	background-color: rgba(0, 0, 0, 0.5);
+	color:#F0AD4E;
+	line-height:80px;
+	font-size:18px;
+}
+
+.mask
+{
+	z-index:1031;
+	padding-top:50%;
+	bottom:-1px;
+	width:100%;
+	height:100%;
+	line-height:100%;
+	vertical-align:middle;
+	text-align:center;
+	display:none;
+	position:fixed;
+	filter: alpha(opacity=40);
+	background-color: rgb(0, 0, 0);
+	border-color: rgb(0, 0, 0);
+	border-color: rgba(0, 0, 0,0.5);
+	background-color: rgba(0, 0, 0, 0.5);
+	color:#F0AD4E;
+}
+
+.bg
+{
+	/*background-color:#337ab7;*//*#f0ad4e;*/
+	/*background-image:url(/img/blurred-colorful-background-2.jpg);
+	background-repeat:no-repeat;
+	background-position:center;*/
+
+	width:100%;
+	height:100%;
+
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#F0AD4E,endColorStr=#337AB7); /*IE 6 7 8*/ 
+
+	background: -ms-linear-gradient(bottom, #F0AD4E,  #337AB7);        /* IE 10 */
+
+	background:-moz-linear-gradient(top,#F0AD4E,#337AB7);/*火狐*/ 
+
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#F0AD4E), to(#337AB7));/*谷歌*/ 
+
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F0AD4E), to(#337AB7));      /* Safari 4-5, Chrome 1-9*/
+
+	background: -webkit-linear-gradient(bottom, #F0AD4E, #337AB7);  /*Safari5.1 Chrome 10+*/
+
+	background: -o-linear-gradient(top, #337AB7, #F0AD4E);  /*Opera 11.10+*/
+}
+
+.myHeader
+{
+	font-size:18px;
+}
+
+.myBody
+{
+	padding-top:60px;
+}
+
+.footer
+{
+	z-index:9;
+	/*position:relative;*/
+	bottom:50px;
+	left:0;
+	width:100%;
+	height:60px;
+	line-height:60px;
+	font-size:12px;
+	text-align:center;
+	/*color:#fff;*/
+}
+
+.txt_search
+{
+	width: 78%;
+	height: 40px;
+	padding: 6px 12px;
+	font-size: 16px;
+	line-height: 40px;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.btn_search
+{
+	background-color:#5cb85c;
+	height:40px;
+	width: 20%;
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #333;
+	background-color: #fff;
+	border-color: #ccc;
+	float:right;
+}
+
+.myList
+{
+	margin-top: 20px;
+}
+
+.myPagination
+{
+	text-align:center;
+}
+
+.pageMore
+{
+	text-align:center;
+	height:50px;
+	line-height:50px;
+	font-size:20px;
+}
+
+.list-group-item a:hover,a:active
+{
+	text-decoration:none;
+}
+
+.float_lt
+{
+	float:left;
+}
+.float_gt
+{
+	float:right;
+}
+.tb_detail
+{
+	width:100%;
+}
+.tb_detail thead tr
+{
+	height:30px;
+	padding-top:15px;
+	padding-bottom:15px;
+	font-size:20px;
+	font-weight:800;
+}
+
+.tb_detail > tbody > tr
+{
+	height:30px;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+
+.tb_detail .td_lt
+{
+	vertical-align:top;
+	padding-top:5px;
+}
+.tb_detail .td_gt
+{
+	text-align:left;
+	color:#808080;
+	width:60%;
+}
+
+.detail_title
+{
+	color:#f0ad4e;
+}
+
+.li_gt
+{
+	display: block; /*内联对象需加*/
+	width: 5em;
+	word-break: keep-all; /* 不换行 */
+	white-space: nowrap; /* 不换行 */
+	overflow: hidden; /* 内容超出宽度时隐藏超出部分的内容 */
+	text-overflow: ellipsis;
+}

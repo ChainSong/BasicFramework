@@ -1,0 +1,23 @@
+﻿
+#mybody {
+	margin-top:120px;
+}
+
+#mybody .col-xs-12
+{
+	margin-top:15px;
+}
+
+.form-control
+{
+	height:40px;
+}
+
+#mybody .panel-default
+{
+	filter: alpha(opacity=40);
+	background-color: rgb(0, 0, 0);
+	border-color: rgb(0, 0, 0);
+	border-color: rgba(0, 0, 0,0.4);
+	background-color: rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,19 @@
+﻿@Url.Json2()
+@Url.CommonJsMain()
+@Url.TreeViewResource()
+
+<script>
+    var ProjectRoleID='@ViewBag.ProjectRoleID';
+    var Url='@ViewBag.Url';
+    var Menus=@Html.Raw(ViewBag.Menus.ToString());
+</script>
+<div>
+    <span>角色名称：</span>
+    @Html.DropDownList("Role", (IEnumerable<SelectListItem>)ViewBag.Roles, "==请选择==")
+    <input id="submitProjectRoleMenu" type="button" value="提交" />
+</div>
+<fieldset>
+    <legend>菜单选择</legend>
+    <ul id="menuTree" class="ztree">
+    </ul>
+</fieldset>

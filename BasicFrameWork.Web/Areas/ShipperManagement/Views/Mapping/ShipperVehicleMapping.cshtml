@@ -1,0 +1,102 @@
+﻿@model BasicFramework.Web.Areas.ShipperManagement.Models.ShipperVehicleMappingViewModel
+@Url.jsrender()
+@Url.Json2()
+<link href='/Content/Common/Pager.css' rel='stylesheet' type='text/css' />
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>承运商车辆管理</legend>
+        <div class="row" style="float: left;">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>承运商名称 <span style="color: red;">*</span></span></div>
+                    @Html.TextBoxFor(m => m.ShipperName)
+                    @Html.HiddenFor(m => m.SID)
+                </div>
+            </div>
+        </div>
+        <div class="row" style="float: left; margin-top: 30px;">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>车牌号码</span></div>
+                    @Html.TextAreaFor(m => m.VehicleNo)
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="查询" id="searchButton" name="Action" />
+        </div>
+        <div class="row" style="margin-top: 30px; float: left;">
+            @if (Model.Vehicle != null && Model.Vehicle.Any())
+            {
+                <ul>
+                    @foreach (var item in Model.Vehicle)
+                    {
+                        if (string.IsNullOrEmpty(item.SID))
+                        {
+                        <li id="@item.CarNo" class="wrap">
+                            <span class="glyphicon glyphicon-bed " style="color: #2e6da4; font-size: 30px;">@item.CarNo</span>
+                        </li>    
+                        }
+                        else
+                        {
+                         
+                        <li id ="@item.CarNo" class="wrap">
+                            <span class="glyphicon glyphicon-bed" style="color: red; font-size: 30px;">@item.CarNo</span>
+                        </li>
+                         
+                    }
+                    }
+                </ul>
+            }
+        </div>
+
+
+    </fieldset>
+ 
+             
+
+      
+
+
+                     
+              
+                    
+
+
+          
+
+ 
+}
+
+
+
+<script id="Evaluation" type="text/x-jsrender">
+   @* <tr>
+        <td>
+            <input type="checkbox" name="checkbox" id="{{:ID}}" data-id="{{:ID}}" value="{{:CarNo}}" class="select" />
+        </td>
+        <td>{{:CarNo}}</td>
+        <td></td>
+    </tr>*@
+    if({{:SID}}.val() == "")
+    {
+        <li data-id="{{:CarNo}}">
+            <span id ="{{:ID}}"  class="glyphicon glyphicon-bed" style="color:#4cae4c; font-size: 30px;">{{:CarNo}}</span>
+        </li> 
+    }
+    else
+    {
+        <li data-id ="{{:CarNo}}">
+            <span id ="{{:ID}}"  class="glyphicon glyphicon-bed" style="color: red; font-size: 30px;">{{:CarNo}}</span>
+        </li>
+    }
+</script>
+
+
+<script id="Evaluations" type="text/x-jsrender">
+    <tr>
+        <td>
+            <input type="checkbox" name="checkbox" id="{{:CarNo}}" data-id="{{:CarNo}}" value="{{:CarNo}}" class="select" />
+        </td>
+        <td>{{:CarNo}}</td>
+    </tr>
+</script>

@@ -1,0 +1,95 @@
+﻿@model BasicFramework.MobileWeb.Models.POD.OrderManagement
+@{
+    ViewBag.PageTitle = "运单查询";
+    Layout = "~/Views/_MyLayoutPage.cshtml";
+}
+@Html.HiddenFor(m => m.PageIndex)
+@Html.HiddenFor(m=>m.PageCount)
+
+<div class="container">
+
+    <input id="txt_search" type="text" class="txt_search" placeholder="输入关键字">
+    <button type="button" class="btn_search" id="searchButton"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>@* onclick="getsearch()"*@
+    <div class="myList">
+        @if (Model.orderManagementInfo != null && Model.orderManagementInfo.Count() > 0)
+        {
+            <ul id="dataList" class="list-group">
+                @foreach (var item in Model.orderManagementInfo)
+                {
+                    <li id="@item.CustomerOrderNumber" class="list-group-item">
+                        <a href="javascript:void(0);" onclick="details('@item.CustomerOrderNumber')" style="color: #555;">
+                            <h4><strong>@item.CustomerOrderNumber</strong></h4>
+                        </a>
+                        <div class="row">
+                            <div class="col-xs-7 col-sm-6 col-md-6">
+                                <div>客户：<span class="text-danger">@item.CustomerName</span></div>
+                                <div>承运商：<span class="text-danger">@item.ShipperName</span></div>
+                                <div>实际发货时间<span class="text-danger">@item.ActualDeliveryDate</span></div>
+                                <div>
+                                    <span>目的城市：@item.EndCityName</span>
+                                    <br />
+                                    <span>箱数：@item.BoxNumber | 件数：@item.GoodsNumber</span>
+                                    <br />
+                                    <span>体积：@item.Volume | 重量：@item.Weight</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-sm-6 col-md-6">
+                                <span class="badge">
+                                    <span class="glyphicon glyphicon-globe" onclick="RouteGPS('@item.CustomerOrderNumber')">位置</span></span>
+                                <br />
+                                <span class="badge">
+                                    @*  <span class="glyphicon glyphicon-globe" onclick="RouteGPS(this)">位置</span>*@
+                                    <span class="glyphicon glyphicon-camera" onclick="Photo('@item.CustomerOrderNumber')">拍照</span></span>
+                            </div>
+                        </div>
+                    </li>
+                }
+
+            </ul> 
+        }
+    </div>
+    @if (Model.PageCount > Model.PageIndex)
+    {
+      <div class="alert alert-success text-center" role="alert" id="fo"  style="display:none">
+        <span  id="pullUpIcon" onclick="pullUpAction()" class="alert-link">加 载 更 多</span>
+     
+    </div>
+    }
+
+@section myJs{
+
+    @Url.jsrender()
+}
+<script id="Evaluation" type="text/x-jsrender">
+
+    <li id="{{:CustomerOrderNumber}}" class="list-group-item">
+        <a href="javascript:void(0);" onclick="details('{{:CustomerOrderNumber}}')" style="color: #555;">
+            <h4><strong>{{:CustomerOrderNumber}}</strong></h4>
+        </a>
+        <div class="row">
+            <div class="col-xs-7 col-sm-6 col-md-6">
+                <div>客户：<span class="text-danger">{{:CustomerName}}</span></div>
+                <div>承运商：<span class="text-danger">{{:ShipperName}}</span></div>
+                <div>实际发货时间<span class="text-danger">{{:ActualDeliveryDate}}</span></div>
+                <div>
+                    <span>目的城市：{{:EndCityName}}</span>
+                    <br />
+                    <span>箱数：{{:BoxNumber}} | 件数：{{:GoodsNumber}}</span>
+                    <br />
+                    <span>体积：{{:Volume}} | 重量：{{:Weight}}</span>
+                </div>
+            </div>
+            <div class="col-xs-5 col-sm-6 col-md-6">
+                <span class="badge">
+                     <span class="glyphicon glyphicon-globe" onclick="RouteGPS('{{:CustomerOrderNumber}}')">位置</span></span>
+                <br />
+                <span class="badge">
+                 @*   <span class="glyphicon glyphicon-globe" onclick="RouteGPS(this)">位置</span>*@
+                       <span class="glyphicon glyphicon-camera" onclick="Photo('{{:CustomerOrderNumber}}')">拍照</span> 
+                    @* <span class="glyphicon glyphicon-globe" onclick="ViewGPS(this)">查看位置</span>*@ </span>
+
+            </div>
+        </div>
+    </li>
+
+</script>

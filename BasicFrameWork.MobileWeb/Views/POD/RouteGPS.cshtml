@@ -1,0 +1,31 @@
+﻿@model BasicFramework.MobileWeb.Models.POD.OrderManagement
+@{
+    ViewBag.PageTitle = "运单查询";
+    Layout = "~/Views/_MyLayoutPage.cshtml";
+}
+@Url.MuiResource()
+@Html.HiddenFor(m => m.Info.ID)
+@Html.HiddenFor(m => m.Info.SystemNumber)
+@Html.HiddenFor(m => m.Info.CustomerOrderNumber)
+<script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Mx2E7kgLMbW0BLgkeemFkV0D"></script>
+
+<script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
+
+<div id="map" style="width: 95%; height: 70%; margin-left: auto; margin-right: auto;"></div>
+<div id="container" style="width: 95%; height: 70%; margin-left: auto; margin-right: auto; display: none"></div>
+
+<div style="width: 95%; margin-left: auto; margin-right: auto; top: 20px;">
+    <button class="mui-btn mui-btn-primary mui-btn-block" style="width: 46%" id="GetGPS" onclick="GetGPS()">
+        发送地理位置
+    </button>
+    <button class="mui-btn mui-btn-primary mui-btn-block" style="width: 48%; float: right" id="QueryGPS" onclick="QueryGPS()">
+        查看地理位置
+    </button>
+    <a href="javascript:history.go(-1)" class="mui-btn mui-btn-primary mui-btn-block" style="width: 100%; display: none;" id="ret">返回上一步</a>
+
+</div>
+
+@*<script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>*@

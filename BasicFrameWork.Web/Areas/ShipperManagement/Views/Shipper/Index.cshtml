@@ -1,0 +1,519 @@
+﻿@model BasicFramework.Web.Areas.ShipperManagement.Models.ShipperIndexViewModel
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.ShowEditButton)
+    @*<fieldset>
+        <legend>查询条件</legend>
+        <table id="conditionTable">
+            <tr>
+                <td class="TableColumnTitle">企业名称
+                </td>
+                <td style="width: 20%">
+                    @Html.TextBoxFor(m => m.ShipperSearchCondition.Name, new { @class ="form-control"})
+                </td>
+                <td class="TableColumnTitle">归属区域
+                </td>
+                <td>
+                    @Html.HiddenFor(m => m.ShipperSearchCondition.Attribution)
+                    @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "attributionID", NameKey = "attributionName", TreeKey = "attributionTreeKey" })
+                    <a id="AttributionClear" href="#">清空</a>
+                </td>
+                <td class="TableColumnTitle">注册资金
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.ShipperSearchCondition.RegisteredCapitalRange, Model.RegisteredCapital, new { @class ="form-control", style ="width:65%"})
+                </td>
+            </tr>
+            <tr>
+                <td class="TableColumnTitle">出发地
+                </td>
+                <td>
+                    @Html.HiddenFor(m => m.SearchCondition.StartPlaceIDs)
+                    @Html.HiddenFor(m => m.SearchCondition.StartPlaceNames)
+                    @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "startPlaceID", NameKey = "startPlaceName", TreeKey = "startPlaceTreeKey" })
+                    <a id="StartPlaceClear" href="#">清空</a>
+                </td>
+                <td class="TableColumnTitle">目的地
+                </td>
+                <td>
+                    @Html.HiddenFor(m => m.SearchCondition.EndPlaceIDs)
+                    @Html.HiddenFor(m => m.SearchCondition.EndPlaceNames)
+                    @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "endPlaceID", NameKey = "endPlaceName", TreeKey = "endPlaceTreeKey" })
+                    <a id="EndPlaceClear" href="#">清空</a>
+                </td>
+                <td class="TableColumnTitle">覆盖范围
+                </td>
+                <td>
+                    @Html.HiddenFor(m => m.SearchCondition.CoverRegionIDs)
+                    @Html.HiddenFor(m => m.SearchCondition.CoverRegionNames)
+                    @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "coverRegionID", NameKey = "coverRegionName", TreeKey = "coverRegionTreeKey" })
+                    <a id="CoverRegionClear" href="#">清空</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="TableColumnTitle">年营业额
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.SearchCondition.AnnualTurnoverRange, Model.AnnualTurnover, new { @class ="form-control"})
+                </td>
+                <td class="TableColumnTitle">运输方式
+                </td>
+                <td colspan="3">
+                    @Html.CheckBoxListFor(
+                        m => m.PostedTransportModes,
+                        m => m.TransportModes,
+                        m => m.Value,
+                        m => m.Text,
+                        m => m.SelectedTransportModes)
+                </td>
+            </tr>
+            <tr>
+                <td class="TableColumnTitle">干线车辆类型
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.SearchCondition.TrunkOfVehicleType, Model.TrunkOfVehicleTypes, new { @class ="form-control"})
+                </td>
+                <td class="TableColumnTitle">产品类型
+                </td>
+                <td colspan="3">
+                    @Html.CheckBoxListFor(
+                        m => m.PostedProductTypes,
+                        m => m.ProductTypes,
+                        m => m.Value,
+                        m => m.Text,
+                        m => m.SelectedProductTypes)
+                </td>
+            </tr>
+            <tr>
+                <td class="TableColumnTitle">发车频次(车/天)
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.SearchCondition.FrequencyOfDeparture, Model.FrequencyOfDepartures, new { @class ="form-control"})
+                </td>
+                <td class="TableColumnTitle">干线车辆(辆)
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.SearchCondition.TrunkOfVehicleRange, Model.TrunkOfVehicles, new { @class ="form-control"})
+                </td>
+                <td class="TableColumnTitle">提货车辆(辆)
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.SearchCondition.DeliveryOfVehicleRange, Model.TrunkOfVehicles, new { @class ="form-control"})
+                </td>
+            </tr>
+            <tr>
+                <td class="TableColumnTitle">仓库面积(㎡)
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.SearchCondition.WarehouseAreaRange, Model.WarehouseAreas, new { @class ="form-control"})
+                </td>
+                <td class="TableColumnTitle">推荐星级
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.SearchCondition.Recommended, Model.Recommendeds, new { @class ="form-control"})
+                </td>
+                <td class="TableColumnTitle">合作类型
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.SearchCondition.PartnerShipType, Model.PartnerShipTypes, new { @class ="form-control"})
+                </td>
+            </tr>
+            <tr>
+                <td class="TableColumnTitle">关键字检索
+                </td>
+                <td colspan="5">
+                    @Html.TextBoxFor(m => m.SearchCondition.KeyWord, new { @class ="form-control",style="width:100%"})
+                </td>
+            </tr>
+        </table>
+        <div class="actionButtonDiv">
+            <input type="submit" class="btn btn-success" value="查询" id="searchButton" name="Action"/>
+            &nbsp;&nbsp;&nbsp;
+            <input type="submit" class="btn btn-success" value="导出" id="exportButton" name="Action"/>
+            &nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-success" onclick="javascript:window.location.href='/ShipperManagement/ShipperManagement/Create?ViewType=1'">新增</button>
+            &nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-success" onclick="javascript:window.location.href='/ShipperManagement/ShipperManagement/ShipperToVehicle'">车辆分配</button>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>承运商列表
+            @if (Model.CRMShipperCollection != null && Model.CRMShipperCollection.Any())
+            {
+                @Html.Raw("(" + Model.CRMShipperCollection.Count() + ")");
+            }
+        </legend>
+        <table id="resultTable">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>法人<br />
+                        代表</th>
+                    <th>负责人</th>
+                    <th>归属<br />
+                        区域</th>
+                    <th>注册<br />
+                        资金</th>
+                    <th>年营<br />
+                        业额</th>
+                    <th>运输<br />
+                        方式</th>
+                    <th>车辆<br />
+                        类型</th>
+                    <th>干线<br />
+                        车辆</th>
+                    <th>提货<br />
+                        车辆</th>
+                    <th>仓库<br />
+                        面积</th>
+                    <th>合作<br />
+                        类型</th>
+                    <th>评分<br />
+                        指数</th>
+                    <th>推荐<br />
+                        指数</th>
+                    <th>更新<br />
+                        日期</th>
+                    <th>更新人</th>
+                    @if (Model.ShowEditButton)
+                    {
+                        <th>操作</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.CRMShipperCollection != null && Model.CRMShipperCollection.Any())
+                {
+                    foreach (var crmShipper in Model.CRMShipperCollection)
+                    {
+                        string color = string.Empty;
+                        string tdColor = string.Empty;
+                        DateTime validPeriod;
+                        if (DateTime.TryParse(crmShipper.ValidityPeriod, out validPeriod))
+                        {
+                            color = (DateTime.Now > validPeriod) ? "red" : "";
+
+                            if (string.IsNullOrEmpty(color))
+                            {
+                                color = (DateTime.Now.AddDays(30) > validPeriod) ? "yellow" : "";
+                            }
+
+                        }
+
+
+                        tdColor = (DateTime.Now.AddDays(-180) > crmShipper.UpdateTime.Value) ? "gray" : "";
+                       
+                    <tr style="background-color:@color">
+                        <td style="background-color:@tdColor;">
+                            <a href="/ShipperManagement/ShipperManagement/Create/@crmShipper.ID">@crmShipper.Name</a>
+                        </td>
+                        <td>
+                            @crmShipper.LegalRepresentative
+                        </td>
+                        <td>
+                            @crmShipper.PersonInCharge
+                        </td>
+                        <td>
+                            @crmShipper.Attribution
+                        </td>
+                        <td>
+                            @crmShipper.RegisteredCapitalRange
+                        </td>
+                        <td>
+                            @crmShipper.AnnualTurnoverRange
+                        </td>
+                        <td>
+                            @crmShipper.TransportMode
+                        </td>
+                        <td>
+                            @crmShipper.TrunkOfVehicleType
+                        </td>
+                        <td>
+                            @crmShipper.TrunkOfVehicleRange
+                        </td>
+                        <td>
+                            @crmShipper.DeliveryOfVehicleRange
+                        </td>
+                        <td>
+                            @crmShipper.WarehouseAreaRange
+                        </td>
+                        <td>
+                            @crmShipper.PartnershipTypes
+                        </td>
+                        <td>
+                            @crmShipper.Rating
+                        </td>
+                        <td>
+                            @crmShipper.Recommended
+                        </td>
+                        <td>
+                            @crmShipper.UpdateTime.Value.ToString("yyyy-MM-dd")
+                        </td>
+                        <td>
+                            @crmShipper.Updator
+                        </td>
+                        @if (Model.ShowEditButton)
+                        {
+                            <td>
+                                <a id="editCRMShipper" class="editCRMShipper" data-id="@crmShipper.ID" href="/ShipperManagement/ShipperManagement/Create/@crmShipper.ID?ViewType=2">编辑</a>
+                            </td>
+                        }
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        @Html.Pager(Model.PageIndex, Model.PageCount, "")
+    </fieldset>*@
+    
+    <fieldset>
+        <legend class ="myLegend">查询条件</legend>
+        <div class ="row">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>企业名称</span></div>
+                    @Html.TextBoxFor(model => model.ShipperSearchCondition.Name)
+                </div>
+             </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>归属区域</span></div>
+                    @Html.HiddenFor(model => model.ShipperSearchCondition.Attribution)
+                    @Html.RegionSelector( new BasicFramework.Web.Models.RegionSelector() { IDKey = "attributionID", NameKey = "attributionName", TreeKey = "attributionTreeKey" })
+                    <a id="AttributionClear" href="#">清空</a>
+                </div>
+             </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>注册资金</span></div>
+                    @Html.DropDownListFor(model => model.ShipperSearchCondition.RegisteredCapitalRange, Model.RegisteredCapital) 
+                    @*@Html.TextBoxFor(model => model.ShipperSearchCondition.RegisteredCapitalRange, new { @style ="width:45%"})*@
+                </div>
+             </div>
+
+        </div>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>出发地</span></div>
+                    @Html.HiddenFor(model => model.ShipperSearchCondition.StartPlaceIDs)
+                    @Html.HiddenFor(model => model.ShipperSearchCondition.StartPlaceNames)
+                    @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "startPlaceID", NameKey = "startPlaceName", TreeKey = "startPlaceTreeKey" })
+                    <a id="StartPlaceClear" href="#">清空</a>
+                </div>
+             </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>目的地</span></div>
+                    @Html.HiddenFor(m => m.ShipperSearchCondition.EndPlaceIDs)
+                    @Html.HiddenFor(m => m.ShipperSearchCondition.EndPlaceNames)
+                    @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "endPlaceID", NameKey = "endPlaceName", TreeKey = "endPlaceTreeKey" })
+                    <a id="EndPlaceClear" href="#">清空</a>
+                </div>
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>覆盖范围</span></div>
+                    @Html.HiddenFor(m => m.ShipperSearchCondition.CoverRegionIDs)
+                    @Html.HiddenFor(m => m.ShipperSearchCondition.CoverRegionNames)
+                    @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "coverRegionID", NameKey = "coverRegionName", TreeKey = "coverRegionTreeKey" })
+                    <a id="CoverRegionClear" href="#">清空</a>
+                </div>
+            </div>
+        </div>
+        <div class ="row" style ="margin-top: 30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>年营业额</span></div>
+                    @Html.DropDownListFor(model => model.ShipperSearchCondition.AnnualTurnoverRange, Model.AnnualTurnover)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12" style ="width:65%;">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>运输方式</span></div>
+                    @Html.CheckBoxListFor(
+                        model => model.PostedTransportModes,
+                        model => model.TransportModes,
+                        model => model.Value,
+                        model => model.Text,
+                        model => model.SelectedTransportModes)
+                </div>
+            </div>
+        </div>
+        <div class ="row" style ="margin-top: 30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>干线车辆类型</span></div>
+                    @Html.DropDownListFor(m => m.ShipperSearchCondition.TrunkOfVehicleType, Model.TrunkOfVehicleTypes)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12" style ="width:65%">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>产品类型</span></div>
+                    @Html.CheckBoxListFor(
+                        m => m.PostedProductTypes,
+                        m => m.ProductTypes,
+                        m => m.Value,
+                        m => m.Text,
+                        m => m.SelectedProductTypes)
+                </div>
+            </div>
+        </div>
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-addon"><span>发车频次(车/天)</span></div>
+                     @Html.DropDownListFor(m => m.ShipperSearchCondition.FrequencyOfDeparture, Model.FrequencyOfDepartures)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>干线车辆(辆)</span></div>
+                    @Html.DropDownListFor(m => m.ShipperSearchCondition.TrunkOfVehicleRange, Model.TrunkOfVehicles)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>提货车辆(辆)</span></div>
+                    @Html.DropDownListFor(m => m.ShipperSearchCondition.DeliveryOfVehicleRange, Model.TrunkOfVehicles)
+                </div>
+            </div>
+        </div>
+        <div class ="row" style ="margin-top :30px">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>仓库面积(㎡)</span></div>
+                    @Html.DropDownListFor(model => model.ShipperSearchCondition.WarehouseAreaRange,Model.WarehouseAreas)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>推荐星级</span></div>
+                    @Html.DropDownListFor(m => m.ShipperSearchCondition.Recommended, Model.Recommendeds)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>合作类型</span></div>
+                    @Html.DropDownListFor(m => m.ShipperSearchCondition.PartnerShipType, Model.PartnerShipTypes)
+                </div>
+            </div>
+        </div>
+        <div class ="row" style ="margin-top :30px">
+            <div class ="col-xs-4 col-md-4 col-sm-12" style ="width:100%;">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>关键字检索</span></div>
+                     @Html.TextBoxFor(m => m.ShipperSearchCondition.KeyWord)
+                </div>
+            </div>
+        </div>
+        <div class ="row">
+            <div class ="col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+                <input type ="submit" value ="查询" id ="searchButton" class ="btn btn-primary" name="Action"/>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type ="submit" value ="导出" id ="exportButton" class ="btn btn-primary" name="Action"/>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type ="button" value ="新增" id ="btnAdd" class ="btn btn-primary AddButton" onclick ="javascript: window.location.href = '/ShipperManagement/Shipper/CreateOrUpdate?ViewType=1'" />
+
+                
+            </div> 
+        </div>
+    </fieldset>
+    
+  
+        <fieldset class="myFieldset">
+            <legend class="myLegend">用户列表
+            </legend>
+            <table id="shippersInfoTable">
+                <tr>
+                    <th>名称</th>
+                    <th>法人<br />代表</th>
+                    <th>负责人</th>
+                    <th>归属<br />区域</th>
+                    <th>注册<br />资金</th>
+                    <th>年营<br />业额</th>
+                    <th>运输<br />方式</th>
+                    <th>车辆<br />类型</th>
+                    <th>干线<br />车辆</th>
+                    <th>提货<br />车辆</th>
+                    <th>仓库<br />面积</th>
+                    <th>合作<br />类型</th>
+                    <th>评分<br />指数</th>
+                    <th>推荐<br />指数</th>
+                    <th>更新<br />日期</th>
+                    <th>更新人</th>
+                    <th>操作</th>
+                </tr>
+                <tbody>
+                    @if(Model.ShipperCollection != null && Model.ShipperCollection.Any())
+                    {
+                        foreach(var shipper in Model.ShipperCollection)
+                        {
+                        <tr>
+                            <td>  
+                            <a href="/ShipperManagement/Shipper/CreateOrUpdate?id=@shipper.ID&ViewType=0"><strong>@shipper.Name</strong></a>
+                             </td>
+                             <td>
+                                 @shipper.LegalRepresentative
+                             </td>
+                             <td>
+                                 @shipper.PersonInCharge
+                             </td>
+                             <td>
+                                 @shipper.Attribution
+                             </td>
+                             <td>
+                                 @shipper.RegisteredCapitalRange
+                             </td>
+                             <td>
+                                 @shipper.AnnualTurnoverRange
+                             </td>
+                             <td>
+                                 @shipper.TransportMode
+                             </td>
+                             <td>
+                                 @shipper.TrunkOfVehicleType
+                             </td>
+                             <td>
+                                 @shipper.TrunkOfVehicleRange
+                             </td>
+                             <td>
+                                 @shipper.DeliveryOfVehicleRange
+                             </td>
+                             <td>
+                                 @shipper.WarehouseAreaRange
+                             </td>
+                             <td>
+                                 @shipper.PartnershipTypes
+                             </td>
+                             <td>
+                                 @shipper.Rating
+                             </td>
+                             <td>
+                                 @shipper.Recommended
+                             </td>
+                             <td>
+                                 @shipper.UpdateTime.Value.ToString("yyyy-MM-dd")
+                             </td>
+                             <td>
+                                 @shipper.Updator
+                             </td>
+                             <td>
+                                 <label id="btnEdit" style="cursor:pointer;" class="btn btn-primary btn-xs EditButton" data-id="@shipper.ID" @*onclick="javascript: window.location.href = '/ShipperManagement/Shipper/CreateOrUpdate/@shipper.ID'"*@>编辑</label>
+                                  <label id ="deleteCRMShipper" style="cursor:pointer;" class="btn btn-primary btn-xs EditButton" data-id="@shipper.ID">删除</label>
+                                 
+                                 <label id="btnVehicleAllocate" style="cursor:pointer;" class ="btn btn-primary btn-xs EditButton" data-id ="@shipper.ID" data-name ="@shipper.Name">车辆分配</label>
+                             </td>
+                         </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+             @Html.Pager(Model.PageIndex, Model.PageCount, Model.PageCount, "")
+        </fieldset>
+      
+    
+}
+
+
+

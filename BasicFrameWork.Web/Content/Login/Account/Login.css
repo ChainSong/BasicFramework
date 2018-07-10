@@ -1,0 +1,138 @@
+﻿/*html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: Verdana, Helvetica, Sans-Serif;
+}
+
+body {
+    background-color: #555555;
+}
+
+#box {
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    background-color: #555555;
+}
+
+#footer {
+    background-color: #555555;
+}
+
+#BoxDv {
+    width: 940px;
+    height: 528px;
+    border: #008000;
+    background-image: url('../../../Image/login.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: left;
+}
+
+#loginDv {
+    width: 400px;
+    height: 250px;
+    position: relative;
+    left: 600px;
+    top: 150px;
+}
+
+ul {
+    list-style-type: none;
+}*/
+
+
+
+html
+{
+	min-height:100%;
+}
+.popMsg
+{
+	z-index:999;
+	width:100%;
+	height:80px;
+	text-align:center;
+	display:none;
+	top:40px;
+	position:fixed;
+	filter: alpha(opacity=40);
+	background-color: rgb(0, 0, 0);
+	border-color: rgb(0, 0, 0);
+	border-color: rgba(0, 0, 0,0.5);
+	background-color: rgba(0, 0, 0, 0.5);
+	color:#F0AD4E;
+	line-height:80px;
+	font-size:18px;
+}
+
+.bg
+{
+	/*background-color:#337ab7;*//*#f0ad4e;*/
+	/*background-image:url(/img/blurred-colorful-background-2.jpg);
+	background-repeat:no-repeat;
+	background-position:center;*/
+
+	width:100%;
+	height:100%;
+
+	/*FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#222,endColorStr=#666); IE 6 7 8*/ 
+	background-color:#666;
+
+	background: -ms-linear-gradient(bottom, #222, #666);        /* IE 10 */
+
+	background:-moz-linear-gradient(top,#222,#666);/*火狐*/ 
+
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#222), to(#666));/*谷歌*/ 
+
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#666));      /* Safari 4-5, Chrome 1-9*/
+
+	background: -webkit-linear-gradient(bottom, #222, #666);  /*Safari5.1 Chrome 10+*/
+
+	background: -o-linear-gradient(top, #222, #666);  /*Opera 11.10+*/
+}
+
+
+.footer
+{
+	z-index:9;
+	/*position:relative;*/
+	bottom:50px;
+	left:0;
+	width:100%;
+	height:60px;
+	line-height:60px;
+	font-size:12px;
+	text-align:center;
+	color:#eea236;
+}
+
+
+#mybody {
+	margin-top:120px;
+	margin-left:30%;
+	margin-right:30%;
+	margin-bottom:50px;
+}
+
+#mybody .col-xs-12
+{
+	margin-top:15px;
+}
+
+.form-control
+{
+	height:40px;
+}
+
+#mybody .panel-default
+{
+	filter: alpha(opacity=40);
+	background-color: rgb(0, 0, 0);
+	border-color: rgb(0, 0, 0);
+	border-color: rgba(0, 0, 0,0.4);
+	background-color: rgba(0, 0, 0, 0.4);
+}

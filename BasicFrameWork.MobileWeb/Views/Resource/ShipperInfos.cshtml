@@ -1,0 +1,496 @@
+﻿@{
+    ViewBag.PageTitle = "承运商信息";
+    Layout = "~/Views/_MyLayoutPage.cshtml";
+}
+@model BasicFramework.MobileWeb.Models.Resource.ShipperInfosModel
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <h3 class="detail_title"><strong>基础信息</strong></h3>
+        <table class="tb_detail">
+            <tbody>
+                <tr>
+                    <td class="td_lt"><strong>企业名称</strong></td>
+                    <td class="td_gt">@Model.Shipper.Name</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>法    人</strong></td>
+                    <td class="td_gt">@Model.Shipper.LegalRepresentative</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>法人联系方式</strong></td>
+                    <td class="td_gt">@Model.Shipper.LegalRepresentativeConta</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>归属区域</strong></td>
+                    <td class="td_gt">@Model.Shipper.Attribution</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>负 责 人</strong></td>
+                    <td class="td_gt">@Model.Shipper.PersonInCharge</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>负责人电话</strong></td>
+                    <td class="td_gt">@Model.Shipper.PersonInChargeContact</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>运输方式</strong></td>
+                    <td class="td_gt">@Model.Shipper.TransportMode</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>注册资金</strong></td>
+                    <td class="td_gt">
+                        @Model.Shipper.RegisteredCapital
+                        @Html.Raw("万元")
+                        @Html.Raw("&nbsp;&nbsp")
+                        @Model.Shipper.RegisteredCapitalRange</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>年营业额</strong></td>
+                    <td class="td_gt">
+                        @Model.Shipper.AnnualTurnover
+                        @Html.Raw("万元")
+                        @Html.Raw("&nbsp;&nbsp")
+                        @Model.Shipper.AnnualTurnoverRange</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>合作项目</strong></td>
+                    <td class="td_gt">@Model.Shipper.Str2</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>合同开始日</strong></td>
+                    <td class="td_gt">
+                        @if (Model.Shipper.DateTime1.HasValue)
+                        {
+                            @Model.Shipper.DateTime1.Value.ToString("yyyy-MM-dd") 
+                        }</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>合同结束日</strong></td>
+                    <td class="td_gt">
+                        @if (Model.Shipper.DateTime2.HasValue)
+                        {
+                            @Model.Shipper.DateTime2.Value.ToString("yyyy-MM-dd") 
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>实际终止合同日</strong></td>
+                    <td class="td_gt">
+                        @if (Model.Shipper.DateTime3.HasValue)
+                        {
+                            @Model.Shipper.DateTime3.Value.ToString("yyyy-MM-dd") 
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>六证</strong></td>
+                    <td class="td_gt">@Model.Shipper.SixCard</td>
+                </tr>
+                @if (Model.Shipper.Url != "")
+                {
+                    //string url = "http://192.168.10.104:8099/Pictrue/" + @Model.CRMShipper.Url.Substring(9).Replace('\\', '/');
+                    string url = "http://www.runbow.com.cn:8080/Picture" + @Model.Shipper.Url.Substring(9).Replace('\\', '/');
+                    <tr>
+                        <td class="td_lt"><strong>六证图片</strong></td>
+                        <td class="td_gt">
+                            <img src="@url" height="20px" width="20px"/></td>
+                    </tr>
+                }
+                <tr>
+                    <td class="td_lt"><strong>前端地址</strong></td>
+                    <td class="td_gt">@Model.Shipper.FrontEndAddress</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>办公面积</strong></td>
+                    <td class="td_gt">
+                        @Model.Shipper.OfficeArea
+                        @Html.Raw("㎡")
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>仓库面积</strong></td>
+                    <td class="td_gt">
+                        @Model.Shipper.WarehouseArea
+                        @Html.Raw("㎡")
+                        @Html.Raw("&nbsp;&nbsp")
+                        @Model.Shipper.WarehouseAreaRange
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>员工人数</strong></td>
+                    <td class="td_gt">
+                        @Model.Shipper.NumberOfEmployees
+                        @Html.Raw("人")
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>客服人数</strong></td>
+                    <td class="td_gt">
+                        @Model.Shipper.NumberOfCustomerService
+                        @Html.Raw("人")
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>装卸人数</strong></td>
+                    <td class="td_gt">
+                        @Model.Shipper.NumberOfStevedores
+                        @Html.Raw("人")
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>叉车数量</strong></td>
+                    <td class="td_gt">
+                        @Model.Shipper.ForkliftsUsage
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>装卸平台</strong></td>
+                    <td class="td_gt">
+                        @Model.Shipper.LoadingPlatform
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>车辆是否有GPS</strong></td>
+                    <td class="td_gt">@Model.Shipper.Str1</td>
+                </tr>
+            </tbody>
+        </table>
+    </li>
+    <li class="list-group-item">
+        <h3 class="detail_title"><strong>终端地址信息</strong></h3>
+        @if (Model.CRMShipperTerminalInfoCollection != null && Model.CRMShipperTerminalInfoCollection.Any())
+        {
+            <ul class="list-group">
+                @foreach (var terminalInfo in Model.CRMShipperTerminalInfoCollection)
+                {
+                    <li class="list-group-item">
+                        <h4><strong>@terminalInfo.TerminalAddress</strong></h4>
+                        <div class="">装卸平台：<span class="text-danger">@terminalInfo.TerminalLoadingPlatform</span></div>
+                        <div style="float: none">
+                            <div style="float: left">是否自有：<span>@terminalInfo.IsOwn</span></div>
+                            <div style="float: right">员工人数：<span class="">@terminalInfo.TerminalNumberOfEmployees</span></div>
+                        </div>
+                        <br />
+                        <div style="float: none">
+                            <div style="float: left">办公面积：<span>@terminalInfo.TerminalOfficeArea</span></div>
+                            <div style="float: right">仓库面积：<span class="">@terminalInfo.TerminalWareHouseAreaRange</span></div>
+                        </div>
+                        <br />
+                        <div style="">
+                            <div style="float: left">客服人数：<span>@terminalInfo.TerminalNumberOfCustomerService</span></div>
+                            <div style="float: right">装卸工人数：<span class="">@terminalInfo.TerminalNumberOfStevedores</span></div>
+                        </div>
+                        <br />
+                        <div style="">
+                            <div style="float: left">叉车数量：<span>@terminalInfo.TerminalForkliftsUsage</span></div>
+                            <div style="float: right">配送车辆<span class="">@terminalInfo.TerminalDeliveryVehicles</span></div>
+                        </div>
+                        <br />
+                        <div style="">
+                            <div style="float: left">联系人：<span>@terminalInfo.Str1</span></div>
+                            <div style="float: right"><a href="tel:@terminalInfo.Str2" class="text-danger"><span class="glyphicon glyphicon-earphone"></span>：@terminalInfo.Str2</a></div>
+                        </div>
+                        <br />
+                    </li>
+                }
+                <!--
+            <li class="list-group-item">
+                <h4><strong>山东省济南市盖家沟盖氏物流西北角</strong></h4>
+                <div class="">装卸平台：<span class="text-danger">无</span></div>
+                <div style="float: none">
+                    <div style="float: left">是否自有：<span>是</span></div>
+                    <div style="float: right">员工人数：<span class="">5</span></div>
+                </div>
+                <br />
+                <div style="float: none">
+                    <div style="float: left">办公面积：<span>200㎡</span></div>
+                    <div style="float: right">仓库面积：<span class="">5000㎡</span></div>
+                </div>
+                <br />
+                <div style="">
+                    <div style="float: left">客服人数：<span>10</span></div>
+                    <div style="float: right">装卸工人数：<span class="">5</span></div>
+                </div>
+                <br />
+                <div style="">
+                    <div style="float: left">叉车数量：<span>5</span></div>
+                    <div style="float: right">配送车辆<span class="">5</span></div>
+                </div>
+                <br />
+                <div style="">
+                    <div style="float: left">联系人：<span>啊啊啊</span></div>
+                    <div style="float: right"><a href="tel:13000000001" class="text-danger"><span class="glyphicon glyphicon-earphone"></span>：13000000000</a></div>
+                </div>
+                <br />
+            </li>
+                -->
+            </ul>
+        }
+    </li>
+    <li class="list-group-item">
+        <h3 class="detail_title"><strong>主营线路</strong></h3>
+        @if (Model.CRMShipperTransportationLineCollection != null && Model.CRMShipperTransportationLineCollection.Any())
+        {
+            var groupedTransportLines = from p in Model.CRMShipperTransportationLineCollection group p by new { p.StartCityName, p.EndCityName, p.Period } into g select new { g.Key, CoverRegion = g.Select(k => k.CoverRegionName) };
+            <ul class="list-group">
+                @foreach (var crmShipperTransportationLine in groupedTransportLines)
+                {
+                    <li class="list-group-item">
+                        <div style="float: none">
+                            <div style="float: left">出发地：<span>@crmShipperTransportationLine.Key.StartCityName</span></div>
+                            <div style="float: right">目的地：<span class="">@crmShipperTransportationLine.Key.EndCityName</span></div>
+                        </div>
+                        <br />
+                        <div style="float: none">
+                            <div style="float: left">运输时效：<span>@crmShipperTransportationLine.Key.Period</span></div>
+                            <div style="float: right">
+                                覆盖线路：<span class="">
+                                    @{
+                    int i = 0;
+                    int count = crmShipperTransportationLine.CoverRegion.Count();
+                    foreach (var coverRegion in crmShipperTransportationLine.CoverRegion)
+                    {
+                        if (i == count - 1)
+                        {
+                                        @coverRegion
+                        }
+                        else
+                        {
+                                        @coverRegion
+                                        @Html.Raw("|")
+                        }
+
+                        i++;
+                    }
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                        <br />
+                    </li>
+                }
+                <!--
+            <li class="list-group-item">
+                <div style="float: none">
+                    <div style="float: left">出发地：<span>上海市</span></div>
+                    <div style="float: right">目的地：<span class="">北京市</span></div>
+                </div>
+                <br />
+                <div style="float: none">
+                    <div style="float: left">运输时效：<span>3</span></div>
+                    <div style="float: right">覆盖线路：<span class="">北京市</span></div>
+                </div>
+                <br />
+            </li>
+                -->
+            </ul>
+        }
+    </li>
+
+    <li class="list-group-item">
+        <h3 class="detail_title"><strong>车辆信息</strong></h3>
+        <table class="tb_detail">
+            <tbody>
+                <tr>
+                    <td class="td_lt"><strong>干线车辆(含合同)</strong></td>
+                    <td class="td_gt">
+                        @Model.Shipper.TrunkOfVehicle
+                        @Html.Raw("辆")
+                        @Html.Raw("&nbsp;&nbsp;")
+                        @Model.Shipper.TrunkOfVehicleRange
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>车辆类型</strong></td>
+                    <td class="td_gt">@Model.Shipper.TrunkOfVehicleType</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>提货车辆(含合同)</strong></td>
+                    <td class="td_gt">
+                        @Model.Shipper.DeliveryOfVehicle
+                        @Html.Raw("辆")
+                        @Html.Raw("&nbsp;&nbsp;")
+                        @Model.Shipper.DeliveryOfVehicleRange
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>车辆类型</strong></td>
+                    <td class="td_gt">@Model.Shipper.DeliveryOfVehicleType</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>终端车辆(含合同)</strong></td>
+                    <td class="td_gt">
+                        @Model.Shipper.TermialOfVehicle
+                        @Html.Raw("辆")
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>车辆类型</strong></td>
+                    <td class="td_gt">@Model.Shipper.TermialOfVehicleType</td>
+                </tr>
+            </tbody>
+        </table>
+    </li>
+    <li class="list-group-item">
+        <h3 class="detail_title"><strong>运作信息</strong></h3>
+        <table class="tb_detail">
+            <tbody>
+                <tr>
+                    <td class="td_lt"><strong>发车频次(车/天)</strong></td>
+                    <td class="td_gt">@Model.Shipper.FrequencyOfDeparture</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>货物结构</strong></td>
+                    <td class="td_gt">@Model.Shipper.GoodsStructure</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>是否有保单</strong></td>
+                    <td class="td_gt">@Model.Shipper.Str4</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>投保公司</strong></td>
+                    <td class="td_gt">@Model.Shipper.InsuranceCompanies</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>购买险种</strong></td>
+                    <td class="td_gt">@Model.Shipper.InsuranceType</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>保额</strong></td>
+                    <td class="td_gt">@Model.Shipper.SumInsured</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>有效期限</strong></td>
+                    <td class="td_gt">@Model.Shipper.ValidityPeriod</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>货损货差控制方法</strong></td>
+                    <td class="td_gt">@Model.Shipper.CargoDamageControl</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>货损货差处理方法</strong></td>
+                    <td class="td_gt">@Model.Shipper.CargoDamageHanding</td>
+                </tr>
+            </tbody>
+        </table>
+    </li>
+
+    <li class="list-group-item">
+        <h3 class="detail_title"><strong>合作客户</strong></h3>
+        @if (Model.CRMShipperCooperationCollection != null && Model.CRMShipperCooperationCollection.Any())
+        {
+            <ul class="list-group">
+                @foreach (var crmShipperCooperation in Model.CRMShipperCooperationCollection)
+                {
+                    <li class="list-group-item">
+                        <h4><strong>@crmShipperCooperation.Name</strong></h4>
+                        <div style="float: none">
+                            <div style="float: left">来源：<span>@crmShipperCooperation.Str1</span></div>
+                            <div style="float: right">是否垫资：<span class="">@crmShipperCooperation.Str4</span></div>
+                        </div>
+                        <br />
+                        <div style="float: none">
+                            <div style="float: left">运量：<span>@crmShipperCooperation.Str2</span></div>
+                            <div style="float: right">营业额：<span class="">@crmShipperCooperation.Str3</span></div>
+                        </div>
+                        <br />
+                        <div style="float: none">
+                            <div style="float: left">垫资周期：<span>@crmShipperCooperation.Str5</span></div>
+                            <div style="float: right">运作时间：<span class="">@crmShipperCooperation.Str6</span></div>
+                        </div>
+                        <br />
+                        <div style="float: none">
+                            <div style="float: left">产品类型：<span>@crmShipperCooperation.Str7</span></div>
+                            <div style="float: right">相关资料：<span class="">@*@crmShipperCooperation.AttachmentGroupID*@</span></div>
+                        </div>
+                        <br />
+                    </li>
+                }
+                <!--
+            <li class="list-group-item">
+                <h4><strong>阳光纸业</strong></h4>
+                <div style="float: none">
+                    <div style="float: left">来源：<span>厂商</span></div>
+                    <div style="float: right">是否垫资：<span class="">否</span></div>
+                </div>
+                <br />
+                <div style="float: none">
+                    <div style="float: left">运量：<span>20000方/月</span></div>
+                    <div style="float: right">营业额：<span class="">4000万/年</span></div>
+                </div>
+                <br />
+                <div style="float: none">
+                    <div style="float: left">垫资周期：<span>20天</span></div>
+                    <div style="float: right">运作时间：<span class="">4年</span></div>
+                </div>
+                <br />
+                <div style="float: none">
+                    <div style="float: left">产品类型：<span>快消</span></div>
+                    <div style="float: right">相关资料：<span class="">阿范德萨发生</span></div>
+                </div>
+                <br />
+            </li>
+                -->
+            </ul>
+        }
+    </li>
+    <li class="list-group-item">
+        <h3 class="detail_title"><strong>其他信息</strong></h3>
+        <table class="tb_detail">
+            <tbody>
+                <tr>
+                    <td class="td_lt"><strong>合作类型</strong></td>
+                    <td class="td_gt">@Model.Shipper.PartnershipTypes</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>原因</strong></td>
+                    <td class="td_gt">@Model.Shipper.BlackListReason</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>企业形象</strong></td>
+                    <td class="td_gt">@Model.Shipper.CompanyImage</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>员工素质</strong></td>
+                    <td class="td_gt">@Model.Shipper.StaffQuality</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>现场服务</strong></td>
+                    <td class="td_gt">@Model.Shipper.OnsiteCustomerService</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>评分指数</strong></td>
+                    <td class="td_gt">@Model.Shipper.Rating</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>推荐指数</strong></td>
+                    <td class="td_gt">@Model.Shipper.Recommended</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>是否使用</strong></td>
+                    <td class="td_gt">
+                        @if (Model.Shipper.Status.HasValue && Model.Shipper.Status.Value)
+                        {
+                            @Html.Raw("是")
+                        }
+                        else
+                        {
+                            @Html.Raw("否")
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>说明</strong></td>
+                    <td class="td_gt">@Model.Shipper.Remark</td>
+                </tr>
+                @*<tr>
+                    <td class="td_lt"><strong>图片信息</strong></td>
+                    <td class="td_gt">@Model.CRMShipper.AttachmentGroupID</td>
+                </tr>*@
+            </tbody>
+        </table>
+    </li>
+</ul>
+
+

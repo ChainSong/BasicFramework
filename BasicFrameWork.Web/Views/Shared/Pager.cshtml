@@ -1,0 +1,110 @@
+﻿@model BasicFramework.Web.Models.PagerViewModel
+
+@if (ViewContext.NotLoad("Pager"))
+{
+   @Url.CommonCss("Pager.css")
+}
+
+
+@{
+    var currentPageID = Model.Identify + "_pager_pageIndex";
+    var totalPageID = Model.Identify + "_pager_pageCount";
+    var firstPageID = Model.Identify + "_first";
+    var prevPageID = Model.Identify + "_prev";
+    var customNumberID = Model.Identify + "_customNumber";
+    var nextPageID = Model.Identify + "_next";
+    var lastPageID = Model.Identify + "_last";
+    var pagerDivID = Model.Identify + "_pager";
+    var pageIndex = Model.Identify + "PageIndex";
+    var totalID = Model.Identify + "_Total";
+}
+
+@if (Model.WritePageIndexAndCount || Model.PageCount > 1)
+{
+    <div id="@pagerDivID" class="Pager" style="font-weight:bolder; margin-top:30px;">
+        <span class="first clickable pagerSpan" id="@firstPageID">首页</span>
+        <span class="prev clickable pagerSpan" id="@prevPageID">上一页</span>
+        <span class="current">
+            当前  第<label id= "@currentPageID"></label>页, 共<label id= "@totalPageID"></label>页, 跳转到  第
+        </span>
+        <input type="text" id="@customNumberID" class="customInupt" style="height:20px; font-size:12px;" />  页
+        <span class="next clickable pagerSpan" id="@nextPageID">下一页</span>
+        <span class="last clickable pagerSpan" id="@lastPageID">末页</span>
+        <span class="total">
+            共<label id="@totalID"></label>条
+        </span>
+    </div>
+    @Html.Hidden(pageIndex);
+}
+
+<script>
+    $(function () {
+        var initialize = function () {
+            pageIndex = parseInt('@Model.PageIndex');
+            pageCount = parseInt('@Model.PageCount');
+
+            if (pageCount > 0) {
+                $('#' + '@currentPageID').text(parseInt('@Model.PageIndex') + 1);
+                $('#' + '@totalPageID').text(parseInt('@Model.PageCount'));
+                $('#' + '@totalID').text(parseInt('@Model.TotalCount'));
+                $('#' + '@pagerDivID').show();
+            }
+
+            if (pageIndex == 0) {
+                $('#' + '@firstPageID' + ', #' + '@prevPageID').hide();
+                $('div#pager span.first, div#pager span.prev').hide();
+            }
+
+            if (pageIndex == pageCount - 1) {
+                $('#' + '@nextPageID' + ', #' + '@lastPageID').hide();
+                $('div#pager span.next, div#pager span.last').hide();
+            }
+
+            if (pageIndex == 0 && pageCount == 0) {
+                $('#' + '@pagerDivID').hide();
+            }
+        }
+
+        var setup = function (pageIndex) {
+            var form = null;
+            if ('@Model.FormID') {
+                form = document.getElementById('@Model.FormID');
+            } else {
+                form = document.forms[0];
+            }
+            $('#' + '@pageIndex').val(pageIndex)
+            $(form).submit();
+        }
+
+        $('#' + '@prevPageID').click(function () {
+            var pageIndex = parseInt('@Model.PageIndex') - 1;
+            setup(pageIndex);
+        })
+        $('#' + '@nextPageID').click(function () {
+            var pageIndex = parseInt('@Model.PageIndex') + 1;
+            setup(pageIndex);
+        })
+        $('#' + '@firstPageID').click(function () {
+            var pageIndex = 0;
+            setup(pageIndex);
+        })
+        $('#' + '@lastPageID').click(function () {
+            var pageIndex = pageCount - 1;
+            setup(pageIndex);
+        })
+
+        $('#' + '@customNumberID').keypress(function (event) {
+            var keycode = event.keycode ? event.keycode : event.which;
+            if (keycode == '13') {
+                var value = parseInt($(this).val());
+                if (!isNaN(value) && value > 0 && value <= pageCount && value != pageIndex + 1) {
+                    var pageIndex = value - 1;
+                    setup(pageIndex);
+                }
+                return false;
+            }
+        });
+
+        initialize();
+    });
+</script>

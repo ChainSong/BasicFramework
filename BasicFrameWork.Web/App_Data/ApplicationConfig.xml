@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Projects>
+  <Project Id="1" Name="Adidas">
+    <Module Id="M001" Name="新建POD" UseCustomerOrderNumber="1" AutoAllocateShipper="1">
+      <Tables>
+        <Table Name="Pod">
+          <Column DisplayName="ID" DbColumnName="ID" IsKey="1" />
+          <Column DisplayName="ProjectID" DbColumnName="ProjectID" IsKey="1" />
+          <Column DisplayName="系统运单号" DbColumnName="SystemNumber" IsKey="1" ForView="1">
+            <RoleID>3</RoleID>
+            <RoleID>26</RoleID>
+          </Column>
+          <Column DisplayName="客户运单号" DbColumnName="CustomerOrderNumber" IsKey="1" ForView="1" IsShowInList="1">
+            <RoleID>5</RoleID>
+            <RoleID>26</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="客户" DbColumnName="CustomerID" IsKey="1" />
+          <Column DisplayName="客户" DbColumnName="CustomerName" IsKey="1" ForView="1" IsShowInList="1">
+            <RoleID>5</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="承运商" DbColumnName="ShipperID" IsKey="1" />
+          <Column DisplayName="承运商" DbColumnName="ShipperName" IsKey="1" ForView="1" IsShowInList="1">
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="运单状态" DbColumnName="PODStateID" IsKey="1" />
+          <Column DisplayName="运单状态" DbColumnName="PODStateName" IsKey="1" ForView="1" IsShowInList="1">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="运输类型" DbColumnName="ShipperTypeID" IsKey="1" />
+          <Column DisplayName="运输类型" DbColumnName="ShipperTypeName" IsKey="1" ForView="1" IsShowInList="1" IsSearchCondition="1" Type="DropDownList" SearchConditionOrder="1">
+            <RoleID>3</RoleID>
+            <RoleID>5</RoleID>
+            <RoleID>26</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="起运城市" DbColumnName="StartCityID" IsKey="1" />
+          <Column DisplayName="起运城市" DbColumnName="StartCityName" IsKey="1" ForView="1" IsShowInList="1" IsSearchCondition="1" Type="RegionPicker" SearchConditionOrder="4">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>26</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="目的城市" DbColumnName="EndCityID" IsKey="1" />
+          <Column DisplayName="目的城市" DbColumnName="EndCityName" IsKey="1" ForView="1" IsShowInList="1" IsSearchCondition="1" Type="RegionPicker" SearchConditionOrder="5">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>26</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="运单类型" DbColumnName="PODTypeID" IsKey="1" />
+          <Column DisplayName="运单类型" DbColumnName="PODTypeName" IsKey="1" ForView="1" IsShowInList="1" IsSearchCondition="1"  Type="DropDownList" SearchConditionOrder="2">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>26</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="整车/零担" DbColumnName="TtlOrTplID" IsKey="1" />
+          <Column DisplayName="整车/零担" DbColumnName="TtlOrTplName" IsKey="1" ForView="1" IsSearchCondition="1" Type="DropDownList" SearchConditionOrder="3">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="发货日期" DbColumnName="ActualDeliveryDate" IsKey="1" ForView="1" Type="DateTime" IsShowInList="1"  IsSearchCondition="1" SearchConditionOrder="6">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>26</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="箱数" DbColumnName="BoxNumber" IsKey="1"   ForView="1" Type="TextBox">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="件数" DbColumnName="GoodsNumber" IsKey="1" ForView="1" Type="TextBox">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="重量(公斤)" DbColumnName="Weight" IsKey="1" ForView="1"  Type="TextBox">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="体积(立方)" DbColumnName="Volume" IsKey="1" ForView="1" Type="TextBox">
+            <RoleID>5</RoleID>
+            <RoleID>3</RoleID>
+            <RoleID>39</RoleID>
+          </Column>
+          <Column DisplayName="创建人" DbColumnName="Creator" IsKey="0" IsHide="1"  Type="TextBox" Order="99" />
+          <Column DisplayName="创建时间" DbColumnName="CreateTime" IsKey="0" IsHide="1" Type="DateTime" Order="99" IsSearchCondition="1" />
+          <Column DisplayName="自定义字段1" DbColumnName="Str1" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5">
+            <Column DisplayName="发货方代码" DbColumnName="Str1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="TextBox" Order="5" CustomerID="1" >
+              <RoleID>5</RoleID>
+            </Column>
+					</Column>
+          <Column DisplayName="自定义字段2" DbColumnName="Str2" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段3" DbColumnName="Str3" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段4" DbColumnName="Str4" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段5" DbColumnName="Str5" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段6" DbColumnName="Str6" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段7" DbColumnName="Str7" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段8" DbColumnName="Str8" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段9" DbColumnName="Str9" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义字段10" DbColumnName="Str10" IsKey="0" IsHide="1" IsSearchCondition="0" Type="TextBox" Order="99" />
+          <Column DisplayName="自定义日期1" DbColumnName="DateTime1" IsKey="0" IsHide="1" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="1">
+            <Column DisplayName="3PL到达日期" DbColumnName="DateTime1" IsKey="0" IsHide="0" IsImportColumn="1" IsSearchCondition="0" Type="DateTime" Order="1" CustomerID="1" >
+              <RoleID>5</RoleID>
+            </Column>
+          </Column>
+          <Column DisplayName="自定义日期2" DbColumnName="DateTime2" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期3" DbColumnName="DateTime3" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期4" DbColumnName="DateTime4" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" />
+          <Column DisplayName="自定义日期5" DbColumnName="DateTime5" IsKey="0" IsHide="1" IsSearchCondition="0" Type="DateTime" Order="99" />
+        </Table>
+      </Tables>
+    </Module>    
+    <SettledPodConfigs>
+      <SettledPodConfig Target="0" TargetID="7" UseNew="1" IsGroupedPods="1" InstanceName="BasicFramework.Web.Implement.SettledForAkzoInRunbowProject_New" />
+    </SettledPodConfigs>
+  </Project>
+</Projects>

@@ -1,0 +1,95 @@
+﻿@model BasicFramework.MobileWeb.Models.Resource.VehicleViewModel
+@{
+    ViewBag.PageTitle = "车辆管理";
+    Layout = "~/Views/_MyLayoutPage.cshtml";
+}
+<div>
+    <input id="txt_search" type="text" class="txt_search" placeholder="输入关键字">
+    <button type="button" class="btn_search" onclick="search();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+</div>
+@if (Model.CRMVehicleCollection != null && Model.CRMVehicleCollection.Count() > 0)
+{
+    <div class="myList">
+        <ul class="list-group">
+            @foreach (var item in Model.CRMVehicleCollection)
+            {
+                <li class="list-group-item">
+
+                    @*   <div style="float: right">*@
+                    <a href="/Resource/Vehicleinfos/@item.ID" style="color: #555;">
+                        <h4><strong>车牌号：@item.CarNo</strong></h4>
+                    </a>
+
+                    @* @if (!string.IsNullOrEmpty(item.url))
+                                {
+                                    string url = "http://192.168.10.104:8099/Pictrue/" + item.url.Substring(item.url.IndexOf(@"\1\") + 3);
+                                    //onclick="onloadPictrue(@item.ID,this)"
+                                    //data-url="@url" src="http://www.zhangxinxu.com/study/image/pixel.gif"
+                                    <img class="scrollLoading" height="40px" width="40px"  id="@item.ID" src=""/> 
+                                }
+                        </div>*@
+                    <div style="">
+                        <div style="float: left">上牌日期：<span>@item.BoardlotDate.ToString("yyyy-MM-dd")</span></div>
+                        <div style="float: right">车身颜色：<span>@item.CarBodyColor</span></div>
+                    </div>
+                    <br />
+                    <div style="">
+                        <div style="float: left">车辆种类：<span class="text-danger">@item.CarType</span></div>
+                        <div style="float: right">车牌种类：<span class="text-danger">@item.CarNumType</span></div>
+                    </div>
+                    <br />
+                    <div style="">
+                        <div style="float: left">所属公司：<span>@item.LogisticCompany</span></div>
+                        <div style="float: right">公司联系人：<span>@item.LoadPerson</span></div>
+                    </div>
+                    <br />
+                    <div style="">
+                        <div style="float: left">运营证号：<span>@item.TrailerNo</span></div>
+                        <div style="float: right">车辆尺寸：<span class="text-danger">@item.Size</span></div>
+                    </div>
+                    <br />
+                    <div class="">保险有效截止日期：<span>@item.InsuranceEndDate.ToString("yyyy-MM-dd")</span></div>
+                    <div class="">加入虹迪服务时间：<span>@item.StartServiceDate.ToString("yyyy-MM-dd")</span></div>
+
+                    <div class=""><a href="/Resource/VehicleMappingDriverByVID/@item.ID" style="color: #ec971f;"><strong>查看司机信息</strong></a></div>
+                    @* <div style="float: left">上牌日期：<span>@item.BoardlotDate.ToString("yyyy-MM-dd")</span></div>
+                    <br />
+                    <div style="float: left">所属公司：<span>@item.LogisticCompany</span></div>
+                    <br />
+                    <div style="float: left">车辆种类：<span class="text-danger">@item.CarType</span></div>
+                    <br />
+                    <div style="float: left">车牌种类：<span class="text-danger">@item.CarNumType</span></div>
+                    <br />
+                    <div style="float: left">服务路线：<span class="text-danger">@item.MainRoute</span></div>
+                    <br />
+                    <div style="float: left">车辆尺寸：<span class="text-danger">@item.Size</span></div>
+                    <br />
+                    <div style="float: left">车身颜色：<span>@item.CarBodyColor</span></div>
+                    <br />
+                    <div style="float: left">行驶公里：<span>@item.RunNo</span></div>
+                    <br />
+                    <div style="float: left">运营证号：<span>@item.TrailerNo</span></div>
+                    <br />
+                    <div style="float: left">燃料种类：<span>@item.FuelType</span></div>
+                    <br />
+                    <div style="float: left">整车质量：<span>@item.EntireCarWeight</span></div>
+                    <br />
+                    <div style="float: left">生成厂家：<span>@item.Manufacturer</span></div>
+                    <br />
+                    <div style="float: left">公司联系人：<span>@item.LoadPerson</span></div>
+                    <br />
+                    <div style="float: left">下次年检日期：<span>@item.NextYearCheckDate.ToString("yyyy-MM-dd")</span></div>
+                    <br />
+                    <div style="float: left">保险有效截止日期 ：<span>@item.InsuranceEndDate.ToString("yyyy-MM-dd")</span></div>
+                    <br />
+                    <div style="float: left">加入虹迪服务时间：<span>@item.StartServiceDate.ToString("yyyy-MM-dd")</span></div>
+                    <br />*@
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="pageMore" onclick="getVehicleMore();">
+        <div class="bg-primary">加载更多</div>
+    </div>
+}

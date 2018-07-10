@@ -1,0 +1,68 @@
+﻿@model BasicFramework.MobileWeb.Models.POD.OrderManagement
+@{
+    ViewBag.PageTitle = "运单明细";
+    Layout = "~/Views/_MyLayoutPage.cshtml";
+}
+<ul class="list-group">
+    <li class="list-group-item">
+        <h3 class="detail_title"><strong>基础信息</strong></h3>
+        <table class="tb_detail">
+            <tbody>
+                <tr>
+                    <td class="td_lt"><strong>客户运单号</strong></td>
+                    <td class="td_gt">@Model.Info.CustomerOrderNumber</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>客户名称</strong></td>
+                    <td class="td_gt">@Model.Info.CustomerName</td>
+                </tr>
+                <tr>
+
+                    <td class="td_lt"><strong>承运商</strong></td>
+                    <td class="td_gt">@Model.Info.ShipperName</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>实际发货时间</strong></td>
+                    <td class="td_gt">@Model.Info.ActualDeliveryDate</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>起运城市</strong></td>
+                    <td class="td_gt">@Model.Info.StartCityName</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>目的城市</strong></td>
+                    <td class="td_gt">@Model.Info.EndCityName</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>箱数</strong></td>
+                    <td class="td_gt">@Model.Info.BoxNumber</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>重量</strong></td>
+                    <td class="td_gt">@Model.Info.Weight</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>件数</strong></td>
+                    <td class="td_gt">@Model.Info.GoodsNumber</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>体积</strong></td>
+                    <td class="td_gt">@Model.Info.Volume</td>
+                </tr>
+
+            </tbody>
+          
+        </table>
+         <hr />
+        <h3 class="detail_title"><strong>二维码</strong></h3>
+        <table class="tb_detail">
+            <tbody>
+                <tr>
+                    <img src="@Model.image" height="150px" width="150px"/>
+                 @* <iframe URL="@Model.image"></iframe>*@
+                </tr>
+            </tbody>
+
+        </table>
+    </li>
+</ul>

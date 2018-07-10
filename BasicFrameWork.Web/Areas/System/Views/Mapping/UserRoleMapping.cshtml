@@ -1,0 +1,38 @@
+﻿@model BasicFramework.Web.Areas.System.Models.UserRoleMappingViewModel
+<fieldset>
+    <legend>选择用户</legend>
+    <div class="row">
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>用户名称 <span style="color:red;"</span></div>
+                @Html.TextBoxFor(model => model.UserName)
+                @Html.HiddenFor( model => model.UserID)
+            </div>
+        </div>
+         <div class="col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+                <input type="button" value="提交" id="btnSubmit" class="btn btn-primary" />
+             &nbsp;
+             <input type="button" value="返回" id="btnReturn" class="btn btn-primary AddButton" onclick="window.history.back();" />
+         </div>
+    </div>
+</fieldset>
+<fieldset>
+    <legend>角色列表</legend>
+    <table id="RoleTable">
+            <tr>
+                <th class="checkBoxHead"></th>
+                <th>角色名称</th>
+                <th>角色描述</th>
+            </tr>
+            @foreach (var role in Model.RoleCollection)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" id="select"+@role.ID data-id="@role.ID" class="checkForSelect" />
+                    </td>
+                    <td>@role.Name</td>
+                    <td>@role.Description</td>
+                </tr>
+            }
+    </table>
+</fieldset>

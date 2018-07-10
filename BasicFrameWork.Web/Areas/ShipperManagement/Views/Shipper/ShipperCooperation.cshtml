@@ -1,0 +1,230 @@
+﻿@model BasicFramework.Web.Areas.ShipperManagement.Models.ShipperCooperationViewModel
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>客户新增
+        </legend>
+        @Html.HiddenFor(m => m.CRMShipperID)
+        @Html.HiddenFor(m => m.ViewType)
+        @Html.HiddenFor(m => m.AttachmentGroupID)
+        @Html.HiddenFor(m => m.Str7)
+        @Html.HiddenFor(m => m.Str8)
+        @Html.HiddenFor(m => m.Str9)
+        @Html.HiddenFor(m => m.Str10)
+        <div class="row">
+            @*<tr>
+                <td class="TableColumnTitle" style="width: 10%;">客户名称</td>
+                <td style="width: 23%;">
+                    @Html.TextBoxFor(m => m.Name)
+                </td>
+                <td class="TableColumnTitle" style="width: 10%;">来源</td>
+                <td style="width: 23%;">
+                    @Html.TextBoxFor(m => m.Str1)
+                </td>
+                <td class="TableColumnTitle" style="width: 10%;">运量</td>
+                <td>
+                    @Html.TextBoxFor(m => m.Str2)
+                </td>
+            </tr>*@
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>客户名称</span></div>
+                    @Html.TextBoxFor(m => m.Name)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>来源</span></div>
+                    @Html.TextBoxFor(m => m.Str1)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>运量</span></div>
+                    @Html.TextBoxFor(m => m.Str2)
+                </div>
+            </div>
+         </div>
+            @*<tr>
+                <td class="TableColumnTitle">营业额(万元)</td>
+                <td>
+                    @Html.TextBoxFor(m => m.Str3)
+                </td>
+                <td class="TableColumnTitle">是否垫资</td>
+                <td>
+                    @Html.DropDownListFor(m => m.Str4, Model.TrueOrFalse)
+                </td>
+                <td class="TableColumnTitle">垫资周期</td>
+                <td>
+                    @Html.TextBoxFor(m => m.Str5)
+                </td>
+            </tr>*@
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>营业额(万元)</span></div>
+                    @Html.TextBoxFor(m => m.Str3)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>是否垫资</span></div>
+                    @Html.DropDownListFor(m => m.Str4, Model.TrueOrFalse)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>垫资周期</span></div>
+                    @Html.TextBoxFor(m => m.Str5)
+                </div>
+            </div>
+        </div>
+        <div class ="row" style ="margin-top :30px">
+            @*<tr>
+                <td class="TableColumnTitle">运作时间</td>
+                <td>
+                    @Html.TextBoxFor(m => m.Str6)
+                </td>
+                <td class="TableColumnTitle">相关资料</td>
+                <td colspan="3">
+                    @Html.SingleFileUpload("fileAttachmentGroupID", "Hidden_AttachmentGroupID", Model.AttachmentGroupID, false, true, false, false)
+                </td>
+            </tr>*@
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>运作时间</span></div>
+                    @Html.TextBoxFor(m => m.Str6)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>相关资料</span></div>
+                    @Html.SingleFileUpload("fileAttachmentGroupID", "Hidden_AttachmentGroupID", Model.AttachmentGroupID, false, true, false, false)
+                </div>
+            </div>
+        </div>
+         <div class ="row" style ="margin-top :30px;  width:100%;"> 
+            @*<tr>
+                <td class="TableColumnTitle">产品类型</td>
+                <td colspan="5">
+                    @Html.CheckBoxListFor(
+                        m => m.PostedProductTypes,
+                        m => m.ProductTypes,
+                        m => m.Value,
+                        m => m.Text,
+                        m => m.SelectedProductTypes)
+                </td>
+            </tr>*@
+             <div class ="col-xs-12 col-md-12 col-sm-12">
+                 <div class ="input-group">
+                     <div class ="input-group-addon"><span>产品类型</span></div>
+                     @Html.CheckBoxListFor(
+                        m => m.PostedProductTypes,
+                        m => m.ProductTypes,
+                        m => m.Value,
+                        m => m.Text,
+                        m => m.SelectedProductTypes)
+                 </div>
+             </div>
+           </div>  
+
+        <div class ="row" style ="margin-top :30px; width:100%;">
+            @*<tr>
+                <td class="TableColumnTitle">备注</td>
+                <td colspan="5">
+                    @Html.TextAreaFor(m => m.Remark, new { style = "width:95%" })
+                </td>
+            </tr>*@
+            <div class ="col-xs-12 col-md-12 col-sm-12">
+                <div class ="input-group" style ="width:100%">
+                    <div class ="input-group-addon"><span>备注</span></div>
+                     @Html.TextAreaFor(m => m.Remark, new { @style ="width:100%"})
+                </div>
+            </div>
+         </div>
+
+       <div class ="row">
+            <div class ="col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+             @*<tr>
+                <td colspan="6" style="text-align: center;">
+                    <input type="submit" value="新增" id="insertCRMShipperCooperation" />
+                    @Html.Raw("&nbsp;&nbsp")
+                    <input type="button" value="返回" id="return" />
+                </td>
+            </tr>*@
+            
+                 <input type="submit" value="新增" class ="btn btn-primary" />
+                @Html.Raw("&nbsp;&nbsp;")
+                <input type="button" value="返回" id ="return" class ="btn btn-primary" />
+                
+            </div>
+        </div>
+           
+        
+    </fieldset>
+    
+    <fieldset>
+        <legend>客户列表
+        </legend>
+        <table id="usersInfoTable">
+            <thead>
+                <tr>
+                    <th>客户名称</th>
+                    <th>来源</th>
+                    <th>运量</th>
+                    <th>营业额(万元)</th>
+                    <th>是否垫资</th>
+                    <th>垫资周期</th>
+                    <th>运作时间</th>
+                    <th>产品类型</th>
+                    <th>相关资料</th>
+                    <th>备注</th>
+                    <th>删除</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.CRMShipperCooperationCollection != null && Model.CRMShipperCooperationCollection.Any())
+                {
+                    foreach (var cooperationCollection in Model.CRMShipperCooperationCollection)
+                    {
+                    <tr data-id="@cooperationCollection.ID">
+                        <td style="width: 8%">
+                            @cooperationCollection.Name
+                        </td>
+                        <td style="width: 8%">
+                            @cooperationCollection.Str1
+                        </td>
+                        <td style="width: 8%">
+                            @cooperationCollection.Str2
+                        </td>
+                        <td style="width: 8%">
+                            @cooperationCollection.Str3
+                        </td>
+                        <td style="width: 8%">
+                            @cooperationCollection.Str4
+                        </td>
+                        <td style="width: 8%">
+                            @cooperationCollection.Str5
+                        </td>
+                        <td style="width: 8%">
+                            @cooperationCollection.Str6
+                        </td>
+                        <td style="width: 16%">
+                            @cooperationCollection.Str7
+                        </td>
+                        <td style="width: 8%">
+                            @cooperationCollection.Remark
+                        </td>
+                        <td style="width: 15%">
+                            @Html.SingleFileUpload("fileAttachmentGroupID" + cooperationCollection.ID.ToString(), "Hidden_AttachmentGroupID" + cooperationCollection.ID.ToString(), cooperationCollection.AttachmentGroupID, false, true, false, false)
+                        </td>
+                        <td style="width: 5%">
+                            <label id="deleteCRMShipper" style="cursor:pointer;" class="btn btn-primary btn-xs EditButton" data-id="@cooperationCollection.ID">删除</label>
+                        </td>
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </fieldset>
+}

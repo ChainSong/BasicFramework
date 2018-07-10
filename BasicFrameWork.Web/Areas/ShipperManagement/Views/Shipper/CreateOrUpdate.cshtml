@@ -1,0 +1,1155 @@
+﻿@model BasicFramework.Web.Areas.ShipperManagement.Models.ShipperCreateOrUpdateViewModel
+@Url.RateStarResource()
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.Shipper.ID)
+    @Html.HiddenFor(m => m.Shipper.Attribution)
+    @Html.HiddenFor(m => m.ViewType)
+    @Html.HiddenFor(m => m.ShowEditButton)
+    @Html.HiddenFor(m => m.Shipper.CreateTime)
+    @Html.HiddenFor(m => m.Shipper.Creator)
+   
+    
+    
+    
+    //分界线
+    //0 view 1 create 
+    
+    <fieldset>
+        <legend>基础信息
+        </legend>
+        <div class="row">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 1)
+                {
+                    <span style="font-size: 20px;">企业名称 <span style="color: red;">*</span>：@Model.Shipper.Name</span>
+                    
+                    @Html.HiddenFor(m => m.Shipper.Name)
+                    @Html.HiddenFor(m =>m.Shipper.ID)
+                }
+                else
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>企业名称 <span style="color: red;">*</span></span></div>
+                      @Html.TextBoxFor(m => m.Shipper.Name)
+                    </div>
+                }
+
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>法人代表 <span style="color: red;">*</span></span></div>
+                        @Html.TextBoxFor(m => m.Shipper.LegalRepresentative)
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">法人代表 <span style="color: red;">*</span>： @Model.Shipper.LegalRepresentative</span>
+                   
+                }
+
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>法人联系方式 <span style="color: red;">*</span></span></div>
+                        @Html.TextBoxFor(m => m.Shipper.LegalRepresentativeConta)
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">法人联系方式 <span style="color: red;">*</span>： @Model.Shipper.LegalRepresentativeConta</span>
+                   
+                }
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>归属区域 <span style="color: red;">*</span></span></div>
+                        @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "attributionID", NameKey = "attributionName", TreeKey = Guid.NewGuid().ToString() })
+                        <a id="AttributionClear" href="#">清空</a>
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">归属区域 <span style="color: red;">*</span>： @Model.Shipper.Attribution</span>
+                   
+                }
+
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>负责人 <span style="color: red;">*</span></span></div>
+                        @Html.TextBoxFor(m => m.Shipper.PersonInCharge)
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">负责人 <span style="color: red;">*</span>：@Model.Shipper.PersonInCharge</span>
+                    
+                }
+
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>负责人联系方式 <span style="color: red;">*</span></span></div>
+                        @Html.TextBoxFor(m => m.Shipper.PersonInChargeContact)
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">负责人联系方式 <span style="color: red;">*</span>：@Model.Shipper.PersonInChargeContact</span>
+                    
+                }
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-xs-4 col-md-4 col-sm-12" style="width: 100%">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>运输方式</span></div>
+                        @Html.CheckBoxListFor(
+                        m => m.PostedTransportModes,
+                        m => m.TransportModes,
+                        m => m.Value,
+                        m => m.Text,
+                        m => m.SelectedTransportModes)
+                    </div>
+                }
+
+                else
+                {
+                    <span style="font-size: 20px;">运输方式： @Model.Shipper.TransportMode</span>
+                   
+                }
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>注册资金(万元)</span></div>
+                        @Html.TextBoxFor(m => m.Shipper.RegisteredCapital, new { @style = "width:45%" })
+                        @Html.Raw("&nbsp;&nbsp")
+                        @Html.DropDownListFor(m => m.Shipper.RegisteredCapitalRange, Model.RegisteredCapital, new { @style = "width:45%" })
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">注册资金(万元)：@Model.Shipper.RegisteredCapital
+                    @Html.Raw("万元")
+                    @Html.Raw("&nbsp;&nbsp")
+                    @Model.Shipper.RegisteredCapitalRange</span>
+                    
+                }
+
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>年营业额(万元)</span></div>
+                        @Html.TextBoxFor(m => m.Shipper.AnnualTurnover, new { @style = "width:45%" })
+                        @Html.Raw("&nbsp;&nbsp")
+                        @Html.DropDownListFor(m => m.Shipper.AnnualTurnoverRange, Model.AnnualTurnover, new { @style = "width:45%" })
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">年营业额(万元)： @Model.Shipper.AnnualTurnover
+                    @Html.Raw("万元")
+                    @Html.Raw("&nbsp;&nbsp")
+                    @Model.Shipper.AnnualTurnoverRange</span>
+                   
+                }
+
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>合作项目</span></div>
+                        @Html.TextBoxFor(m => m.Shipper.Str2)
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">合作项目： @Model.Shipper.Str2</span>
+                   
+                }
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>合同开始日期</span></div>
+                        @Html.CalendarFor(m => m.Shipper.DateTime1)
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">合同开始日期： 
+                    @if (Model.Shipper.DateTime1.HasValue)
+                    {
+                    @Model.Shipper.DateTime1.Value.ToString("yyyy-MM-dd") 
+                    }
+
+                    </span>
+                    
+                   
+                }
+
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>合同结束日期</span></div>
+                        @Html.CalendarFor(m => m.Shipper.DateTime2)
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">合同结束日期：
+                   @if (Model.Shipper.DateTime2.HasValue)
+                    {
+                    @Model.Shipper.DateTime2.Value.ToString("yyyy-MM-dd") 
+                    }
+                    </span>
+                        
+                }
+
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>实际终止合作日期</span></div>
+                        @Html.CalendarFor(m => m.Shipper.DateTime3)
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">实际终止合作日期：
+                                        @if (Model.Shipper.DateTime3.HasValue)
+                    {
+                    @Model.Shipper.DateTime3.Value.ToString("yyyy-MM-dd") 
+                    }
+
+                        </span>
+                }
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px">
+            <div class="col-xs-4 col-md-4 col-sm-12" style="width: 100%;">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>六证</span></div>
+                        @Html.CheckBoxListFor(
+                        m => m.PostedSixCards,
+                        m => m.SixCards,
+                        m => m.Value,
+                        m => m.Text,
+                        m => m.SelectedSixCards)
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">六证： @Model.Shipper.SixCard</span>
+                   
+                }
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px">
+            <div class="col-xs-4 col-md-4 col-sm-12" style="width: 80%">
+
+                @Html.HiddenFor(m => m.Shipper.Str3)
+                @if (Model.ViewType == 0)
+                {
+                    <span style="font-size: 20px;">六证图片：</span>
+                        @Html.SingleFileUpload("fileAttachmentGroupID_SixCard", "Hidden_AttachmentGroupID_SixCard", Model.Shipper.Str3, true, true, false, false)
+                   
+                }
+                else
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>六证图片</span></div>
+                    @Html.SingleFileUpload("fileAttachmentGroupID_SixCard", "Hidden_AttachmentGroupID_SixCard", Model.Shipper.Str3, false, true, false, false)
+                     </div>
+                }
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>前端地址</span></div>
+                        @Html.TextBoxFor(m => m.Shipper.FrontEndAddress)
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">前端地址：@Model.Shipper.FrontEndAddress</span>
+                    
+                }
+            </div>
+
+            <div class="col-xs-4 col-md-4 col-sm-12">
+
+                @if (Model.ViewType != 0)
+                {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>办公面积(㎡)</span></div>
+                        @Html.TextBoxFor(m => m.Shipper.OfficeArea)
+                    </div>
+                }
+                else
+                {
+                    <span style="font-size: 20px;">办公面积(㎡)： @Model.Shipper.OfficeArea
+                    @Html.Raw("㎡")</span>
+                   
+                }
+
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if (Model.ViewType != 0)
+                    {
+                        <div class="input-group">
+                    <div class="input-group-addon"><span>仓库面积(㎡)</span></div>
+                        @Html.TextBoxFor(m => m.Shipper.WarehouseArea, new { @style = "width:45%" })
+                        @Html.Raw("&nbsp;&nbsp")
+                        @Html.DropDownListFor(m => m.Shipper.WarehouseAreaRange, Model.WarehouseArea, new { @style = "width:45%" })
+                   </div>
+                             }
+                    else
+                    {
+                        <span style ="font-size:20px;">仓库面积(㎡)： @Model.Shipper.WarehouseArea
+                        @Html.Raw("㎡")
+                        @Html.Raw("&nbsp;&nbsp")
+                        @Model.Shipper.WarehouseAreaRange</span>
+                       
+                    }
+                
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+               
+                    @if (Model.ViewType != 0)
+                    {
+                         <div class="input-group">
+                    <div class="input-group-addon"><span>员工人数</span></div>
+                        @Html.TextBoxFor(m => m.Shipper.NumberOfEmployees)
+                              </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">员工人数：@Model.Shipper.NumberOfEmployees
+                        @Html.Raw("人")</span>
+                        
+                    }
+               
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if (Model.ViewType != 0)
+                    {
+                        <div class="input-group">
+                    <div class="input-group-addon"><span>客服人数</span></div>
+                        @Html.TextBoxFor(m => m.Shipper.NumberOfCustomerService)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">客服人数：@Model.Shipper.NumberOfCustomerService
+                        @Html.Raw("人")</span>
+                        
+                    }
+               
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+               
+                    @if (Model.ViewType != 0)
+                    {
+                         <div class="input-group">
+                    <div class="input-group-addon"><span>装卸工人数</span></div>
+                        @Html.TextBoxFor(m => m.Shipper.NumberOfStevedores)
+                              </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">装卸工人数：@Model.Shipper.NumberOfStevedores
+                        @Html.Raw("人")</span>
+                        
+                    }
+               
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px">
+            <div class="col-xs-4 col-md-4 col-sm-12">
+               
+                    @if (Model.ViewType != 0)
+                    {
+                         <div class="input-group">
+                    <div class="input-group-addon"><span>叉车数量(辆)</span></div>
+                        @Html.TextBoxFor(m => m.Shipper.ForkliftsUsage)
+                              </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">叉车数量(辆)：@Model.Shipper.ForkliftsUsage</span>
+                        
+                    }
+               
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+               
+                    @if (Model.ViewType != 0)
+                    {
+                         <div class="input-group">
+                    <div class="input-group-addon"><span>装卸平台</span></div>
+                        @Html.DropDownListFor(m => m.Shipper.LoadingPlatform, Model.LoadingPlatforms)
+                              </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">装卸平台：@Model.Shipper.LoadingPlatform</span>
+                        
+                    }
+               
+            </div>
+            <div class="col-xs-4 col-md-4 col-sm-12">
+                
+                    @if (Model.ViewType != 0)
+                    {
+                        <div class="input-group">
+                    <div class="input-group-addon"><span>车辆是否有GPS</span></div>
+                        @Html.DropDownListFor(m => m.Shipper.Str1, Model.HasGPS)
+                             </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">车辆是否有GPS： @Model.Shipper.Str1</span>
+                       
+                    }
+               
+            </div>
+        </div>
+
+        @if (Model.ViewType != 1)
+        { 
+            <div class="row" style="margin-top: 30px">
+                <fieldset>
+                    <legend>终端地址信息
+                    @if (Model.ShowEditButton)
+                    {
+                        @Html.Raw("&nbsp;&nbsp;")
+                        @Html.ActionLink("新增/编辑", "ShipperTerminalInfo", new { id = Model.Shipper.ID, ViewType = Model.ViewType })
+                    }
+                    </legend>
+                    <table id="usersInfoTable">
+                        <thead>
+                            <tr>
+                                <th>终端<br />地址</th>
+                                <th>联系人</th>
+                                <th>联系<br />方式</th>
+                                <th>是否<br />自有</th>
+                                <th>办公<br />面积(㎡)</th>
+                                <th>仓库<br />面积(㎡)</th>
+                                <th>员工<br />人数</th>
+                                <th>客服<br />人数</th>
+                                <th>装卸<br />工人数</th>
+                                <th>叉车<br />数量</th>
+                                <th>装卸<br />平台</th>
+                                <th>配送<br />车辆</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.ShipperTerminalInfoCollection != null && Model.ShipperTerminalInfoCollection.Any())
+                            {
+                                foreach (var terminalInfo in Model.ShipperTerminalInfoCollection)
+                                {
+                                <tr>
+                                    <td>@terminalInfo.TerminalAddress</td>
+                                    <td>@terminalInfo.Str1</td>
+                                    <td>@terminalInfo.Str2</td>
+                                    <td>@terminalInfo.IsOwn</td>
+                                    <td>@terminalInfo.TerminalOfficeArea</td>
+                                    <td>@terminalInfo.TerminalWareHouseAreaRange</td>
+                                    <td>@terminalInfo.TerminalNumberOfEmployees</td>
+                                    <td>@terminalInfo.TerminalNumberOfCustomerService</td>
+                                    <td>@terminalInfo.TerminalNumberOfStevedores</td>
+                                    <td>@terminalInfo.TerminalForkliftsUsage</td>
+                                    <td>@terminalInfo.TerminalLoadingPlatform</td>
+                                    <td>@terminalInfo.TerminalDeliveryVehicles</td>
+                                </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </fieldset>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <fieldset class="myFieldset">
+                    <legend class="myLegend">主营线路
+                        @if (Model.ShowEditButton)
+                        {
+                            @Html.Raw("&nbsp;&nbsp;")
+                            @Html.ActionLink("新增/编辑", "ShipperTransportationLine", new { id = Model.Shipper.ID, ViewType = Model.ViewType })
+                        }
+                    </legend>
+                    <table id="ShipperTransportationLine">
+                        <thead>
+                            <tr>
+                                <th>出发地</th>
+                                <th>目的地</th>
+                                <th>运输<br />时效</th>
+                                <th>覆盖<br />线路</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.ShipperTransportationLineCollection != null && Model.ShipperTransportationLineCollection.Any())
+                            {
+                                var groupedTransportLines = from p in Model.ShipperTransportationLineCollection group p by new { p.StartCityName, p.EndCityName, p.Period } into g select new { g.Key, CoverRegion = g.Select(k => k.CoverRegionName) };
+                                foreach (var crmShipperTransportationLine in groupedTransportLines)
+                                {
+                                <tr>
+                                    <td>
+                                        @crmShipperTransportationLine.Key.StartCityName
+                                    </td>
+                                    <td>
+                                        @crmShipperTransportationLine.Key.EndCityName
+                                    </td>
+                                    <td>
+                                        @crmShipperTransportationLine.Key.Period
+                                    </td>
+                                    <td>
+                                        @{
+                                    int i = 0;
+                                    int count = crmShipperTransportationLine.CoverRegion.Count();
+                                    foreach (var coverRegion in crmShipperTransportationLine.CoverRegion)
+                                    {
+                                        if (i == count - 1)
+                                        {
+                                            @coverRegion
+                                        }
+                                        else
+                                        {
+                                            @coverRegion
+                                            @Html.Raw("|")
+                                        }
+
+                                        i++;
+                                    }
+                                        }
+                                    </td>
+                                </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </fieldset>
+
+            </div>
+        }
+
+
+        <fieldset>
+            <legend>车辆信息</legend>
+            <div class="row">
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>干线车辆(含合同)</span></div>
+                            @Html.TextBoxFor(m => m.Shipper.TrunkOfVehicle, new { @style = "width:45%" })
+                            @Html.Raw("&nbsp;&nbsp")
+                            @Html.DropDownListFor(m => m.Shipper.TrunkOfVehicleRange, Model.TrunkOfVehicles, new { @style = "width:45%" })
+                         </div>
+                                }
+                        else
+                        {
+                            <span style ="font-size:20px;">干线车辆(含合同)： @Model.Shipper.TrunkOfVehicle
+                            @Html.Raw("辆")
+                             ;
+                            @Model.Shipper.TrunkOfVehicleRange</span>
+                           
+                        }
+                   
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-12" style="width: 60%;">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>车辆类型</span></div>
+                            @Html.CheckBoxListFor(
+                                    m => m.PostedTrunkOfVehicleTypes,
+                                    m => m.TrunkOfVehicleTypes,
+                                    m => m.Value,
+                                    m => m.Text,
+                                    m => m.SelectedTrunkOfVehicleTypes)
+                                  </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">车辆类型：@Model.Shipper.TrunkOfVehicleType</span>
+                            
+                        }
+                  
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>提货车辆(含合同)</span></div>
+                            @Html.TextBoxFor(m => m.Shipper.DeliveryOfVehicle, new { @style = "width:45%" })
+                            @Html.Raw("&nbsp;&nbsp")
+                            @Html.DropDownListFor(m => m.Shipper.DeliveryOfVehicleRange, Model.DeliveryOfVehicles, new { @style = "width:45%" })
+                                 </div>
+                                 }
+                        else
+                        {
+                            <span style ="font-size:20px;">提货车辆(含合同)：@Model.Shipper.DeliveryOfVehicle
+                            @Html.Raw("辆")
+                            ;
+                            @Model.Shipper.DeliveryOfVehicleRange</span>
+                            
+                        }
+                   
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-12" style="width: 60%;">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>车辆类型</span></div>
+                            @Html.CheckBoxListFor(
+                                    m => m.PostedTermialOfVehicleTypes,
+                                    m => m.TermialOfVehicleTypes,
+                                    m => m.Value,
+                                    m => m.Text,
+                                    m => m.SelectedTermialOfVehicleTypes)
+                                 </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">车辆类型：@Model.Shipper.TermialOfVehicleType</span>
+                            
+                        }
+                   
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>终端车辆(含合同)</span></div>
+                            @Html.TextBoxFor(m => m.Shipper.TermialOfVehicle)
+                                  </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">终端车辆(含合同)：@Model.Shipper.TermialOfVehicle
+                            @Html.Raw("辆")</span>
+                            
+                        }
+                  
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-12" style="width: 60%;">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>车辆类型</span></div>
+                            @Html.CheckBoxListFor(
+                                  m => m.PostedTermialOfVehicleTypes,
+                                  m => m.TermialOfVehicleTypes,
+                                  m => m.Value,
+                                  m => m.Text,
+                                  m => m.SelectedTermialOfVehicleTypes)
+                                 </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">车辆类型：@Model.Shipper.TermialOfVehicleType</span>
+                            
+                        }
+                   
+                </div>
+            </div>
+        </fieldset>
+
+
+
+        <fieldset>
+            <legend>运作信息</legend>
+            <div class="row">
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                   
+                        @if (Model.ViewType != 0)
+                        {
+                             <div class="input-group">
+                        <div class="input-group-addon"><span>发车频次(车/天)</span></div>
+                            @Html.DropDownListFor(m => m.Shipper.FrequencyOfDeparture, Model.FrequencyOfDepartures)
+                                  </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">发车频次(车/天)：@Model.Shipper.FrequencyOfDeparture</span>
+                            
+                        }
+                   
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>货物结构</span></div>
+                            @Html.DropDownListFor(m => m.Shipper.GoodsStructure, Model.GoodsStructures)
+                                 </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">货物结构：@Model.Shipper.GoodsStructure</span>
+                            
+                        }
+                   
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                     
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>是否有保单</span></div>
+                            @Html.DropDownListFor(m => m.Shipper.Str4, Model.Status_String)
+                                 </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">是否有保单：@Model.Shipper.Str4</span>
+                            
+                        }
+                   
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                   
+                        @if (Model.ViewType != 0)
+                        {
+                             <div class="input-group">
+                        <div class="input-group-addon"><span>投保公司</span></div>
+                            @Html.TextBoxFor(m => m.Shipper.InsuranceCompanies)
+                                  </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">投保公司： @Model.Shipper.InsuranceCompanies</span>
+                           
+                        }
+                   
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>购买险种</span></div>
+                            @Html.TextBoxFor(m => m.Shipper.InsuranceType)
+                                 </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">购买险种：@Model.Shipper.InsuranceType</span>
+                            
+                        }
+                   
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>保额</span></div>
+                            @Html.TextBoxFor(m => m.Shipper.SumInsured)
+                                  </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">保额：@Model.Shipper.SumInsured</span>
+                            
+                        }
+                  
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px">
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>有效期限</span></div>
+                            @Html.TextBoxFor(m => m.Shipper.ValidityPeriod)
+                                 </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">有效期限：@Model.Shipper.ValidityPeriod</span>
+                            
+                        }
+                   
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>货损货差控制方法</span></div>
+                            @Html.TextBoxFor(m => m.Shipper.CargoDamageControl)
+                                 </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">货损货差控制方法： @Model.Shipper.CargoDamageControl</span>
+                           
+                        }
+                   
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>货损货差处理方法</span></div>
+                            @Html.TextBoxFor(m => m.Shipper.CargoDamageHanding)
+                                 </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">货损货差处理方法：@Model.Shipper.CargoDamageHanding</span>
+                            
+                        }
+                   
+                </div>
+            </div>
+
+        </fieldset>
+
+
+        @if (Model.ViewType != 1)
+        {
+          
+            <fieldset>
+                <legend>合作客户(现有重点客户或资源)
+                @if (Model.ShowEditButton)
+                {
+                    @Html.Raw(" &nbsp; &nbsp;")
+                    @Html.ActionLink("新增/编辑", "ShipperCooperation", new { id = Model.Shipper.ID, ViewType = Model.ViewType })
+                }
+                </legend>
+                <table id="usersInfoTable">
+                    <thead>
+                        <tr>
+                            <th>客户<br />名称</th>
+                            <th>来源</th>
+                            <th>运量</th>
+                            <th>营业额</th>
+                            <th>是否<br />垫资</th>
+                            <th>垫资<br />周期</th>
+                            <th>运作<br />时间</th>
+                            <th>产品<br />类型</th>
+                            <th>相关<br />资料</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.ShipperCooperationCollection != null && Model.ShipperCooperationCollection.Any())
+                        {
+                            foreach (var shipperCooperation in Model.ShipperCooperationCollection)
+                            {
+                            <tr>
+                                <td>
+                                    @shipperCooperation.Name
+                                </td>
+                                <td>
+                                    @shipperCooperation.Str1
+                                </td>
+                                <td>
+                                    @shipperCooperation.Str2
+                                </td>
+                                <td>
+                                    @shipperCooperation.Str3
+                                </td>
+                                <td>
+                                    @shipperCooperation.Str4
+                                </td>
+                                <td>
+                                    @shipperCooperation.Str5
+                                </td>
+                                <td>
+                                    @shipperCooperation.Str6
+                                </td>
+                                <td>
+                                    @shipperCooperation.Str7
+                                </td>
+                                <td>
+                                    @Html.SingleFileUpload("fileAttachmentGroupID" + shipperCooperation.ID.ToString(), "Hidden_AttachmentGroupID" + shipperCooperation.ID, shipperCooperation.AttachmentGroupID, true, true, false, false)
+                                </td>
+                            </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </fieldset>
+        }
+
+
+
+
+
+        <fieldset>
+            <legend>其他信息</legend>
+            <div class="row">
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    @if(Model.ViewType != 0)
+                    {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>合作类型</span></div>
+                        @Html.DropDownListFor(m => m.Shipper.PartnershipTypes, Model.PartnerShipTypes)
+                    </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px;">合作类型：@Model.Shipper.PartnershipTypes</span>
+                       @* @Html.DropDownListFor(m => m.Shipper.PartnershipTypes, Model.PartnerShipTypes, new { @style ="width:80%"})*@
+                        
+                    }
+                     
+                </div>
+                
+            </div>
+            <div class="row" style="margin-top: 30px">
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>企业形象</span></div>
+                            @Html.TextBoxFor(m => m.Shipper.CompanyImage)
+                                </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">企业形象：@Model.Shipper.CompanyImage</span>
+                            
+                        }
+                    
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>员工素质</span></div>
+                            @Html.TextBoxFor(m => m.Shipper.StaffQuality)
+                                 </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">员工素质：@Model.Shipper.StaffQuality</span>
+                            
+                        }
+                   
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>现场服务</span></div>
+                            @Html.TextBoxFor(m => m.Shipper.OnsiteCustomerService)
+                                  </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">现场服务：@Model.Shipper.OnsiteCustomerService</span>
+                            
+                        }
+                  
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                 <div class="col-xs-4 col-md-4 col-sm-12">
+                    @if(Model.ViewType != 0)
+                    {
+                       <div class="input-group">
+                            <div class="input-group-addon"><span>评分指数</span></div>
+                            <div id="RatingDiv"></div>
+                              @Html.HiddenFor(m => m.Shipper.Rating)
+                        </div>
+                             
+                        }
+                      else
+                      {
+                          <span style ="font-size:20px; float:left;">评分指数：</span> 
+                              <div id="RatingDiv" style ="width:100px; float:left;"></div>
+                              @Html.HiddenFor(m => m.Shipper.Rating)
+                         
+                            
+                      }
+                     
+                    
+                   </div>  
+               
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                    @if(Model.ViewType != 0)
+                    {
+                    <div class="input-group">
+                        <div class="input-group-addon"><span>推荐指数</span></div>
+                        <div id="RecommendedDiv"></div>
+                        @Html.HiddenFor(m => m.Shipper.Recommended)
+                    </div>
+                    }
+                    else
+                    {
+                        <span style ="font-size:20px; float:left;">推荐指数：</span> 
+                              <div id="RecommendedDiv" style ="width:100px;float:left;"></div>
+                               @Html.HiddenFor(m => m.Shipper.Recommended)
+                    }
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-12">
+                   
+                        @if (Model.ViewType != 0)
+                        {
+                             <div class="input-group">
+                        <div class="input-group-addon"><span>是否使用</span></div>
+                            @Html.DropDownListFor(m => m.Shipper.Status, Model.Status)
+                                 </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">是否使用： 
+                            @if (Model.Shipper.Status.HasValue && Model.Shipper.Status.Value)
+                            {
+                            @Html.Raw("是")
+                            }
+                            else
+                            {
+                            @Html.Raw("否")
+                            }</span>
+                           
+                        }
+                    
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-xs-12 col-md-12 col-sm-12">
+                    
+                        @if (Model.ViewType != 0)
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>说明</span></div>
+                            @Html.TextAreaFor(m => m.Shipper.Remark, new { @style = "width:100%;font-size:20px;" })
+                                 </div>
+                        }
+                        else
+                        {
+                            <span style ="font-size:20px;">说明：@Model.Shipper.Remark</span>
+                            
+                        }
+                   
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px">
+                <div class="col-xs-4 col-md-4 col-sm-12" style="width: 100%;">
+                    
+                        @Html.HiddenFor(m => m.Shipper.AttachmentGroupID)
+                        @if (Model.ViewType == 0)
+                        {
+                            <span style ="font-size:20px;">图片信息：</span>
+                            @Html.SingleFileUpload("fileAttachmentGroupID", "Hidden_AttachmentGroupID", Model.Shipper.AttachmentGroupID, true, true, false, false)
+                        }
+                        else
+                        {
+                            <div class="input-group">
+                        <div class="input-group-addon"><span>图片信息</span></div>
+                            @Html.SingleFileUpload("fileAttachmentGroupID", "Hidden_AttachmentGroupID", Model.Shipper.AttachmentGroupID, false, true, false, false)
+                            </div>
+                                 }
+               
+                </div>
+            </div>
+        </fieldset>
+
+    </fieldset>  
+       
+    <div class="row col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+        @{
+                        if (Model.ViewType != 0)
+                        {
+            
+            <input type="button" value="提交" id="btnSubmit" class="btn btn-primary" />
+            @Html.Raw("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")    
+            <input type="button" value="返回" id="btnReturn" class="btn btn-primary" />
+                        }
+                        if (Model.ViewType == 0)
+                        {
+            @Html.Raw("&nbsp;&nbsp;")
+            <input type="button" value="车辆查看" id="vehicleView" class="btn btn-primary"/>
+            @Html.Raw("&nbsp;&nbsp;&nbsp;")
+            <input type="button" value="返回" id="btnReturn" class="btn btn-primary" />
+                        }
+        }
+    </div>
+}
+
+
+
+
+

@@ -1,0 +1,27 @@
+﻿body {
+}
+
+#fileAttachmentGroupID_CarBody
+{
+	width :74% !important;
+	float:left;
+}
+#buttonUpload
+{
+	float:left;
+}
+#fileAttachmentGroupID_CarFront
+{
+	width :72% !important;
+	float:left;
+}
+#fileAttachmentGroupID_CarBack
+{
+	width :75% !important;
+	float:left;
+}
+#fileAttachmentGroupID_CarFloor
+{
+	width :74% !important;
+	float:left;
+}

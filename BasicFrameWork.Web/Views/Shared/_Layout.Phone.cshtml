@@ -1,0 +1,114 @@
+﻿@{
+    if (ViewBag.JQueryBaseJs == null)
+    {
+        ViewBag.JQueryBaseJs = true;
+    }
+    if (ViewBag.CommonJs == null)
+    {
+        ViewBag.CommonJs = true;
+    }
+    if (ViewBag.PageCssFile == null)
+    {
+        ViewBag.PageCssFile = true;
+    }
+    if (ViewBag.PageJsFile == null)
+    {
+        ViewBag.PageJsFile = true;
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <title>@ViewBag.Title</title>
+    @Url.JQueryBaseJs((bool)ViewBag.JQueryBaseJs)
+    @Url.CommonJsMain((bool)ViewBag.CommonJs)
+    @RenderSection("headStart", false)
+    @Url.FrameworkCss("jquery.ui.all.css")
+    @Url.FrameworkJs("jquery-ui-1.8.20.min.js")
+    @Url.LoadPageCssJs((bool)ViewBag.PageCssFile, (bool)ViewBag.PageJsFile)
+    @Url.MobileResource();
+
+    <!-- for the fixed header -->
+    <style type="text/css">
+        .header,
+        .footer
+        {
+            box-sizing: border-box;
+            width: 100%;
+            position: fixed;
+        }
+
+        .header
+        {
+            top: 0;
+        }
+
+        .footer
+        {
+            bottom: 0;
+        }
+    </style>  
+    @RenderSection("headEnd", false)
+    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+    <script type="text/javascript">
+        $(function () {
+            var $menu = $('nav#menu'),
+                $html = $('html, body');
+
+            $menu.mmenu({
+                dragOpen: true
+            });
+
+            $menu.find('li > a').on(
+                'click',
+                function (e) {
+                    var href = $(this).attr('href');
+
+                    //	if the clicked link is linked to an anchor, scroll the page to that anchor 
+                    if (href.slice(0, 1) == '#') {
+                        $menu.one(
+                            'closed.mm',
+                            function () {
+                                setTimeout(
+                                    function () {
+                                        $html.animate({
+                                            scrollTop: $(href).offset().top
+                                        });
+                                    }, 10
+                                );
+                            }
+                        );
+                    }
+                }
+            );
+        });
+
+    </script>
+
+
+</head>
+
+<body>
+    <div id="page">
+        <div class="header FixedTop">
+            <a href="#menu"></a>
+            Demo
+		
+        </div>
+        <div id="Content">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="footer FixedBottom">
+        Fixed footer :-)
+		
+    </div>
+    <nav id="menu">
+        <ul>
+            <li><a href="/Phone/Pod/QueryPod">运单查询</a></li>
+            <li><a href="/Phone/Pod/AddAttachment">回单上传</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

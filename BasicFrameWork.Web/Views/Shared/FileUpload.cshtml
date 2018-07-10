@@ -1,0 +1,91 @@
+﻿@model BasicFramework.Web.Models.FileUploadViewModel
+
+@{
+    var isDisabled = Model != null && Model.IsReadOnly;
+    var disabledString = isDisabled ? "display:none;" : string.Empty;
+    var uploadTable = ((Model == null) ? string.Empty : Model.HiddenFileID) + "_Table";
+    var groupID = Model.IsMultiple ? string.Empty : Model.HiddenFileValue;
+    if (ViewContext.NotLoad("AjaxFileUpload"))
+    {
+        if (Model.LoadJs)
+        {
+            @Url.FrameworkJs("ajaxfileupload.js")           
+            @Html.Partial("MsgMask")
+            @Url.CommonCss("FileUpload.css")
+            @Url.CommonJs("FileUpload.js")
+        }
+    }
+}
+
+<script type="text/javascript">
+    var uploadUrl = '@Url.Action("AjaxUpload", "Home", new { area = "Front" })';
+    var downloadUrl = '@Url.Content("~/Front/Home/GetAttachment/")';
+    var attachmentUrl = '@Url.Action("GetAttachments", "Home", new { area = "Front" })';
+    var deleteUrl = '@Url.Action("AjaxDeleteAttachment", "Home", new { area = "Front" })';
+
+    $(document).ready(function () {
+        var group = $('#' + '@Model.HiddenFileID').val();
+
+        if (group) {
+            $.send(
+                attachmentUrl,
+                { gid: group },
+                function (data) {
+                    if (data) {
+                        var uploadTable_Tr2 = $('#' + '@Model.HiddenFileID' + '_Table tr:nth-child(2) td');
+                        uploadTable_Tr2.html();
+
+                        for (var i = 0; i < data.length; i++) {
+                            var parsedDate = new Date(parseInt(data[i].CreateDate.substr(6)));
+
+                            var jsDate = new Date(parsedDate); 
+                            
+                            var attach = '<span class="uploadedSpan" id="attachmentSpan"><a name="download" href="' + downloadUrl + data[i].ID + '">' + data[i].DisplayName + '|' + jsDate.Format("yyyy-MM-dd") + '</a>';
+                            if ("@Model.IsReadOnly" === "False") {
+                                attach += "<a name='delete' class='uploadedRemove' href='#' id='" + data[i].ID + "'>[删除]</a>";
+                            }
+                            attach += "</span><br />";
+                            uploadTable_Tr2.append(attach);
+                        }
+                    }
+                },
+                function () { BasicFramework.Alert('读取附件信息出错'); }
+            );
+        }
+
+        $('#' + '@uploadTable' + ' tr:nth-child(2) td span a[name="delete"]').live("click", function () {
+            var aid = $(this).attr('id');          
+            var span = $(this).parent();
+            var br = span.next();
+            $.send(
+               deleteUrl,
+               {aid: aid},
+               function(data){     
+                   BasicFramework.Alert(data.msg);
+                   if(data.success){                      
+                       span.remove();
+                       br.remove();
+                   }
+               },
+               function(){
+                   BasicFramework.Alert('删除文件失败，请联系IT');
+               }
+            );
+            return false;
+        });
+    });
+</script>
+
+<table id="@uploadTable" class="FileUploadTable">
+    <tr style="@disabledString">
+        <td>
+            <input id="@Model.FileElementID" type="file" name="@Model.FileElementID" class="fileUploadInput"/>
+            <input type="submit" value="Upload" class="fileUploadSubimt" id="buttonUpload" onclick="return ajaxFileUpload('@Model.FileElementID','@Model.HiddenFileID','@Model.IsMultiple','@Model.IsReadOnly','@Model.IsCoverOld');" />
+        </td>
+    </tr>
+    @*<tr>
+        <td></td>
+    </tr>*@
+</table>
+<input type="hidden" id="@Model.HiddenFileID" name="@Model.HiddenFileID" value="@groupID" />
+

@@ -1,0 +1,261 @@
+﻿@model BasicFramework.Web.Areas.ShipperManagement.Models.ShipperTerminalInfoViewModel
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>终端地址信息新增
+        </legend>
+        @Html.HiddenFor(m => m.CRMShipperID)
+        @Html.HiddenFor(m => m.ViewType)
+        @*<table id="CRMShipperTransportationLineTable">*@
+        <div class ="row">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>终端地址</span></div>
+                    @Html.TextBoxFor(m => m.TerminalAddress)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>联系人</span></div>
+                     @Html.TextBoxFor(m => m.Str1)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>联系方式</span></div>
+                    @Html.TextBoxFor(m => m.Str2)
+                </div>
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle" style="width: 10%;">终端地址</td>
+                <td style="width: 23%;">
+                    @Html.TextBoxFor(m => m.TerminalAddress)
+                </td>
+                <td class="TableColumnTitle" style="width: 10%;">联系人</td>
+                <td style="width: 23%;">
+                    @Html.TextBoxFor(m => m.Str1)
+                </td>
+                <td class="TableColumnTitle" style="width: 10%;">联系方式</td>
+                <td>
+                    @Html.TextBoxFor(m => m.Str2)
+                </td>
+            </tr>*@
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>是否自有</span></div>
+                    @Html.DropDownListFor(m => m.IsOwn, Model.TrueOrFalse)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>办公面积(㎡)</span></div>
+                    @Html.TextBoxFor(m => m.TerminalOfficeArea)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>仓库面积(㎡)</span></div>
+                    @Html.TextBoxFor(m => m.TerminalWareHouseArea, new {@style ="width :45%" })
+                    @Html.Raw("&nbsp;&nbsp")
+                    @Html.DropDownListFor(m => m.TerminalWareHouseAreaRange, Model.WarehouseArea, new {@style ="width :45%" })
+                </div>
+            </div>
+        </div>
+           @* <tr>
+                <td class="TableColumnTitle" style="width: 10%;">是否自有</td>
+                <td style="width: 23%;">
+                    @Html.DropDownListFor(m => m.IsOwn, Model.TrueOrFalse)
+                </td>
+                <td class="TableColumnTitle" style="width: 10%;">办公面积(㎡)</td>
+                <td>
+                    @Html.TextBoxFor(m => m.TerminalOfficeArea)
+                </td>
+                <td class="TableColumnTitle">仓库面积(㎡)</td>
+                <td>
+                    @Html.TextBoxFor(m => m.TerminalWareHouseArea,new { style = "width:65px" })
+                    @Html.Raw("&nbsp;&nbsp")
+                    @Html.DropDownListFor(m => m.TerminalWareHouseAreaRange, Model.WarehouseArea)
+                </td>
+            </tr>*@
+        <div class ="row" style ="margin-top:30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>员工人数</span></div>
+                    @Html.TextBoxFor(m => m.TerminalNumberOfEmployees)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>客服人数</span></div>
+                    @Html.TextBoxFor(m => m.TerminalNumberOfCustomerService)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>装卸工人数</span></div>
+                    @Html.TextBoxFor(m => m.TerminalNumberOfStevedores)
+                </div>
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle">员工人数</td>
+                <td>
+                    @Html.TextBoxFor(m => m.TerminalNumberOfEmployees)
+                </td>
+                <td class="TableColumnTitle">客服人数</td>
+                <td>
+                    @Html.TextBoxFor(m => m.TerminalNumberOfCustomerService)
+                </td>
+                <td class="TableColumnTitle">装卸工人数</td>
+                <td>
+                    @Html.TextBoxFor(m => m.TerminalNumberOfStevedores)
+                </td>
+            </tr>*@
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>叉车数量</span></div>
+                    @Html.TextBoxFor(m => m.TerminalForkliftsUsage)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>装卸平台</span></div>
+                    @Html.DropDownListFor(m => m.TerminalLoadingPlatform, Model.HaveOrNone)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>配送车辆</span></div>
+                    @Html.TextBoxFor(m => m.TerminalDeliveryVehicles)
+                </div>
+            </div>
+        </div>
+           @* <tr>
+                <td class="TableColumnTitle">叉车数量</td>
+                <td>
+                    @Html.TextBoxFor(m => m.TerminalForkliftsUsage)
+                </td>
+                <td class="TableColumnTitle">装卸平台</td>
+                <td>
+                    @Html.DropDownListFor(m => m.TerminalLoadingPlatform, Model.HaveOrNone)
+                </td>
+                <td class="TableColumnTitle">配送车辆</td>
+                <td>
+                    @Html.TextBoxFor(m => m.TerminalDeliveryVehicles)
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px; width :100%; ">
+            <div class ="col-xs-12 col-md-12 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>备注</span></div>
+                    @Html.TextAreaFor(m => m.Str1, new { @style ="width:100%"})
+                </div>
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle">备注</td>
+                <td colspan="5">
+                    @Html.TextAreaFor(m => m.Str1, new { style = "width:95%" })
+                </td>
+            </tr>*@
+        <div class ="row">
+            <div class ="col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+               <input type="submit" value="新增" id="insertCRMShipperCooperation" class ="btn btn-primary" />
+                    @Html.Raw("&nbsp;&nbsp")
+                    <input type="button" value="返回" id="return" class ="btn btn-primary" />
+            </div>
+        </div>
+           @* <tr>
+                <td colspan="6" style="text-align: center;">
+                    <input type="submit" value="新增" id="insertCRMShipperCooperation" />
+                    @Html.Raw("&nbsp;&nbsp")
+                    <input type="button" value="返回" id="return" />
+                </td>
+            </tr>*@
+       @* </table>*@
+    </fieldset>
+    <fieldset>
+        <legend>终端地址信息列表
+        </legend>
+        <table id="usersInfoTable">
+            <thead>
+                <tr>
+                    <th>终端地址</th>
+                    <th>联系人</th>
+                    <th>联系方式</th>
+                    <th>是否自有</th>
+                    <th>办公面积(㎡)</th>
+                    <th>仓库面积(㎡)</th>
+                    <th>面积范围(㎡)</th>
+                    <th>员工人数</th>
+                    <th>客服人数</th>
+                    <th>装卸工人数</th>
+                    <th>叉车数量</th>
+                    <th>装卸平台</th>
+                    <th>配送车辆</th>
+                    <th>备注</th>
+                    <th>删除</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.CRMShipperTerminalInfoCollection != null && Model.CRMShipperTerminalInfoCollection.Any())
+                {
+                    foreach (var terminalInfo in Model.CRMShipperTerminalInfoCollection)
+                    {
+                    <tr data-id="@terminalInfo.ID">
+                        <td>
+                            @terminalInfo.TerminalAddress
+                        </td>
+                        <td>
+                            @terminalInfo.Str1
+                        </td>
+                        <td>
+                            @terminalInfo.Str2
+                        </td>
+                        <td>
+                            @terminalInfo.IsOwn
+                        </td>
+                        <td>
+                            @terminalInfo.TerminalOfficeArea
+                        </td>
+                        <td>
+                            @terminalInfo.TerminalWareHouseArea
+                        </td>
+                        <td>
+                            @terminalInfo.TerminalWareHouseAreaRange
+                        </td>
+                        <td>
+                            @terminalInfo.TerminalNumberOfEmployees
+                        </td>
+                        <td>
+                            @terminalInfo.TerminalNumberOfCustomerService
+                        </td>
+                        <td>
+                            @terminalInfo.TerminalNumberOfStevedores
+                        </td>
+                        <td>
+                            @terminalInfo.TerminalForkliftsUsage
+                        </td>
+                        <td>
+                            @terminalInfo.TerminalLoadingPlatform
+                        </td>
+                        <td>
+                            @terminalInfo.TerminalDeliveryVehicles
+                        </td>
+                        <td>
+                            @terminalInfo.Str1
+                        </td>
+                        <td>
+                            <label id="deleteCRMShipperTerminalInfo" style="cursor:pointer;" class="btn btn-primary btn-xs EditButton" data-id="@terminalInfo.ID" >删除</label>
+                        </td>
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </fieldset>
+}

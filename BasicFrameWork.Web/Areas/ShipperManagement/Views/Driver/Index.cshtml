@@ -1,0 +1,249 @@
+﻿@model BasicFramework.Web.Areas.ShipperManagement.Models.DriverIndexViewModel
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m=>m.SearchCondition.StartServeForRunbowTime)
+    @Html.HiddenFor(m=>m.SearchCondition.EndServeForRunbowTime)
+    <fieldset>
+        <legend>查询条件</legend>
+         <div class ="row">
+             <div class ="col-xs-4 col-md-4 col-sm-12">
+                 <div class ="input-group">
+                     <div class ="input-group-addon"><span>司机姓名</span></div>
+                      @Html.TextBoxFor(m=>m.SearchCondition.DriverName)
+                 </div>
+             </div>
+             <div class ="col-xs-4 col-md-4 col-sm-12">
+                 <div class ="input-group">
+                     <div class ="input-group-addon"><span>联系电话</span></div>
+                     @Html.TextBoxFor(m=>m.SearchCondition.DriverPhone)
+                 </div>
+             </div>
+             <div class ="col-xs-4 col-md-4 col-sm-12">
+                 <div class ="input-group">
+                     <div class ="input-group-addon"><span>驾驶车辆牌号</span></div>
+                     @Html.TextBoxFor(m=>m.SearchCondition.DriverCarNo)
+                 </div>
+             </div>
+         </div>
+            @*<tr>
+                <td class="TableColumnTitle" style="width: 11%;">司机姓名</td>
+                <td style="width: 21%;">
+                    @Html.TextBoxFor(m=>m.SearchCondition.DriverName)
+                  
+                </td>
+                 <td class="TableColumnTitle" style="width: 11%;">联系电话</td>
+                <td style="width: 21%;">
+                    @Html.TextBoxFor(m=>m.SearchCondition.DriverPhone)
+                   
+                </td>
+                <td class="TableColumnTitle">驾驶车辆牌号</td>
+                <td>
+                    @Html.TextBoxFor(m=>m.SearchCondition.DriverCarNo)
+                   
+                </td>
+                
+               
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>身份证号码</span></div>
+                     @Html.TextBoxFor(m=>m.SearchCondition.DriverIDCard)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>驾驶证档案号</span></div>
+                    @Html.TextBoxFor(m=>m.SearchCondition.DriverCardNo)
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>物流公司</span></div>
+                    @Html.TextBoxFor(m=>m.SearchCondition.DriverLogisticsCompany)
+                </div>
+            </div>
+        </div>
+           @* <tr>
+                
+                <td class="TableColumnTitle">身份证号码</td>
+                <td>
+                    @Html.TextBoxFor(m=>m.SearchCondition.DriverIDCard)
+                   
+                </td>
+                <td class="TableColumnTitle">驾驶证档案号</td>
+                <td>
+                    @Html.TextBoxFor(m=>m.SearchCondition.DriverCardNo)
+                   
+                </td>
+                <td class="TableColumnTitle" style="width:11%;">物流公司</td>
+                <td style="width: 21%;">
+                    @Html.TextBoxFor(m=>m.SearchCondition.DriverLogisticsCompany)
+                  
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>是否在服务中</span></div>
+                    @Html.DropDownListFor(m=>m.SearchCondition.DriverIsServing, Model.DriverIsServing, "==请选择==")
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>驾照类型</span></div>
+                     @Html.DropDownListFor(m=>m.SearchCondition.DriverCardType, Model.DriverCardType, "==请选择==")
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>登记证签发地</span></div>
+                    @Html.TextBoxFor(m=>m.SearchCondition.DriverRegistrationCardSignedAddress)
+                </div>
+            </div>
+        </div>
+            @*<tr>
+                <td class="TableColumnTitle">是否在服务中</td>
+                <td>
+                    @Html.DropDownListFor(m=>m.SearchCondition.DriverIsServing, Model.DriverIsServing, "==请选择==")
+                   
+                </td>
+                <td class="TableColumnTitle">驾照类型</td>
+                <td>
+                    @Html.DropDownListFor(m=>m.SearchCondition.DriverCardType, Model.DriverCardType, "==请选择==")
+                    
+                </td>
+                <td class="TableColumnTitle">登记证签发地</td>
+                <td>
+                    @Html.TextBoxFor(m=>m.SearchCondition.DriverRegistrationCardSignedAddress)
+                    
+                </td>
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+           <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>开始为虹迪服务日期</span></div>
+                    @Html.CalendarRange("ServeForRunbowTime", "calendarRange")
+                </div>
+            </div>
+            <div class ="col-xs-4 col-md-4 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>服务区域</span></div>
+                     @Html.TextBoxFor(m=>m.SearchCondition.DriverServiceArea)
+                </div>
+            </div>
+        </div>
+          @*  <tr>
+                
+                
+                <td class="TableColumnTitle">开始为虹迪服务日期</td>
+                <td>
+                    @Html.CalendarRange("ServeForRunbowTime", "calendarRange")
+                   
+                    </td>
+                <td class="TableColumnTitle">服务区域</td>
+                <td>
+                    @Html.TextBoxFor(m=>m.SearchCondition.DriverServiceArea)
+                  
+                </td>
+                
+            </tr>*@
+
+        <div class ="row" style ="margin-top :30px;">
+            <div class ="col-xs-12 col-md-12 col-sm-12">
+                <div class ="input-group">
+                    <div class ="input-group-addon"><span>主要行驶路线</span></div>
+                     @Html.TextAreaFor(m => m.SearchCondition.DriverMainRoute, new { style = "width:96%" , rows = 2, cols = 20})
+                </div>
+            </div>
+        </div>
+           @* <tr>
+                <td class="TableColumnTitle">主要行驶路线</td>
+                <td colspan ="5">
+                    @Html.TextAreaFor(m => m.SearchCondition.DriverMainRoute, new { style = "width:93%" , rows = 2, cols = 20})
+                   
+                </td>
+            </tr>*@
+        
+       <div class="row">
+            <div class="col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+            <input type="submit" class="btn btn-primary" value="查询" id="searchButton" name="Action"/>
+            &nbsp;&nbsp;&nbsp;
+            <input type="submit" class="btn btn-primary" value="导出" id="exportButton" name="Action"/>
+            &nbsp;&nbsp;&nbsp;
+            <input type="button" class="btn btn-primary" value="新增" onclick="javascript:window.location.href='/ShipperManagement/Driver/CreateOrUpdate?ViewType=0'" />
+            </div>
+       </div>
+    </fieldset>
+    
+    
+    <fieldset class="myFieldset">
+        <legend class="myLegend">司机信息列表
+           
+        </legend>
+        <table id="driversInfoTable">
+            <thead>
+                <tr>
+                    <th>司机<br />姓名</th>
+                    <th>出生<br />日期</th>
+                    <th>开始为虹<br />迪服务时间</th>
+                    <th>联系<br />电话</th>
+                    <th>身份<br />证号码</th>
+                    <th>驾驶证<br />档案号</th>
+                    <th>物流<br />公司</th>
+                    <th>物流公<br />司联系人</th>
+                    <th>物流公<br />司联系电话</th>
+                    <th>驾照<br />类型</th>
+                    <th>司机<br />登记号</th>
+                    <th>登记证<br />签发地</th>
+                    <th>初次驾<br />照领证日期</th>
+                    <th>服务<br />区域</th>
+                    <th>驾驶车<br />辆牌号</th>
+                    <th>更新人</th>
+                    <th>更新<br />日期</th>
+                    <th>操作</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.CRMDriverCollection != null && Model.CRMDriverCollection.Any())
+                  {
+                      foreach (var item in Model.CRMDriverCollection)
+                      {
+                          string color = string.Empty;
+                          string tdColor = string.Empty;
+                     <tr> 
+                         <td><a href="/ShipperManagement/Driver/CreateOrUpdate?id=@item.ID&type=1"><strong>@item.DriverName</strong></a></td>
+                         <td>@item.DriverBirthday.ToString("yyyy-MM-dd")</td>
+                         <td>@item.DriverStartServeForRunbowDate.ToString("yyyy-MM-dd")</td>
+                         <td>@item.DriverPhone</td>
+                         <td>@item.DriverIDCard</td>
+                         <td>@item.DriverCardNo</td>
+                         <td>@item.DriverLogisticsCompany</td>
+                         <td>@item.DriverLogisticsContactPerson</td>
+                         <td>@item.DriverLogisticsCompanyContactPhone</td>
+                         <td>@item.DriverCardType</td>
+                         <td>@item.DriverRegistrationNo</td>
+                         <td>@item.DriverRegistrationCardSignedAddress</td>
+                         <td>@item.DriverFirstTimeGetCardDate.ToString("yyyy-MM-dd")</td>
+                         <td>@item.DriverServiceArea</td>
+                         <td>@item.DriverCarNo</td>
+                         <td>@item.UpdateUser</td>
+                         <td>@item.UpdateTime</td>            
+                         <td>
+                             <label id="UpdateCRMDriver" style="cursor:pointer;" class ="btn btn-primary btn-xs EditButton" data-id="@item.ID">编辑</label>
+                             <label id="deleteCRMDriver" style="cursor:pointer;" class ="btn btn-primary btn-xs EditButton" data-id="@item.ID">删除</label>
+                         </td>                    
+                        
+                     </tr> 
+                      }
+                      
+                  }
+                </tbody>
+            </table>
+               @Html.Pager(Model.PageIndex, Model.PageCount, "")
+    </fieldset>
+}

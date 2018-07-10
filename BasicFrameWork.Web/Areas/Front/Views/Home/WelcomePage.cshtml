@@ -1,0 +1,104 @@
+﻿@{
+    
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <title>首页</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+
+    <script type="text/javascript">
+        parent.document.getElementById("myIframe").style.display = "";
+        function ClickImg(str) {
+            document.getElementById("imgDiv").style.display = "none";
+            document.getElementById("imgDetailDiv").style.display = "";
+            if (str == "1") {
+                document.getElementById("ImgDetailDiv_IMG").src = "../../../../Image/物流.png";
+                document.getElementById("ImgDetailDiv_Text").innerHTML = "<br /><物流><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;虹迪在全国的仓储中心面达270,000㎡，运输能力辐射全国95%以上的县级城市，虹迪的质量管理团队提供退货质检、分类、再包装及贴标服务，有效减少退货损失。虹迪设有最后一公里配送团队、宅配团队，提供定制化的终端服务。物流环节与GPS、KPI监控体系接口，为虹迪、客户以及终端用户打造一个多赢的局面。虹迪立志打造一个包括入厂物流、生产物流、出厂物流、售后物流的完整物流服务链。";
+            }
+            if (str == "2") {
+                document.getElementById("ImgDetailDiv_IMG").src = "../../../../Image/商贸流.png";
+                document.getElementById("ImgDetailDiv_Text").innerHTML = "<br /><商贸流><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;虹迪基于强大的信息系统及物流网络，优化和整合实体连锁、电子商务和移动商务三个平台，致力于构建一个多层次、多维度的全渠道营销平台。";
+            }
+            if (str == "3") {
+                document.getElementById("ImgDetailDiv_IMG").src = "../../../../Image/资金流.png";
+                document.getElementById("ImgDetailDiv_Text").innerHTML = "<br /><资金流><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;虹迪，把供应商、制造商、分销商、零售商连成一个整体，他不仅是一条连接供应商到用户的物流链、信息链、资金链，更是一条增值链，供应链服务的三大业务结构包括：大数据金融业务、细分行业B2B平台、分销执行。旨在通过资金流和信息流的金融闭环实现在线融智风险可控。";
+            }
+            if (str == "4") {
+                document.getElementById("ImgDetailDiv_IMG").src = "../../../../Image/信息流.png";
+                document.getElementById("ImgDetailDiv_Text").innerHTML = "<br /><信息流><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在信息流方面，虹迪开发的供应链管理平台、线上交易平台、物流全程可视化平台、电子商务平台、移动互联网平台五大平台，实现对资源的有效控制，为客户提供全程可监控信息系统服务。此外，虹迪强大的信息管理系统通过云技术、大数据分析、移动互联网技术、O2O线上线下联动等手段，让客户更好的达成精准营销以及维护并拓展客户的目的，并提供其他增值服务。";
+            }
+
+        }
+        function HidDiv() {
+            document.getElementById("imgDiv").style.display = "";
+            document.getElementById("imgDetailDiv").style.display = "none";
+        } 
+    </script>
+</head>
+<body style="background-color: #333;">
+    <div class="page " style="background-color: #333;">
+        <div id="main" style="background-color: #333;">
+            <div id="imgDiv" style="margin-top: 4%;">
+                <div class="container" style="text-align: center;">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6 col-sm-6">
+                            <a title="物流" href="javascript:ClickImg(1);">
+                                <img src="../../../../Image/物流.png" alt="" style="width: 90%" />
+                            </a>
+                            <div style="color: #666; font-size: 20px;">物流</div>
+                        </div>
+                        <div class="col-xs-6 col-md-6 col-sm-6">
+                            <a title="商贸流" href="javascript:ClickImg(2);">
+                                <img src="../../../../Image/商贸流.png" alt="" style="width: 90%;" />
+                            </a>
+                            <div style="color: #666; font-size: 20px;">商贸流</div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6 col-sm-6">
+                            <a title="资金流" href="javascript:ClickImg(3);">
+                                <img src="../../../../Image/资金流.png" alt="" style="width: 90%" />
+                            </a>
+                            <div style="color: #666; font-size: 20px;">资金流</div>
+                        </div>
+                        <div class="col-xs-6 col-md-6 col-sm-6">
+                            <a title="信息流" href="javascript:ClickImg(4);">
+                                <img src="../../../../Image/信息流.png" alt="" style="width: 90%;" />
+                            </a>
+                            <div style="color: #666; font-size: 20px;">信息流</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*-----------------------------显示详细图片--------------------------------*@
+            <div id="imgDetailDiv" style="margin-top: 15%; display: none;">
+                <div class="container" style="text-align: center;">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6 col-sm-6">
+                            <a href="javascript:HidDiv();">
+                                <img id="ImgDetailDiv_IMG" src="../../../../Image/物流.png" alt="" />
+                            </a>
+                        </div>
+                        <div class="col-xs-6 col-md-6 col-sm-6">
+
+                            <div id="ImgDetailDiv_Text" style="color: #666; font-size: 17px;font-family:微软雅黑, Trebuchet MS;width:70%;text-align:left;">资金流</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div id="footer">
+            </div>*@
+    </div>
+    @Html.Partial("Popup")
+</body>
+</html>
+
+

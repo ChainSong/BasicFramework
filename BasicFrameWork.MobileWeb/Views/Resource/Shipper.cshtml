@@ -1,0 +1,113 @@
+﻿@model BasicFramework.MobileWeb.Models.Resource.ShipperViewModel
+@{
+    ViewBag.PageTitle = "承运商管理";
+    Layout = "~/Views/_MyLayoutPage.cshtml";
+}
+
+<div>
+    <input id="txt_search" type="text" class="txt_search" placeholder="输入关键字">
+    <button type="button" class="btn_search" onclick="search();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+</div>
+@if (Model.CRMShipperCollection != null && Model.CRMShipperCollection.Count() > 0)
+{
+    <div class="myList">
+        <ul class="list-group">
+            @foreach (var item in Model.CRMShipperCollection)
+            {
+                <li class="list-group-item">
+                    <a href="/Resource/ShipperInfos/@item.ID" style="color: #555;">
+                        <h4><strong>@item.Name（@item.Attribution）</strong></h4>
+                    </a>
+                    <div class="">注册资金：<span class="text-danger">@item.RegisteredCapitalRange</span></div>
+                    <div style="float: none">
+                        <div style="float: left">运输方式：<span>@item.TransportMode</span></div>
+                        <div style="float: right">评分指数：<span class="text-danger">@item.Rating</span></div>
+                    </div>
+                    <br />
+                    <div style="">
+                        <div style="float: left">车   型：<span>@item.TrunkOfVehicleType</span></div>
+                        <div style="float: right">推荐指数：<span class="text-danger">@item.Recommended</span></div>
+                    </div>
+                    <br />
+                    <div style="">
+                        <div style="float: left">法   人：<span>@item.LegalRepresentative</span></div>
+                        <div style="float: right">
+                            @if (!string.IsNullOrEmpty(@item.LegalRepresentativeConta))
+                            {
+                                <a href="tel:@item.LegalRepresentativeConta" class="text-danger"><span class="glyphicon glyphicon-earphone"></span>：@item.LegalRepresentativeConta</a>
+                            }
+                        </div>
+                    </div>
+                    <br />
+                    <div style="">
+                          <div style="float: left">
+                                <a href="/Resource/ShipperMappingVehicleBySID/@item.ID" style="color: #ec971f;"><strong>查看车辆信息</strong></a>
+                          </div>
+                         <div style="float: right">
+                                <a href="/Resource/ShipperMappingDriverBySID/@item.ID" style="color: #ec971f;"><strong>查看司机信息</strong></a>
+                          </div>
+                    </div>
+                    <br />
+                </li>
+            }
+
+            <!--
+            <li class="list-group-item">
+                <a href="/Resource/ShipperInfos" style="color: #555;">
+                    <h4><strong>深圳市大广发呵呵物流有限公司（华南）</strong></h4>
+                </a>
+                <div class="">注册资金：<span class="text-danger">800万-1000万</span></div>
+                <div style="float: none">
+                    <div style="float: left">运输方式：<span>公路|铁路|航空|落地配</span></div>
+                    <div style="float: right">评分指数：<span class="text-danger">5</span></div>
+                </div>
+                <br />
+                <div style="">
+                    <div style="float: left">车   型：<span>厢车|平板车|高栏车</span></div>
+                    <div style="float: right">推荐指数：<span class="text-danger">5</span></div>
+                </div>
+                <br />
+                <div style="">
+                    <div style="float: left">法   人：<span>皮卡丘</span></div>
+                    <div style="float: right"><a href="tel:13000000000" class="text-danger"><span class="glyphicon glyphicon-earphone"></span>：13000000000</a></div>
+                </div>
+                <br />
+            </li>
+                -->
+        </ul>
+    </div>
+
+    <div class="pageMore" onclick="getShipperMore();">
+        <div class="bg-primary">加载更多</div>
+    </div>
+
+}
+<!--
+<div class="myPagination">
+    <nav>
+        <ul class="pagination pagination-lg">
+            <li class="disabled">
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="active"><a href="#">1</a></li>
+            <li class=""><a href="#">2</a></li>
+            <li class=""><a href="#">3</a></li>
+            <li class=""><a href="#">4</a></li>
+            <li class=""><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+    -->
+
+@section myJs{
+    <script src="~/js/Resource/Shipper.js"></script>
+}
+
+

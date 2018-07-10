@@ -1,0 +1,452 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+body
+{
+	background-color: #333;
+}
+
+.page
+{
+	width: 99%;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+header, #header
+{
+	position: relative;
+	margin-bottom: 0px;
+	padding: 0;
+}
+
+#main
+{
+	padding: 15px 15px 15px 30px;
+	background-color: #333;
+	border-radius: 4px 0 0 0;
+	-webkit-border-radius: 4px 0 0 0;
+	-moz-border-radius: 4px 0 0 0;
+	min-width: 896px;
+}
+
+
+input[type="text"], input[type="password"]
+{
+	border: none;
+	padding: 2px;
+	font-size: 1.2em;
+	color: #666;
+	width: 60%;
+}
+textarea
+{
+	height: 90px;
+	width:90% !important;
+	background-color: #bbb;
+}
+select
+{
+	border: none;
+	padding: 2px;
+	font-size: 1.2em;
+	color: #666;
+}
+/*
+input[type="submit"] {
+    font-size: 1.2em;
+    padding: 5px;
+}
+*/
+/* TABLE
+----------------------------------------------------------*/
+
+table
+{
+	font-size: 1.2em;
+	border: none;
+	border-collapse: collapse;
+	width: 99%;
+}
+
+
+
+	table td
+	{
+		padding: 5px;
+		border: none;
+	}
+
+	table th
+	{
+		font-size: 1.2em;
+		padding: 5px;
+		border: none;
+		font-weight: bold;
+	}
+
+	table .checkBoxHead
+	{
+		width: 30px;
+	}
+
+/* MISC
+----------------------------------------------------------*/
+.clear
+{
+	clear: both;
+}
+
+.error
+{
+	color: Red;
+}
+
+nav, #menucontainer
+{
+	margin-top: 40px;
+}
+
+div#title
+{
+	display: block;
+	float: left;
+	text-align: left;
+}
+
+#logindisplay
+{
+	font-size: 1.1em;
+	display: block;
+	text-align: right;
+	margin: 10px;
+	color: White;
+}
+
+	#logindisplay a:link
+	{
+		color: white;
+		text-decoration: underline;
+	}
+
+	#logindisplay a:visited
+	{
+		color: white;
+		text-decoration: underline;
+	}
+
+	#logindisplay a:hover
+	{
+		color: white;
+		text-decoration: none;
+	}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+	color: #ff0000;
+}
+
+.field-validation-valid
+{
+	display: none;
+}
+
+.input-validation-error
+{
+	border: 1px solid #ff0000;
+	background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+	font-weight: bold;
+	color: #ff0000;
+}
+
+.validation-summary-valid
+{
+	display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label, .editor-label
+{
+	margin: 1em 0 0 0;
+}
+
+.display-field, .editor-field
+{
+	margin: 0.5em 0 0 0;
+}
+
+.text-box
+{
+	width: 30em;
+}
+
+	.text-box.multi-line
+	{
+		height: 6.5em;
+	}
+
+.tri-state
+{
+	width: 6em;
+}
+
+/*new*/
+#menuContent .ztree
+{
+	margin-top: 10px;
+	border: 1px solid #617775;
+	background: #f0f6e4;
+	width: 260px;
+	height: 280px;
+	overflow-y: scroll;
+	overflow-x: auto;
+}
+
+.query input[type='text']
+{
+	width: 100px;
+}
+
+.addressPanel input[type='text']
+{
+	width: 99%;
+}
+
+.hidden
+{
+	display: none;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.notVisible
+{
+	visibility: hidden;
+}
+
+.center
+{
+	text-align: center;
+}
+
+.need
+{
+	color: Red;
+}
+
+/* popup*/
+#tws-popup
+{
+	display: none;
+	padding: 0px;
+}
+
+#popup-title
+{
+	font-size: 16px;
+	margin: 0 40px 20px 0;
+}
+
+.TableColumnTitle
+{
+	width: 10%;
+}
+
+.TableColumnVal
+{
+	width: 21%;
+	text-align: left;
+}
+
+.actionButtonDiv
+{
+	text-align: center;
+	margin-top: 30px;
+}
+
+.calendarRange
+{
+	width: 92px !important;
+}
+
+.fileImport
+{
+	font-size: 1.1em;
+}
+
+.displayNone
+{
+	display: none;
+}
+
+.labelPointer
+{
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.fixedInBottom
+{
+	position: fixed;
+	bottom: 0;
+	left: 360px;
+	background: #000;
+	width: 50%;
+	height: 30px;
+	line-height: 23px;
+	z-index: 9999;
+	opacity: .60;
+	filter: alpha(opacity=70);
+	_bottom: auto;
+	_width: 100%;
+	_position: absolute;
+	_top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight- (parseInt(this.currentStyle.marginTop, 10)||0)-(parseInt(this.currentStyle.marginBottom, 10)||0)));
+}
+
+.Red
+{
+	color: red;
+}
+
+.form-control
+{
+	display: inline !important;
+}
+
+fieldset
+{
+	margin-bottom: 20px;
+}
+
+legend
+{
+	font-size: 1.6em;
+	color: #666;
+	font-weight: bold;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #666;
+}
+
+.ui-autocomplete
+{
+	color: #555;
+	background-color: #bbb;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+input, select
+{
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #bbb;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+	input[type=checkbox]
+	{
+		width: auto;
+		height: auto;
+	}
+
+	input:focus, select:focus
+	{
+		border-color: #66afe9;
+		outline: 0;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+	}
+
+	input::-moz-placeholder
+	{
+		color: #999;
+		opacity: 1;
+	}
+
+	input:-ms-input-placeholder
+	{
+		color: #999;
+	}
+
+	input::-webkit-input-placeholder
+	{
+		color: #999;
+	}
+
+	input[disabled],
+	input[readonly],
+	fieldset[disabled] .form-control
+	{
+		background-color: #eee;
+		opacity: 1;
+	}
+
+	input[type="button"], input[type="submit"]
+	{
+		width: 100px;
+	}
+
+
+.input-group-addon
+{
+	color: #666;
+	font-weight: bold;
+	background-color: #ccc;
+	font-size: 15px;
+}
+
+/*-----------------------------------------------Chaomin--------------------------------------*/
+.popMsg
+{
+	z-index: 999;
+	width: 100%;
+	height: 80px;
+	text-align: center;
+	display: none;
+	top: 40px;
+	position: fixed;
+	filter: alpha(opacity=40);
+	background-color: rgb(0, 0, 0);
+	border-color: rgb(0, 0, 0);
+	border-color: rgba(0, 0, 0,0.5);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #F0AD4E;
+	line-height: 80px;
+	font-size: 18px;
+}
+
+
+.ztree *
+{
+	font-size : 18px !important;
+	line-height : 20px !important;
+}
+

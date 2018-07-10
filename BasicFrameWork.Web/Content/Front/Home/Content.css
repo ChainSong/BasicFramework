@@ -1,0 +1,61 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+#menu {
+    width: 126px;
+    padding-top: 30px;
+    background-color: rgb(0,71,139);
+}
+
+#guide {
+    height: 30px;
+    padding-left: 10px;
+    color: rgb(0,71,139);
+    font-weight: bold;
+}
+
+#content {
+    height: 100%;
+}
+
+#menu .menu_item_content_wrapper {
+    text-decoration: none;
+    color: Black;
+}
+
+#menu .menu_item_content {
+    display: block;
+    width: 150px;
+    cursor: hand;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: white;
+    border: 1px solid rgb(0,71,139);
+    margin-top: 1px;
+    float: right;
+}
+
+#mu .menu_item_content:hover {
+    font-weight: bold;
+    color: white;
+    background-color: rgb(245,161,0);
+}
+
+#menu .selectedStyle {
+    font-weight: bold;
+    color: white;
+    background-color: rgb(245,161,0);
+    width: 150px;
+}
+
+.ContentTable {
+    height: 100%;
+    width: 100%;
+    cellspacing: 0;
+    cellpadding: 0;
+}

@@ -1,0 +1,132 @@
+﻿@model BasicFramework.Web.Areas.ShipperManagement.Models.ShipperTransportationLineViewModel
+<fieldset>
+    <legend>线路新增
+    </legend>
+    @Html.HiddenFor(m => m.CRMShipperID)
+    @Html.HiddenFor(m => m.ViewType)
+    
+    <div class ="row">
+        <div class ="col-xs-4 col-md-4 col-sm-12">
+            <div class ="input-group">
+                <div class ="input-group-addon"><span>出发地</span></div>
+                @Html.HiddenFor(m => m.StartPlaceID)
+                @Html.HiddenFor(m => m.StartPlaceName)
+                @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "startPlaceID", NameKey = "startPlaceName", TreeKey = "startPlaceTreeKey" })
+                <a id="StartPlaceClear" href="#">清空</a>
+            </div>
+        </div>
+        <div class ="input-group">
+                <div class ="input-group-addon"><span>目的地</span></div>
+                @Html.HiddenFor(m => m.EndPlaceName)
+                @Html.HiddenFor(m => m.EndPlaceID)
+                @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "endPlaceID", NameKey = "endPlaceName", TreeKey = "endPlaceTreeKey" })
+                <a id="EndPlaceClear" href="#">清空</a>
+            </div>
+    </div>
+        @*<tr>
+            <td class="TableColumnTitle" style="width: 10%;">出发地</td>
+            <td style="width: 23%;">
+                @Html.HiddenFor(m => m.StartPlaceID)
+                @Html.HiddenFor(m => m.StartPlaceName)
+                @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "startPlaceID", NameKey = "startPlaceName", TreeKey = "startPlaceTreeKey" })
+                <a id="StartPlaceClear" href="#">清空</a>
+            </td>
+            <td class="TableColumnTitle" style="width: 10%;">目的地</td>
+            <td style="width: 23%;">
+                @Html.HiddenFor(m => m.EndPlaceName)
+                @Html.HiddenFor(m => m.EndPlaceID)
+                @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "endPlaceID", NameKey = "endPlaceName", TreeKey = "endPlaceTreeKey" })
+                <a id="EndPlaceClear" href="#">清空</a>
+            </td>
+            
+        </tr>*@
+
+    <div class ="row" style ="margin-top :30px;">
+        <div class ="col-xs-4 col-md-4 col-sm-12">
+            <div class ="input-group">
+                <div class ="input-group-addon"><span>覆盖线路</span></div>
+                @Html.HiddenFor(m => m.CoverRegionID)
+                @Html.HiddenFor(m => m.CoverRegionName)
+                @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "coverRegionID", NameKey = "coverRegionName", TreeKey = "coverRegionTreeKey" })
+                <a id="CoverRegionClear" href="#">清空</a>
+            </div>
+        </div>
+        <div class ="col-xs-4 col-md-4 col-sm-12">
+            <div class ="input-group">
+                <div class ="input-group-addon"><span>运输时效(天)</span></div>
+                @Html.TextBoxFor(m => m.Period)
+            </div>
+        </div>
+    </div>
+        @*<tr>
+            <td class="TableColumnTitle" style="width: 10%;">覆盖线路</td>
+            <td style="width: 23%;">
+                @Html.HiddenFor(m => m.CoverRegionID)
+                @Html.HiddenFor(m => m.CoverRegionName)
+                @Html.RegionSelector(new BasicFramework.Web.Models.RegionSelector() { IDKey = "coverRegionID", NameKey = "coverRegionName", TreeKey = "coverRegionTreeKey" })
+                <a id="CoverRegionClear" href="#">清空</a>
+            </td>
+            <td class="TableColumnTitle" style="width: 10%;">运输时效(天)</td>
+            <td style="width: 23%;">
+               @Html.TextBoxFor(m => m.Period)
+            </td>
+        </tr>*@
+
+    <div class ="row">
+            <div class ="col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+             <input type="button" value="新增" id="insertTransportationLine" class ="btn btn-primary" />
+             @Html.Raw("&nbsp;&nbsp")
+             <input type="button" value="返回" id="return" class ="btn btn-primary" />
+        </div>
+    </div>
+        @*<tr>
+            <td style="text-align: center;" colspan="4">
+               
+                
+                <input type="button" value="返回" id="return" />
+            </td>
+        </tr>*@
+   
+</fieldset>
+
+
+<fieldset>
+    <legend>主营线路列表
+    </legend>
+    <table id="usersInfoTable">
+        <thead>
+            <tr>
+                <th>出发地</th>
+                <th>目的地</th>
+                <th>覆盖线路</th>
+                <th>运输时效(天)</th>
+                <th>删除</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.ShipperTransportationLineCollection != null && Model.ShipperTransportationLineCollection.Any())
+            {
+                foreach (var transportationLine in Model.ShipperTransportationLineCollection)
+                {
+                    <tr data-id="@transportationLine.ID">
+                        <td>
+                            @transportationLine.StartCityName
+                        </td>
+                        <td>
+                            @transportationLine.EndCityName
+                        </td>
+                        <td>
+                            @transportationLine.CoverRegionName
+                        </td>
+                        <td>
+                            @transportationLine.Period
+                        </td>
+                        <td style="width:10%">
+                            <label id="deleteCRMShipper" style="cursor:pointer;" class="btn btn-primary btn-xs EditButton" data-id="@transportationLine.ID" >删除</label>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</fieldset>

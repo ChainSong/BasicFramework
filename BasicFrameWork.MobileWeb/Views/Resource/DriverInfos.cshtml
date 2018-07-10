@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.PageTitle = "司机信息";
+    Layout = "~/Views/_MyLayoutPage.cshtml";
+}
+@model BasicFramework.MobileWeb.Models.Resource.DriverInfosModel
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <h3 class="detail_title"><strong>基础信息</strong></h3>
+        <table class="tb_detail">
+            <tbody>
+                <tr>
+                    <td class="td_lt"><strong>姓名</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverName</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>出生日期</strong></td>
+                    <td class="td_gt">
+                        @if (Model.CRMdriver.DriverBirthday.ToString("yyyy-MM-dd") != "0001-01-01")
+                        {
+                            @Model.CRMdriver.DriverBirthday.ToString("yyyy-MM-dd")
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>驾驶车辆车牌号</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverCarNo</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>领证日期</strong></td>
+                    <td class="td_gt">
+                        @if (Model.CRMdriver.DriverFirstTimeGetCardDate.ToString("yyyy-MM-dd") != "0001-01-01")
+                        {
+                            @Model.CRMdriver.DriverFirstTimeGetCardDate.ToString("yyyy-mm-dd");
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>驾驶证档案号</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverCardNo</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>身份证</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverIDCard</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>是否在服务中</strong></td>
+                    <td class="td_gt">@if (Model.CRMdriver.DriverIsServing)
+                                      {@Html.Raw("是")}
+                                       else
+                                      {@Html.Raw("否")}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>驾照类型</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverCardType</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>司机登记号</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverRegistrationNo</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>归属公司</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverLogisticsCompany</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>公司电话</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverLogisticsCompanyContactPhone</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>公司联系人</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverLogisticsContactPerson</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>手机号码</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverPhone</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>服务区域</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverServiceArea</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>服务线路</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverMainRoute</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>创建时间</strong></td>
+                    <td class="td_gt">
+                        @if (Model.CRMdriver.CreateTime.HasValue)
+                        {
+                            @Model.CRMdriver.CreateTime.Value.ToString("yyyy-MM-dd") 
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>驾驶证签发地</strong></td>
+                    <td class="td_gt">@Model.CRMdriver.DriverRegistrationCardSignedAddress</td>
+                </tr>
+
+                <tr>
+                    <td class="td_lt"><strong>开始为虹迪服务时间</strong></td>
+                    <td class="td_gt">
+                        @if ((Model.CRMdriver.DriverStartServeForRunbowDate).ToString("yyyy-mm-dd") == "0001-01-01")
+                        {
+                            @Model.CRMdriver.DriverStartServeForRunbowDate.ToString("yyyy-mm-dd")
+                        }
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>下次年审日期</strong></td>
+                    <td class="td_gt">
+                        @if ((Model.CRMdriver.DriverNextYearCheckDate).ToString("yyyy-mm-dd") == "0001-01-01")
+                        {
+                            @Model.CRMdriver.DriverNextYearCheckDate.ToString("yyyy-mm-dd")
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>下次体检日期</strong></td>
+                    <td class="td_gt">
+                        @if ((Model.CRMdriver.DriverNextYearCheckBodyDate).ToString("yyyy-mm-dd") == "0001-01-01")
+                        {
+                            @Model.CRMdriver.DriverNextYearCheckBodyDate.ToString("yyyy-mm-dd")
+                        }
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </li>
+</ul>
+
+

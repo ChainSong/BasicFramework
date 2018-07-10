@@ -1,0 +1,33 @@
+﻿@model BasicFramework.Web.Areas.System.Models.RoleMenuMappingViewModel
+@Url.Json2()
+@Url.TreeViewResource()
+
+<script>
+    var ProjectRoleID='@Model.RoleID.ToString()';
+    var Url='@ViewBag.Url';
+    var Menus=@Html.Raw(@Model.MenusForJsonString);
+</script>
+
+<fieldset>
+    <legend>选择角色</legend>
+    <div class="row">
+        <div class="col-xs-4 col-md-4 col-sm-12">
+            <div class="input-group">
+                <div class="input-group-addon"><span>角色名称 <span style="color:red;"</span></div>
+                @Html.DropDownListFor(model => model.RoleID, Model.Roles,"--请选择--")
+            </div>
+        </div>
+         <div class="col-xs-12 col-md-12 col-sm-12 actionButtonDiv">
+                <input type="button" value="提交" id="submitRoleMenu" class="btn btn-primary AddButton" />
+              &nbsp;
+             <input type="button" value="返回" id="btnReturn" class="btn btn-primary" onclick="window.history.back();" />
+         </div>
+    </div>
+</fieldset>
+
+
+<fieldset>
+    <legend>菜单选择</legend>
+    <ul id="menuTree" class="ztree">
+    </ul>
+</fieldset>

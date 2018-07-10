@@ -1,0 +1,284 @@
+﻿@{
+    ViewBag.PageTitle = "车辆信息";
+    Layout = "~/Views/_MyLayoutPage.cshtml";
+}
+@model BasicFramework.MobileWeb.Models.Resource.VehicleInfosModel
+@Url.PopupJs()
+<div id="pupupss" style="display: none;">
+    <img  src="" style="margin: -10px;" id="pictrue" border="0" onclick="closeimage()" />
+</div>
+<ul class="list-group">
+    <li class="list-group-item">
+        <h3 class="detail_title"><strong>车辆档案</strong></h3>
+        <table class="tb_detail">
+            <tbody>
+                <tr>
+                    <td class="td_lt"><strong>车牌号</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.CarNo</td>
+                </tr>
+                @if (Model.CRMVehicle.CarBodyPhoto != "")
+                {
+                    // string url = "http://192.168.10.104:8099/Pictrue/" + @Model.CRMVehicle.CarBodyPhoto.Substring(9).Replace('\\', '/');
+                     string url = "http://www.runbow.com.cn:8080/Picture/" + @Model.CRMVehicle.CarBodyPhoto.Substring(9).Replace('\\', '/');
+                    <tr>
+                        <td class="td_lt"><strong>车辆全身照</strong></td>
+                        <td class="td_gt">
+                            <img height="40"   width="40" onclick="popou('@url')" src="@url"/>
+                        </td>
+                    </tr> 
+                }
+
+                @if (Model.CRMVehicle.CarFrontPhoto != "")
+                {
+                     //string url = "http://192.168.10.104:8099/Pictrue/" + @Model.CRMVehicle.CarFrontPhoto.Substring(9).Replace('\\', '/');
+                    string url = "http://www.runbow.com.cn:8080/Picture/" + @Model.CRMVehicle.CarFrontPhoto.Substring(9).Replace('\\', '/');
+                    <tr>
+                        <td class="td_lt"><strong>车辆前照</strong></td>
+                        <td class="td_gt">
+                            <img  height="40"   width="40" onclick="popou('@url')" src="@url"/>
+                        </td>
+                    </tr> 
+                }
+
+                @if (Model.CRMVehicle.CarBackPhoto != "")
+                {
+                     //string url = "http://192.168.10.104:8099/Pictrue/" + @Model.CRMVehicle.CarBackPhoto.Substring(9).Replace('\\', '/');
+                    string url = "http://www.runbow.com.cn:8080/Picture/" + @Model.CRMVehicle.CarBackPhoto.Substring(9).Replace('\\', '/');
+                    <tr>
+                        <td class="td_lt"><strong>车辆后照</strong></td>
+                        <td class="td_gt">
+                            <img  height="40"   width="40" onclick="popou('@url')" src="@url"/>
+                        </td>
+                    </tr> 
+                }
+
+                @if (Model.CRMVehicle.CarFloorPhoto != "")
+                {
+                   // string url = "http://192.168.10.104:8099/Pictrue/" + @Model.CRMVehicle.CarFloorPhoto.Substring(9).Replace('\\', '/');
+                     string url = "http://www.runbow.com.cn:8080/Picture/" + @Model.CRMVehicle.CarFloorPhoto.Substring(9).Replace('\\', '/');
+                    <tr>
+                        <td class="td_lt"><strong>车辆箱底照</strong></td>
+                        <td class="td_gt">
+                            <img  height="40"   width="40" onclick="popou('@url')" src="@url"/>
+                        </td>
+                    </tr> 
+                }
+
+                <tr>
+                    <td class="td_lt"><strong>资质</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.Qualify</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>上牌日期</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.BoardlotDate.ToString("yyyy-MM-dd")</td>
+                </tr>
+
+                <tr>
+                    <td class="td_lt"><strong>车龄</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.CarAge</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>车身颜色</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.CarBodyColor</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>车辆编码</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.CarTypeNo</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>车辆种类</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.CarType</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>车辆VIN</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.CarVin</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>牌号种类</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.CarNumType</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>物流公司</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.LogisticCompany</td>
+                </tr>
+
+                <tr>
+                    <td class="td_lt"><strong>运营证号</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.RunNo</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>主要行驶路线</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.MainRoute</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>已行驶公里数(KM)</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.DrivedJourney</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>燃料种类</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.FuelType</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>整备质量(吨)</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.EntireCarWeight</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>安全带数量</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.SafetyBeltAmount</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>物流公司安全专员联系电话</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.SecurityContactNum</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>总重量(吨)</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.TotalWeight</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>速度传感器制式</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.Velocity_transducers
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>生产厂家</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.Manufacturer</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>上牌日期</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.BoardlotDate.ToString("yyyy-MM-dd")</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>下次年检日期</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.NextYearCheckDate.ToString("yyyy-MM-dd")</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>保险有效截止日期</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.InsuranceEndDate.ToString("yyyy-MM-dd")</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>加入虹迪服务时间</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.StartServiceDate.ToString("yyyy-MM-dd")</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </li>
+
+
+    <li class="list-group-item">
+        <h3 class="detail_title"><strong>车型资料</strong></h3>
+        <table class="tb_detail">
+            <tbody>
+                <tr>
+                    <td class="td_lt"><strong>核载(吨)</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.LoadWeight</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>核定载客(人)</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.LoadPerson</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>车辆尺寸(长*宽*高)</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.Size</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>牵引总重量(吨)</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.TractionWeight
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>倒车蜂鸣器</strong></td>
+                    <td class="td_gt">@if (Model.CRMVehicle.BackUpBuzze)
+                                      {@Html.Raw("有")}
+                                      else
+                                      {@Html.Raw("无")}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>油罐车溢油保护装置</strong></td>
+                    <td class="td_gt">@if (Model.CRMVehicle.TheTankerOilSpillProtectionDevice)
+                                      {@Html.Raw("有")}
+                                      else
+                                      {@Html.Raw("无")}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>防溢油工具</strong></td>
+                    <td class="td_gt">@if (Model.CRMVehicle.OilSpillPreventiontools)
+                                      {@Html.Raw("有")}
+                                      else
+                                      {@Html.Raw("无")}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>反射条</strong></td>
+                    <td class="td_gt">@if (Model.CRMVehicle.ReflectBar)
+                                      {@Html.Raw("有")}
+                                      else
+                                      {@Html.Raw("无")}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>危险品标标记</strong></td>
+                    <td class="td_gt">@if (Model.CRMVehicle.DangerousMark)
+                                      {@Html.Raw("是") }
+                                      else
+                                      {@Html.Raw("否")}</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>高位刹车灯</strong></td>
+                    <td class="td_gt">@if (Model.CRMVehicle.HighSideStopLamps)
+                                      {@Html.Raw("有")}
+                                      else
+                                      {@Html.Raw("无")}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>后部行人保护装置</strong></td>
+                    <td class="td_gt">@if (Model.CRMVehicle.BackProtection)
+                                      {@Html.Raw("有")}
+                                      else
+                                      {@Html.Raw("无")}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>三点式带传感器安全带</strong></td>
+                    <td class="td_gt">@if (Model.CRMVehicle.ThreePointBelt)
+                                      {@Html.Raw("有")}
+                                      else
+                                      {@Html.Raw("无")}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>翻车保护装置</strong></td>
+                    <td class="td_gt">@if (Model.CRMVehicle.RolloverProtect)
+                                      {@Html.Raw("有")}
+                                      else
+                                      {@Html.Raw("无")}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>安全气囊数量</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.AirbagAmount</td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>ABS</strong></td>
+                    <td class="td_gt">@if (Model.CRMVehicle.ABS)
+                                      {@Html.Raw("有")}
+                                      else
+                                      {@Html.Raw("无")}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_lt"><strong>车型类别</strong></td>
+                    <td class="td_gt">@Model.CRMVehicle.CarType</td>
+                </tr>
+            </tbody>
+        </table>
+    </li>
+</ul>
+
+@*<div style=" height:135px; width:285px; background-image:url(http://192.168.10.104:8099/Pictrue/2015-08-18/IMG_0781.20150818133228.JPG)"></div>*@
+
+
+
