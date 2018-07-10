@@ -11,7 +11,7 @@ namespace BasicFramework.Biz
         
         protected LogWriter m_logWritter = EnterpriseLibraryContainer.Current.GetInstance<LogWriter>();
 
-        protected void LogCritical(string message)
+        protected void LogCritical(string message) 
         {
             if (m_logWritter.IsLoggingEnabled())
             {

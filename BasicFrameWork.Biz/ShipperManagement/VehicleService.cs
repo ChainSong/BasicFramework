@@ -10,7 +10,7 @@ using BasicFramework.MessageContracts;
 using BasicFramework.MessageContracts.ShipperManagement.VehicleManagement;
 using BasicFramework.Entity.ShipperManagement;
 using BasicFramework.Entity;
-using BasicFramework.MessageContracts.ShipperManagement;
+using BasicFramework.MessageContracts.ShipperManagement; 
 
 namespace BasicFramework.Biz.ShipperManagement
 {

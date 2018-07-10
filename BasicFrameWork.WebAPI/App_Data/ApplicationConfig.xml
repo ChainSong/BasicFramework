@@ -12,7 +12,7 @@
           </Column>
           <Column DisplayName="客户运单号" DbColumnName="CustomerOrderNumber" IsKey="1" ForView="1" IsShowInList="1">
             <RoleID>5</RoleID>
-            <RoleID>26</RoleID>
+            <RoleID>26</RoleID> 
             <RoleID>39</RoleID>
           </Column>
           <Column DisplayName="客户" DbColumnName="CustomerID" IsKey="1" />

@@ -8,7 +8,7 @@ using BasicFramework.Entity.System;
 using BasicFramework.MessageContracts;
 
 namespace BasicFramework.Biz
-{
+{     
     public class LoginService : BaseService
     {
         public Response<User> CheckLogin(GetUserByCheckLoginRequest request)

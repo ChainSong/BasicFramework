@@ -12,7 +12,7 @@ namespace BasicFramework.Biz
 {
     public class ShipperManagementService : BaseService
     {
-        public Response<CRMShipperInfo> GetCRMShipperInfo(CRMShipperOperationRequest request)
+        public Response<CRMShipperInfo> GetCRMShipperInfo(CRMShipperOperationRequest request) 
         {
             Response<CRMShipperInfo> response = new Response<CRMShipperInfo>();
 

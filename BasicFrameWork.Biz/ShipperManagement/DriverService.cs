@@ -11,7 +11,7 @@ using BasicFramework.MessageContracts;
 using BasicFramework.MessageContracts.ShipperManagement.DriverManagement;
 using BasicFramework.MessageContracts.ShipperManagement.VehicleManagement;
 
-namespace BasicFramework.Biz.ShipperManagement
+namespace BasicFramework.Biz.ShipperManagement 
 {
     public class DriverService : BaseService
     {
